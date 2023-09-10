@@ -51,9 +51,9 @@ const handleChange = (event) => {
 
               </div>
               <div className={`${styles.btnsDiv}`}>
-              <Link href="/login">
+              {/* <Link href="/login"> */}
                 <button type='button' className={`${styles.activeButton}`}>Login</button>
-                </Link>
+                {/* </Link> */}
               <Link href="/signup">
               <button type='button' className={`${styles.inactiveButton}`}>Sign Up</button>
                 </Link>
