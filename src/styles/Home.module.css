@@ -5,7 +5,7 @@
     padding: 39px 46px;
     min-height: 100vh;
     background: transparent linear-gradient(179deg, #FFFFFFB0 0%, #F949619E 44%, #F9415A 100%) 0% 0% no-repeat padding-box;
-opacity: 0.5;
+/* opacity: 0.5; */
 }
 
 .iconBtn{
@@ -19,7 +19,10 @@ opacity: 1;
 width: 78px;
 height: 78px;
 cursor: pointer;
+
 }
+
+
 .iconBtn .iconleftBtn{
   width: 32px;
     height: 31px;
@@ -28,10 +31,11 @@ cursor: pointer;
   display: flex;
   justify-content: space-between;
   margin-top: 29px;
+  width: 768px;
 }
 
 .activeButton{
-  width: 384px;
+  width: 370px;
     height: 73px;
     background: #F9415A 0% 0% no-repeat padding-box;
     border-radius: 35px;
@@ -43,7 +47,7 @@ cursor: pointer;
     cursor: pointer;
 }
 .inactiveButton{
-  width: 384px;
+  width: 370px;
     height: 73px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 3px solid #FFFFFF;
@@ -57,13 +61,15 @@ cursor: pointer;
 }
 
 .logo{
-width: 474px;
-height: 189px;
+width: 480px;
+height: 155px;
 opacity: 1;
 }
-
+.search{
+  position: relative;
+}
 .search input{
-width: 798px;
+width: 768px;
 height: 84px;
 background: #FFFFFFB0 0% 0% no-repeat padding-box;
 border: 1px solid #FFFFFF;
@@ -94,6 +100,59 @@ font: normal normal normal 20px/30px Poppins;
 letter-spacing: 0px;
 color: #AAAAAA;
 opacity: 1;
+}
+
+.srchIcon{
+    width: 39px;
+    height: 75px;
+    position: absolute;
+    right: 23px;
+    color: #F9415A;
+    cursor: pointer;
+}
+
+.topLogo{
+  width: 171px;
+  height: 55px;
+  position: absolute;
+    top: 39px;
+    left: 100px;
+}
+
+@media(max-width: 1600px){
+  .iconBtn{
+    width: 50px;
+    height: 50px;
+  }
+  .iconBtn .iconleftBtn{
+    width: 21px;
+    height: 20px;
+  }
+
+  .search input{
+    width: 100%;
+    height: 50px;
+  }
+  .logo{
+    width: 324px;
+    height: 109px;
+  }
+  .btnsDiv{
+    width: 516px;
+  }
+  .activeButton{
+    width: 224px;
+    height: 53px;
+  }
+  .inactiveButton{
+    width: 224px;
+    height: 53px;
+  }
+  .srchIcon{
+    width: 25px;
+    height: 57px;
+  }
+  
 }
 
 .description {
