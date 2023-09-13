@@ -4,8 +4,11 @@
     align-items: center;
     padding: 39px 46px;
     min-height: 100vh;
-    background: transparent linear-gradient(179deg, #FFFFFFB0 0%, #F949619E 44%, #F9415A 100%) 0% 0% no-repeat padding-box;
-/* opacity: 0.5; */
+    background: transparent url('../../public/assets/homebg.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    /* opacity: 0.5; */
+    background-size: cover;
+    background-position: center;
 }
 
 .iconBtn{

@@ -243,6 +243,12 @@ color: #616A78;
   justify-content: center;
   flex-direction: row-reverse;
 }
+
+.editIcon{
+  width: 14px;
+  height: 14px;
+  cursor: pointer; 
+}
 @media(max-width:1600px){
   .padding-3em h6 {
     font-size: 18px;

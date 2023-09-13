@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import styles from '@/styles/Home.module.css';
 import  setnestlogo from '../../../public/assets/Setnest-copy.png';
+import editIcon from '../../../public/assets/editIcon.png'
 import Image from 'next/image'
 import Carousel from 'react-bootstrap/Carousel';
 import crslimg from '../../../public/assets/crslimg.png';
@@ -89,7 +90,7 @@ const SignUp = () => {
         
             <div className='mt-4 text-center'>
               <p>We have sent the verification OTP to your email address.</p>
-              <p>@emailid</p>
+              <p>@emailid <Image src={editIcon} className='img-fluid editIcon' /> </p>
             <OTPInput className='otpInput' value={OTP} onChange={setOTP} autoFocus OTPLength={6} otpType="number" disabled={false} secure />
             <div className='d-flex justify-content-center resendDiv mt-2'>
             Didn't get it?<ResendOTP className='resendOtp' renderButton={renderButton} renderTime={renderTime} onResendClick={() => console.log("Resend clicked")} />

@@ -4,7 +4,8 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
-import  setnestlogo from '../../public/assets/Setnest-copy.png'
+import  setnestlogo from '../../public/assets/home_logo.png'
+import srchIcon from '../../public/assets/srchicon.svg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -42,13 +43,13 @@ const handleChange = (event) => {
           <div className='col-12'>
             <div className='padding-3em'>
               <Image src={setnestlogo} className={'img-fluid ' + styles.logo}/>
-              <h6>Helping you find a home!</h6>
+              
             </div>
             <div>
               <div className={`${styles.search}`}>
                 <input type='text' placeholder='Enter Neighbourhood or Post Code'/>
-                <FontAwesomeIcon icon={faSearch} className={`${styles.srchIcon}`} onClick={handleShow}/>
-
+                {/* <FontAwesomeIcon icon={faSearch} className={`${styles.srchIcon}`} onClick={handleShow}/> */}
+                <Image src={srchIcon} className={`${styles.srchIcon}`} onClick={handleShow} />
               </div>
               <div className={`${styles.btnsDiv}`}>
               {/* <Link href="/login"> */}
