@@ -42,14 +42,14 @@ const handleChange = (event) => {
         <div className='row'>
           <div className='col-12'>
             <div className='padding-3em'>
-              <Image src={setnestlogo} className={'img-fluid ' + styles.logo}/>
+              <Image src={setnestlogo} alt='logo' className={'img-fluid ' + styles.logo}/>
               
             </div>
             <div>
               <div className={`${styles.search}`}>
                 <input type='text' placeholder='Enter Neighbourhood or Post Code'/>
                 {/* <FontAwesomeIcon icon={faSearch} className={`${styles.srchIcon}`} onClick={handleShow}/> */}
-                <Image src={srchIcon} className={`${styles.srchIcon}`} onClick={handleShow} />
+                <Image src={srchIcon} className={`${styles.srchIcon}`} alt='logo' onClick={handleShow} />
               </div>
               <div className={`${styles.btnsDiv}`}>
               {/* <Link href="/login"> */}

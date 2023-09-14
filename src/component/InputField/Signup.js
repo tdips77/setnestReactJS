@@ -13,7 +13,9 @@ import editIcon from '../../../public/assets/editIcon.png'
 import Image from 'next/image'
 import Carousel from 'react-bootstrap/Carousel';
 import crslimg from '../../../public/assets/crslimg.png';
-import OTPInput,  {ResendOTP } from "otp-input-react";
+// import OTPInput,  {ResendOTP } from "otp-input-react";
+
+import OtpInput from 'react-otp-input';
 
 
 import * as yup from 'yup';
@@ -25,7 +27,12 @@ const schema = yup.object().shape({
 });
 
 const SignUp = () => {
-    const [OTP, setOTP] = useState("");
+    // const [OTP, setOTP] = useState("");
+    const [otp, setOtp] = useState('');
+    // const handleChange = (otp) => {
+    //   setOTP(otp);
+    // };
+   
     const [showOTP, setshowOTP] = useState(false);
     const { register, handleSubmit, setError, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
@@ -46,6 +53,8 @@ const SignUp = () => {
       const renderTime = (remainingTime) => {
         return <span>{remainingTime} sec</span>;
       };
+
+  
 
   return (
     <div className='container main-set '>
@@ -90,10 +99,18 @@ const SignUp = () => {
         
             <div className='mt-4 text-center'>
               <p>We have sent the verification OTP to your email address.</p>
-              <p>@emailid <Image src={editIcon} className='img-fluid editIcon' /> </p>
-            <OTPInput className='otpInput' value={OTP} onChange={setOTP} autoFocus OTPLength={6} otpType="number" disabled={false} secure />
+              <p>@emailid <Image src={editIcon} className='img-fluid editIcon' alt='logo' /> </p>
+            {/* <OTPInput className='otpInput' value={OTP} onChange={handleChange} autoFocus OTPLength={6} otpType="number" disabled={false}  /> */}
+            <OtpInput
+      value={otp}
+      onChange={setOtp}
+      numInputs={6}
+      className='otpInput'
+      renderSeparator={<span> </span>}
+      renderInput={(props) => <input {...props} />}
+    />
             <div className='d-flex justify-content-center resendDiv mt-2'>
-            Didn't get it?<ResendOTP className='resendOtp' renderButton={renderButton} renderTime={renderTime} onResendClick={() => console.log("Resend clicked")} />
+            {/* Didn&apos;t get it?<ResendOTP className='resendOtp' renderButton={renderButton} renderTime={renderTime} onResendClick={() => console.log("Resend clicked")} /> */}
             </div>
             </div>
         
@@ -106,19 +123,19 @@ const SignUp = () => {
                 <div className='col-6'>
                 <Carousel>
       <Carousel.Item>
-        <Image src={crslimg} className='img-fluid' text="First slide" />
+        <Image src={crslimg} alt='logo' className='img-fluid' text="First slide" />
         <Carousel.Caption>
          
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <Image src={crslimg} className='img-fluid' text="Second slide" />
+        <Image src={crslimg} alt='logo' className='img-fluid' text="Second slide" />
         <Carousel.Caption>
           
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <Image src={crslimg} className='img-fluid' text="Third slide" />
+        <Image src={crslimg} alt='logo' className='img-fluid' text="Third slide" />
         <Carousel.Caption>
           
         </Carousel.Caption>
