@@ -4,8 +4,8 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
-import  setnestlogo from '../../public/assets/home_logo.png'
-import srchIcon from '../../public/assets/srchicon.svg'
+import  setnestlogo from '../public/assets/home_logo.png'
+import srchIcon from '../public/assets/srchicon.svg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
