@@ -12,7 +12,7 @@ import  setnestlogo from '../../../public/assets/Setnest-copy.png';
 import editIcon from '../../../public/assets/editIcon.png'
 import Image from 'next/image'
 import Carousel from 'react-bootstrap/Carousel';
-import crslimg from '../../../public/assets/crslimg.png';
+import crslimg from '../../../public/assets/crslImg.png';
 // import OTPInput,  {ResendOTP } from "otp-input-react";
 
 import OtpInput from 'react-otp-input';
@@ -123,19 +123,19 @@ const SignUp = () => {
                 <div className='col-6'>
                 <Carousel>
       <Carousel.Item>
-        <Image src={crslimg} alt='logo' className='img-fluid' text="First slide" />
+        <Image src={crslimg} alt='logo' className='img-fluid' text="First slide" width="100%" height="100%"/>
         <Carousel.Caption>
          
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <Image src={crslimg} alt='logo' className='img-fluid' text="Second slide" />
+        <Image src={crslimg} alt='logo' className='img-fluid' text="Second slide" width="100%" height="100%"/>
         <Carousel.Caption>
           
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <Image src={crslimg} alt='logo' className='img-fluid' text="Third slide" />
+        <Image src={crslimg} alt='logo' className='img-fluid' text="Third slide" width="100%" height="100%"/>
         <Carousel.Caption>
           
         </Carousel.Caption>
