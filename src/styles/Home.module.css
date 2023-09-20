@@ -122,6 +122,14 @@ opacity: 1;
     left: 100px;
 }
 
+.topLogo{
+  width: 100px;
+  height: 30px;
+  position: absolute;
+    top: 39px;
+    left: 40px;
+}
+
 @media(max-width: 1600px){
   .iconBtn{
     width: 50px;

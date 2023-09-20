@@ -12,10 +12,10 @@ import  setnestlogo from '../../../public/assets/Setnest-copy.png';
 import editIcon from '../../../public/assets/editIcon.png'
 import Image from 'next/image'
 import Carousel from 'react-bootstrap/Carousel';
-import crslimg from '../../../public/assets/crslImg.png';
+import crslimg from '../../../public/assets/createCrsl.png';
+import profilePic from '../../../public/assets/profile-pic.png';
 // import OTPInput,  {ResendOTP } from "otp-input-react";
-import Link from 'next/link'
-
+import InputGroup from 'react-bootstrap/InputGroup';
 import OtpInput from 'react-otp-input';
 
 
@@ -27,7 +27,7 @@ const schema = yup.object().shape({
   confpassword: yup.string().required().min(6),
 });
 
-const SignUp = () => {
+const CreateProfile = () => {
     // const [OTP, setOTP] = useState("");
     const [otp, setOtp] = useState('');
     // const handleChange = (otp) => {
@@ -59,34 +59,63 @@ const SignUp = () => {
 
   return (
     <div className='container-fluid main-set '>
-      <button type='button' className={`${styles.iconBtn}`} onClick={goBack}>
-        {/* <FontAwesomeIcon icon="fa-solid fa-arrow-left" /> */}
-        <FontAwesomeIcon icon={faArrowLeft} className={`${styles.iconleftBtn}`}/>
-        </button>
+     
         <Image src={setnestlogo} alt='logo' className={'img-fluid ' + styles.topLogo}/>
         <div className='container-fluid'>
             <div className='row side-padding'>
                 <div className='col-6 left-padding'>
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-3'>
-                    <h5 className='mb-4'>Sign up</h5>
-        <div>
-
-        <FloatingLabel
-        controlId="floatingInput"
-        label="Email address"
-        
-      >
-        <Form.Control type="email" placeholder="name@example.com" {...register('email')}/>
-      </FloatingLabel>
+                    <h5 className='mb-4'>Create Profile</h5>
+        <div className='row'>
+            <div className='mb-3 col-12'>
+                <span className='profilePic'>
+                    <Image src={profilePic} className='img-fluid' alt='profile' />
+                </span>
+            </div>
+      <div className='col-12'>
+      <FloatingLabel controlId="floatingSelect" label="Sign Up as">
+                    <Form.Select aria-label="Floating label select example" {...register('email')}>
+                      <option value="Villa" selected>abc@gmail.com</option>
+                      <option value="Villa">abc@gmail.com</option>
+                      <option value="Villa">abc@gmail.com</option>
+                      <option value="Villa">abc@gmail.com</option>
+                      
+                    </Form.Select>
+                  </FloatingLabel>
       <p>{errors.email?.message}</p>
-      <FloatingLabel controlId="floatingPassword" label="Password">
-        <Form.Control type="password" placeholder="Password" {...register('password')}/>
+      </div>
+      <div className='col-6'>
+      <FloatingLabel controlId="floatingPassword" label="First Name">
+        <Form.Control type="text" placeholder="Sunny" {...register('password')}/>
       </FloatingLabel>
       <p>{errors.password?.message}</p>
-      <FloatingLabel controlId="floatingPassword2" label="Confirm Password">
-        <Form.Control type="password" placeholder="Password" {...register('confpassword')}/>
+      </div>
+      <div className='col-6'>
+      <FloatingLabel controlId="floatingPassword" label="Last Name">
+        <Form.Control type="text" placeholder="Sunny" {...register('password')}/>
       </FloatingLabel>
+      <p>{errors.password?.message}</p>
+      </div>
+      <div className='col-12'>
+      <InputGroup className="mb-3">
+        <InputGroup.Text className='brd-inptx' id="basic-addon1">+91</InputGroup.Text>
+        <FloatingLabel controlId="floatingPassword" label="Last Name">
+        <Form.Control
+        
+        placeholder="Username"
+        aria-label="Username"
+        aria-describedby="basic-addon1"
+        {...register('confpassword')}
+      />
+        </FloatingLabel>
+        
+      </InputGroup>
       <p>{errors.confpassword?.message}</p>
+      </div>
+      
+      
+      
+      
       {
         !showOTP &&
         <Form.Check
@@ -129,9 +158,7 @@ const SignUp = () => {
         }
         {
           showOTP &&
-          <Link href="/createprofile">
-        <button type="button" className='signup-btn' >Verify</button>
-          </Link>
+        <button type="button" className='signup-btn' onClick={(e) => setshowOTP(true)} >Verify</button>
 
         }
         
@@ -168,4 +195,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default CreateProfile;
