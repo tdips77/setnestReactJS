@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import styles from '@/styles/Home.module.css';
 import  setnestlogo from '../../../public/assets/Setnest-copy.png';
-import editIcon from '../../../public/assets/editIcon.png'
+import editIcon from '../../../public/assets/edit-profile.svg'
 import Image from 'next/image'
 import Carousel from 'react-bootstrap/Carousel';
 import crslimg from '../../../public/assets/createCrsl.png';
@@ -17,6 +17,7 @@ import profilePic from '../../../public/assets/profile-pic.png';
 // import OTPInput,  {ResendOTP } from "otp-input-react";
 import InputGroup from 'react-bootstrap/InputGroup';
 import OtpInput from 'react-otp-input';
+import Link from 'next/link'
 
 
 import * as yup from 'yup';
@@ -60,8 +61,14 @@ const CreateProfile = () => {
   return (
     <div className='container-fluid main-set '>
      
+     <div className='topsection'>
+        <button type='button' className={`${styles.iconBtn}`} onClick={goBack}>
+        {/* <FontAwesomeIcon icon="fa-solid fa-arrow-left" /> */}
+        <FontAwesomeIcon icon={faArrowLeft} className={`${styles.iconleftBtn}`}/>
+        </button>
         <Image src={setnestlogo} alt='logo' className={'img-fluid ' + styles.topLogo}/>
-        <div className='container-fluid'>
+        </div>
+        <div className='container-fluid hgt-100vh'>
             <div className='row side-padding'>
                 <div className='col-6 left-padding'>
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-3'>
@@ -97,11 +104,11 @@ const CreateProfile = () => {
       <p>{errors.password?.message}</p>
       </div>
       <div className='col-12'>
-      <InputGroup className="mb-3">
+      <InputGroup className="mb-0">
         <InputGroup.Text className='brd-inptx' id="basic-addon1">+91</InputGroup.Text>
-        <FloatingLabel controlId="floatingPassword" label="Last Name">
+        <FloatingLabel controlId="floatingPassword" label="Mobile Number">
         <Form.Control
-        
+        className='brd-left'
         placeholder="Username"
         aria-label="Username"
         aria-describedby="basic-addon1"
@@ -116,23 +123,14 @@ const CreateProfile = () => {
       
       
       
-      {
-        !showOTP &&
-        <Form.Check
-            label={  <span >I agree to all the <span className='resendBtn'>Term & Condition</span> and <span className='resendBtn'>Privacy Policy</span> </span>}
-            name="group1"
-            type="checkbox"
-            
-          />
-        
-      }
+      
       </div>
         {showOTP && 
 
         
-            <div className='mt-4 text-center otpInput'>
-              <p>We have sent the verification OTP to your email address.</p>
-              <p>@emailid <Image src={editIcon} className='img-fluid editIcon' alt='logo' /> </p>
+            <div className='mt-2 text-left otpInput'>
+              <p>We have sent the verification OTP to your mobile no.</p>
+              <p className='mobile'> +91 987654321 <Image src={editIcon} className='img-fluid editIcon' alt='logo' /> <span>Edit</span>  </p>
             {/* <OTPInput className='otpInput' value={OTP} onChange={handleChange} autoFocus OTPLength={6} otpType="number" disabled={false}  /> */}
           <div className={'otpDiv'}>
           <OtpInput
@@ -153,13 +151,14 @@ const CreateProfile = () => {
         }
         {
           !showOTP &&
-        <button type="button" className='signup-btn' onClick={(e) => setshowOTP(true)} >Sign Up</button>
+        <button type="button" className='signup-btn' onClick={(e) => setshowOTP(true)} >Create</button>
 
         }
         {
           showOTP &&
-        <button type="button" className='signup-btn' onClick={(e) => setshowOTP(true)} >Verify</button>
-
+          <Link href="/addaddress">
+          <button type="button" className='signup-btn' >Verify</button>
+            </Link>
         }
         
       </form>
