@@ -19,6 +19,8 @@ opacity: 1;
 width: 78px;
 height: 78px;
 cursor: pointer;
+z-index: 99999999;
+    position: relative;
 
 }
 
@@ -119,6 +121,11 @@ opacity: 1;
 .topLogo{
   width: 100px;
   height: 30px;
+}
+
+.forgrtPswd{
+  height: 100px;
+  width: 100px;
 }
 
 @media(max-width: 1600px){

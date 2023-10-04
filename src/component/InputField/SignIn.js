@@ -86,8 +86,9 @@ const SignIn = () => {
         <Form.Control type="password" placeholder="Password" {...register('password')}/>
       </FloatingLabel>
       <p>{errors.password?.message}</p>
-      
+      <Link href="/forgetpassword">
         <p className='mb-0 clr-pink text-end'>Forgot Password?</p>
+        </Link>
       </div>
         
         
