@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import ListerDashboard from '@/component/InputField/ListerDashboard';
+import MyProperty from '@/component/InputField/MyProperty';
 import Header from '@/component/InputField/Header';
-const ListerDashboardPage = () => {
+const MyPropertyPage = () => {
   
 
   return (
     <div>
         <Header />
-    <ListerDashboard></ListerDashboard>
+    <MyProperty></MyProperty>
     </div>
   );
 };
 
-export default ListerDashboardPage;
+export default MyPropertyPage;

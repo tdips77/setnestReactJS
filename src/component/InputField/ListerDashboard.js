@@ -84,8 +84,14 @@ const ListerDashboard = () => {
                         
                             <li> <Image src={one} className='img-fluid' alt='one' />
                             <h6 >Account <br></br> Details</h6> </li>
-                            <li> <Image src={two} className='img-fluid' alt='one' />
-                            <h6 >My <br></br> Properties</h6> </li>
+                            <Link href={"/myProperty"}>
+                            <li > 
+                              
+                              <Image src={two} className='img-fluid' alt='one' />
+                            <h6 >My <br></br> Properties</h6> 
+                            
+                            </li>
+                            </Link>
                             <li> <Image src={three} className='img-fluid' alt='one' /> 
                             <h6 >Communication</h6></li>
                             <li> <Image src={four} className='img-fluid' alt='one' /> 

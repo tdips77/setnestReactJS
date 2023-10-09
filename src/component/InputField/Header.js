@@ -8,12 +8,12 @@ import  profilePic from '../../../public/assets/profile-head.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
-
+import Form from 'react-bootstrap/Form';
 import Badge from 'react-bootstrap/Badge';
 const Header = () => {
   return (
     <>
-    <Navbar bg="light" data-bs-theme="light">
+    <Navbar  data-bs-theme="light" fixed="top">
     <Container>
       <Navbar.Brand href="#home">
             <Image src={setnestlogo} alt='logo' className={'img-fluid ' + styles.topLogo} />
@@ -37,9 +37,14 @@ const Header = () => {
             <FontAwesomeIcon icon={faEllipsisVertical} className='img-fluid' width={'6px'} color='#AAAAAA' />
             
             </Nav.Link>
+            
           </Nav>
+          
+          
     </Container>
+    
   </Navbar>
+  
     </>
     
   );
