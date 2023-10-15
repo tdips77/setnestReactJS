@@ -97,7 +97,9 @@ const MyProperty = () => {
                     </div>
                     
                     <div className='col-3 text-end'>
-                    <button className='addPropBtn' type='button'>Add Property</button>
+                      <Link href={'/listProperty'}>
+                      <button className='addPropBtn' type='button'>Add Property</button>
+                      </Link>
                     </div>
                     </div>
                     </div>
