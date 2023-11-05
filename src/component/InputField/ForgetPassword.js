@@ -70,7 +70,7 @@ const ForgetPassword = () => {
       
         <div className='container-fluid hgt-100vh'>
             <div className='row side-padding'>
-                <div className='col-6 left-padding-new'>
+                <div className='col-12 col-md-6 left-padding-new'>
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-3 wd-100'>
                     <h5 className='mb-4'>Forgot Password</h5>
         <div>
@@ -155,7 +155,7 @@ const ForgetPassword = () => {
         
       </form>
                 </div>
-                <div className='col-6 right-padding'>
+                <div className='col-6 right-padding mob-hide'>
                 <Carousel>
       <Carousel.Item>
         <Image src={crslimg} alt='logo' className='img-fluid' text="First slide" width="100%" height="100%"/>

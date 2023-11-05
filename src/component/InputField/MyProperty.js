@@ -86,7 +86,7 @@ const MyProperty = () => {
                     <div className='container'>
                     <h4>My Property</h4>
                     <div className='row justify-content-between'>
-                    <div className='col-3'>
+                    <div className='col-6 col-md-3'>
                     <Form.Select aria-label="Floating label select example" className='filterImg'>
                         <option>All</option>
                         <option value="1">Listed</option>
@@ -96,7 +96,7 @@ const MyProperty = () => {
                     </Form.Select>
                     </div>
                     
-                    <div className='col-3 text-end'>
+                    <div className='col-6 col-md-3 text-end'>
                       <Link href={'/listProperty'}>
                       <button className='addPropBtn' type='button'>Add Property</button>
                       </Link>

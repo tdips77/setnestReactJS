@@ -354,7 +354,7 @@ const ListProperty = () => {
         </div>
         <div className='container-fluid'>
             <div className='row '>
-                <div className='col-6 left-padding'>
+                <div className='col-12 col-md-6 listPropdPadd left-padding'>
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-3'>
                     <h5 className='mb-4'>List Your Property</h5>
                     <div className='row justify-content-center position-relative'>
@@ -430,7 +430,7 @@ const ListProperty = () => {
         
       </form>
                 </div>
-                <div className='col-6 right-padding'>
+                <div className='col-6 right-padding mob-hide'>
                   {
                     activeStep == 0 && 
                     <Image src={laptopList} alt='detail' className='img-fluid' />
