@@ -116,6 +116,10 @@ const ListProperty = () => {
               : activeStep + 1;
           setActiveStep(newActiveStep);
         }
+        if(activeStep == 2){
+          // href={"/myProperty"}
+          router.push('/addPropertyImage')
+        }
         
       };
     
@@ -410,16 +414,7 @@ const ListProperty = () => {
     </Box>
                  </div>
                     </div>
-        <div className='row'>
-            
       
-      
-      
-      
-      
-      
-      
-      </div>
      
        
       
