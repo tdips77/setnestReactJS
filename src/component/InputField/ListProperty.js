@@ -25,8 +25,13 @@ import * as yup from 'yup';
 import Link from 'next/link';
 import  minus from '../../../public/assets/my-property/minus.svg';
 import  plus from '../../../public/assets/my-property/plus.svg';
-
-
+import  mapList from '../../../public/assets/my-property/list-property-map.png';
+import  homeList from '../../../public/assets/my-property/list-property-home.png';
+import  laptopList from '../../../public/assets/my-property/list-property-laptop.png';
+import DatePicker from 'react-date-picker';
+import 'react-date-picker/dist/DatePicker.css';
+import 'react-calendar/dist/Calendar.css';
+import { format } from 'date-fns';
 const schema = yup.object().shape({
   email: yup.string().required().email(),
   password: yup.string().required().min(6),
@@ -37,9 +42,11 @@ const ListProperty = () => {
     const [progress, setProgress] = useState(0);
     const [bedroom, setBedrrom] = useState(0);
     const [bathroom, setBathroom] = useState(0);
+    const [value, onChange] = useState(new Date());
     // const handleChange = (otp) => {
     //   setOTP(otp);
     // };
+    const formattedDate = format(value, 'dd MMM yyyy');
     const steps = [
         'Property Details',
         'Address',
@@ -313,10 +320,19 @@ const ListProperty = () => {
                 </FloatingLabel>
                 </div>
                 <h6>Property available by</h6>
+                <div className='col-12 mb-3 dateCss'>
+                <label>Moving In Date</label>
+                 {/* <Form.Control type="text" placeholder="Moving In Date"  onChange={onChange} value={value}/> */}
+                 <DatePicker onChange={onChange} value={value} format="d MMM yyyy" />
+                
+                </div>
                 <div className='col-12 mb-3'>
-                <FloatingLabel controlId="floatingDate" label="Moving In Date">
-                 <Form.Control type="text" placeholder="Moving In Date"  onChange={handleChange}/>
-                </FloatingLabel>
+                
+                <Form.Check
+            label={  <span >Have You Insured Your Property? </span>}
+            name="group1"
+            type="checkbox"
+          />
                 </div>
                 
                 </div>
@@ -330,7 +346,7 @@ const ListProperty = () => {
     <div className='container-fluid p-0 mrgTop-8'>
      
      <div className='topsectionProp'>
-        <button type='button' className={`${styles.iconBtn}`} onClick={goBack}>
+        <button type='button' className={"addProp " + styles.iconBtn} onClick={goBack}>
         {/* <FontAwesomeIcon icon="fa-solid fa-arrow-left" /> */}
         <FontAwesomeIcon icon={faArrowLeft} className={`${styles.iconleftBtn}`}/>
         </button>
@@ -396,42 +412,7 @@ const ListProperty = () => {
                     </div>
         <div className='row'>
             
-      {/* <div className='col-12'>
-      <FloatingLabel controlId="floatingPassword" label="Pincode">
-        <Form.Control type="text" placeholder="Pincode" {...register('password')}/>
-      </FloatingLabel>
-      <p>{errors.email?.message}</p>
-      </div>
-      <div className='col-12'>
-      <FloatingLabel controlId="floatingPassword" label="Flat, House No., Building, Company, Apartment">
-        <Form.Control type="text" placeholder="Flat, House No., Building, Company, Apartment" {...register('password')}/>
-      </FloatingLabel>
-      <p>{errors.password?.message}</p>
-      </div>
-      <div className='col-6'>
-      <FloatingLabel controlId="floatingPassword" label="Area, Street, Sector, Village">
-        <Form.Control type="text" placeholder="Area, Street, Sector, Village" {...register('password')}/>
-      </FloatingLabel>
-      <p>{errors.password?.message}</p>
-      </div>
-      <div className='col-6'>
-      <FloatingLabel controlId="floatingPassword" label="Landmark">
-        <Form.Control type="text" placeholder="Landmark" {...register('password')}/>
-      </FloatingLabel>
-      <p>{errors.password?.message}</p>
-      </div>
-      <div className='col-6'>
-      <FloatingLabel controlId="floatingPassword" label="Town/City">
-        <Form.Control type="text" placeholder="Town/City" {...register('password')}/>
-      </FloatingLabel>
-      <p>{errors.password?.message}</p>
-      </div>
-      <div className='col-6'>
-      <FloatingLabel controlId="floatingPassword" label="State">
-        <Form.Control type="text" placeholder="State" {...register('password')}/>
-      </FloatingLabel>
-      <p>{errors.password?.message}</p>
-      </div> */}
+      
       
       
       
@@ -439,61 +420,7 @@ const ListProperty = () => {
       
       
       </div>
-      {/* <div className='row'>
-            <div className='mb-3 col-12'>
-                <p className={styles.addresp}>
-                   <span>Billing </span>  Address
-                </p>
-                <Form.Check
-            label={  <span >as same home address </span>}
-            name="group1"
-            type="checkbox"
-            
-          />
-            </div>
-      <div className='col-12'>
-      <FloatingLabel controlId="floatingPassword" label="Pincode">
-        <Form.Control type="text" placeholder="Pincode" {...register('password')}/>
-      </FloatingLabel>
-      <p>{errors.email?.message}</p>
-      </div>
-      <div className='col-12'>
-      <FloatingLabel controlId="floatingPassword" label="Flat, House No., Building, Company, Apartment">
-        <Form.Control type="text" placeholder="Flat, House No., Building, Company, Apartment" {...register('password')}/>
-      </FloatingLabel>
-      <p>{errors.password?.message}</p>
-      </div>
-      <div className='col-6'>
-      <FloatingLabel controlId="floatingPassword" label="Area, Street, Sector, Village">
-        <Form.Control type="text" placeholder="Area, Street, Sector, Village" {...register('password')}/>
-      </FloatingLabel>
-      <p>{errors.password?.message}</p>
-      </div>
-      <div className='col-6'>
-      <FloatingLabel controlId="floatingPassword" label="Landmark">
-        <Form.Control type="text" placeholder="Landmark" {...register('password')}/>
-      </FloatingLabel>
-      <p>{errors.password?.message}</p>
-      </div>
-      <div className='col-6'>
-      <FloatingLabel controlId="floatingPassword" label="Town/City">
-        <Form.Control type="text" placeholder="Town/City" {...register('password')}/>
-      </FloatingLabel>
-      <p>{errors.password?.message}</p>
-      </div>
-      <div className='col-6'>
-      <FloatingLabel controlId="floatingPassword" label="State">
-        <Form.Control type="text" placeholder="State" {...register('password')}/>
-      </FloatingLabel>
-      <p>{errors.password?.message}</p>
-      </div>
-      
-      
-      
-      
-      
-      
-      </div> */}
+     
        
       
         
@@ -504,26 +431,21 @@ const ListProperty = () => {
       </form>
                 </div>
                 <div className='col-6 right-padding'>
-                <Carousel>
-      <Carousel.Item>
-        <Image src={crslimg} alt='logo' className='img-fluid' text="First slide" width="100%" height="100%"/>
-        <Carousel.Caption>
-         
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <Image src={crslimg} alt='logo' className='img-fluid' text="Second slide" width="100%" height="100%"/>
-        <Carousel.Caption>
-          
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <Image src={crslimg} alt='logo' className='img-fluid' text="Third slide" width="100%" height="100%"/>
-        <Carousel.Caption>
-          
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
+                  {
+                    activeStep == 0 && 
+                    <Image src={laptopList} alt='detail' className='img-fluid' />
+                  }
+
+                  {
+                     activeStep == 1 &&
+               <Image src={mapList} alt='detail' className='img-fluid' />
+
+                  }
+               {
+                 activeStep == 2 &&
+                 <Image src={homeList} alt='detail' className='img-fluid' />
+
+               }
                 </div>
 
             </div>

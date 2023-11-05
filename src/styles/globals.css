@@ -4,7 +4,10 @@
   --max-height: 100vh;
   
 }
-
+a{
+  color: inherit !important;
+  text-decoration: none !important;
+}
 /* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -595,6 +598,51 @@ display: flex;
 }
 .mrgTop-8{
   margin-top: 8em;
+}
+.react-date-picker {
+  width: 100%;
+}
+.react-date-picker .react-date-picker__wrapper {
+  padding: 14px;
+  padding-top: 1.625rem;
+    padding-bottom: 0.625rem;
+    border-radius: 19px;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+}
+.react-date-picker input{
+  pointer-events: none !important;
+}
+.react-date-picker__inputGroup {
+  pointer-events: none !important;
+}
+.react-date-picker__inputGroup select{
+  appearance: none !important;
+}
+.react-date-picker__button svg{
+  display: none !important;
+}
+.react-date-picker__calendar {
+  z-index: 9 !important;
+}
+.react-date-picker__calendar-button {
+  background: url('../../public/assets/my-property/calendar.svg') !important;
+  background-repeat: no-repeat !important;
+  padding: 11px !important;
+
+}
+.dateCss{
+  position: relative;
+}
+.dateCss label{
+  position: absolute;
+    top: 4px;
+    left: 24px;
+    color: rgba(var(--bs-body-color-rgb),.65);
+    font-size: 14px;
+}
+.addProp{
+  left: 14px !important;
+  top: 0px !important;
 }
 @media(max-width:1600px){
   .left-padding{
