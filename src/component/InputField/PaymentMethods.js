@@ -44,7 +44,9 @@ import  credit from '../../../public/assets/my-property/credit.svg';
 import  bank from '../../../public/assets/my-property/bank.svg';
 import  paymentSuc from '../../../public/assets/my-property/paymentSuccess.svg';
 import  addbank1 from '../../../public/assets/my-property/addbank1.png';
+import  addbank2 from '../../../public/assets/my-property/addbank2.png';
 import  axisbank from '../../../public/assets/my-property/axisbank.png';
+import  cvv from '../../../public/assets/my-property/cvv.png';
 import DatePicker from 'react-date-picker';
 import 'react-date-picker/dist/DatePicker.css';
 import 'react-calendar/dist/Calendar.css';
@@ -58,7 +60,8 @@ import Tabs from 'react-bootstrap/Tabs';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Modal from 'react-bootstrap/Modal';
 import { MultiSelect } from "react-multi-select-component";
-
+import Dropdown from 'react-bootstrap/Dropdown';
+import OtpInput from 'react-otp-input';
 const options = [
   { label: "Monday", value: "Monday" },
   { label: "Tuesday", value: "Tuesday" },
@@ -77,13 +80,31 @@ const schema = yup.object().shape({
   confpassword: yup.string().required().min(6),
 });
 
+const ImageSelect = ({ options, onChange }) => {
+  return (
+    <select onChange={onChange}>
+      {options.map((option) => (
+        <option key={option.value} value={option.value}>
+          {option.label}
+          <Image
+            src={option.image}
+            alt={option.label}
+            width={40} // Adjust the width as needed
+            height={40} // Adjust the height as needed
+          />
+        </option>
+      ))}
+    </select>
+  );
+};
+
 const PaymentMethods = () => {
     const [progress, setProgress] = useState(0);
     const [bedroom, setBedrrom] = useState(0);
     const [bathroom, setBathroom] = useState(0);
     const [value, onChange] = useState(new Date());
     const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
+    
 const handleShow = () => setShow(true);
 const [showNew, setShowNew] = useState(false);
     const handleCloseNew = () => setShowNew(false);
@@ -101,6 +122,20 @@ const [selected, setSelected] = useState([]);
 const [paymentSucces, setPaymentSucc] = useState(false);
 const handlePaymentSucc = () => setPaymentSucc(true);
 const handlePaymentHide = () => setPaymentSucc(false);
+
+const [showStep2, setShowStep] = useState(false);
+const handleShowStep= () => setShowStep(true);
+const handleClose = () => {
+  setShow(false);
+  handleCloseNewCan()
+  handlePaymentSucc()
+};
+const [otp, setOtp] = useState('');
+// const handleChange = (otp) => {
+//   setOTP(otp);
+// };
+
+
     // const handleChange = (otp) => {
     //   setOTP(otp);
     // };
@@ -152,100 +187,20 @@ const handlePaymentHide = () => setPaymentSucc(false);
         router.push('/termsCondition');
       };
 
-      const renderButton = () => {
-        return  <button className='resendBtn'> Resend the code</button>;
-      };
-      const renderTime = (remainingTime) => {
-        return <span>{remainingTime} sec</span>;
-      };
-
-      const [activeStep, setActiveStep] = React.useState(0);
-      const [completed, setCompleted] = React.useState({});
-     
+      const [selectedtext, setSelectedText] = useState('Search for your bank');
     
-      const totalSteps = () => {
-        return steps.length;
-      };
-    
-      const completedSteps = () => {
-        return Object.keys(completed).length;
-      };
-    
-      const isLastStep = () => {
-        return activeStep === totalSteps() - 1;
-      };
-    
-      const allStepsCompleted = () => {
-        return completedSteps() === totalSteps();
-      };
-    
-     
-      const handleSelect = async (data) =>{
-        
-        // if(data.target.value == '3'){
-        //   setShowInp(true)
-        // }else{
-        //   setShowInp(false)
-        // }
-      }
-      const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
-      };
-    
-      const handleStep = (step) => () => {
-        setActiveStep(step);
-      };
-    
-      const handleComplete = () => {
-        const newCompleted = completed;
-        newCompleted[activeStep] = true;
-        setCompleted(newCompleted);
-        handleNext();
-      };
-    
-      const handleReset = () => {
-        setActiveStep(0);
-        setCompleted({});
-      };
-
-      const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-          ...formData,
-          [name]: value,
-        });
-      };
-
-      const handleTextChange = (event) => {
-        const inputText = event.target.value;
-        const words = inputText.trim().split(/\s+/);
-        const wordCount = words.length;
-    
-        if (wordCount <= maxWords) {
-          setText(inputText);
+  
+      
+      
+        const handleNewChange = (e) => {
+          const selectedValue = e.target.value;
+          // Handle the selected value as needed
+          console.log('Selected value:', selectedValue);
+        };
+        const selectItemClick = (e) =>{
+          console.log('Selected value:', e);
+          setSelectedText(e)
         }
-      };
-
-      const incrementValue = () => {
-        setBedrrom(bedroom + 1);
-      };
-
-      const decrementValue = () => {
-        if (bedroom > 0) {
-          setBedrrom(bedroom - 1)
-        }
-      };
-
-      const incrementBthValue = () => {
-        setBathroom(bathroom + 1);
-      };
-
-      const decrementBthValue = () => {
-        if (bathroom > 0) {
-          setBathroom(bathroom - 1)
-        }
-      };
-
      
 
   return (
@@ -455,16 +410,31 @@ const handlePaymentHide = () => setPaymentSucc(false);
           
         </Modal.Header>
         <Modal.Body className='text-center p-4 pt-0 pb-2'>
-          <h5>Cancel Booking Request</h5>
-          <p>Are you sure you want to Cancel Booking Request?</p>
-          <div className='d-flex gap-3 mb-3 justify-content-around'>
-          <button type="button" className='reject-btn rounded-pill' onClick={handleClose}>
-                                      Yes
-          </button>
-          <button type='button' className=' accept-btn rounded-pill' onClick={handleClose}>
-                                        No
-          </button>
+        <div className='mt-2 text-left otpInput'>
+                <h5>Verify Mobile Number</h5>
+              <p>We sent you a code to verify your Number Sent to +91 888 666 5656</p>
+              
+            {/* <OTPInput className='otpInput' value={OTP} onChange={handleChange} autoFocus OTPLength={6} otpType="number" disabled={false}  /> */}
+          <div className={'otpDiv'}>
+          <OtpInput
+      value={otp}
+      onChange={setOtp}
+      numInputs={6}
+      
+      renderSeparator={<span> &nbsp; &nbsp; &nbsp; </span>}
+      renderInput={(props) => <input {...props} />}
+    />
           </div>
+            
+            <div className='d-flex justify-content-center resendDiv mt-2'>
+            Didn&apos;t get it? <span className='resendBtn'> Resend the code</span>
+            </div>
+            <div>
+            <button type='button' className=' mt-4 mb-4 contract-red-btn rounded-pill' onClick={handleClose}>
+            Verify
+             </button>
+            </div>
+            </div>
           
         </Modal.Body>
         
@@ -503,54 +473,114 @@ const handlePaymentHide = () => setPaymentSucc(false);
         
           {/* Some text as placeholder. In real life you can have the elements you
           have chosen. Like, text, images, lists, etc. */}
-                                    <div className='row mb-4'>
+          {
+            !showStep2  &&
+          <div>
+          <div className='row mb-4'>
                                         <div className='col-12 text-center'>
-                                            <Image src={addbank1} alt='bank' className='img-fluid w-50' />
+                                            <Image src={addbank1} alt='bank' className='img-fluid w-50' onClick={handleShowStep}/>
                                         </div>
                                     </div>
                                     <p><strong>Add Bank</strong></p>
-                                    <div className='row'>
-                                        <div className='col-12'>
-                                        <FloatingLabel controlId="floatingSelect" label="Choose Your Bank" >
-                                            <Form.Select aria-label="Select Terms" onChange={handleSelect}>
-                                            <option>Search for your bank</option>
-                                            <option value="1"> `<Image src={axisbank} alt='axis' /> Nosadsad Smoking`</option>
-                                            <option value="2">No Pets</option>
-                                            <option value="3">Other</option>
+                                    <div className='row mb-4'>
+                                        <div className='col-12 position-relative'>
+                                          <label className='drpdLabel'>Choose Your Bank</label>
+                                          <Dropdown className='bankDrp'>
+                                          <Dropdown.Toggle variant="transparent" id="dropdown-autoclose-true" autoClose={true}>
+                                           {selectedtext}
+                                          </Dropdown.Toggle>
+
+                                          <Dropdown.Menu  >
+                                            <Dropdown.Item eventKey="1" onClick={(event) => { selectItemClick('Axis Bank'); event.stopPropagation() }}> <Image src= {axisbank} alt='axis'  width="20" height="15" /> Axis Bank</Dropdown.Item>
+                                           
                                             
-                                            </Form.Select>
-                                        </FloatingLabel>
+                                          </Dropdown.Menu>
+                                        </Dropdown>
+        
                                         </div>
                                     </div>
-                                    <div className='row justify-content-between mb-4'>
+                                    <small className='text-black-50'>Log in to your online banking to link your account instantly.</small>
+                                    <div className='row mt-4 mb-4'>
+                                      <div className='col-12 mb-3'>
+                                      <FloatingLabel controlId="floatingPassword" label="Enter Card Number(16 digit) - Axis">
+                                        <Form.Control type="text" value={'1010 1012 2310 2013'} />
+                                      </FloatingLabel>
+                                      </div>
 
-                                    <div className='col-5 borderTime bg-white'>
-                                    <label>From</label> <br></br>
-                                    <TimePicker onChange={onChangeT} value={valueT} clockIcon={null} clearIcon={false} />
+                                      <div className='col-12'>
+                                      <FloatingLabel controlId="floatingPassword" label="Enter Password">
+                                        <Form.Control type="password" />
+                                      </FloatingLabel>
+                                      </div>
                                     </div>
-                                    <div className='col-5 borderTime bg-white'>
-                                    <label>To</label> <br></br>
-                                    <TimePicker onChange={onChangeT} value={valueT} clockIcon={null} clearIcon={false} />
-                                    </div>
-                                    </div> 
-                                    <div className="row borderTime bg-white App mb-4">
-                                    
-                                    <label>Days</label> 
-                                    <MultiSelect
-                                        options={options}
-                                        value={selected}
-                                        onChange={setSelected}
-                                        labelledBy="Days"
-                                        hasSelectAll={false}
-                                        disableSearch={true}
-                                        className='border-0'
-                                        
-                                    />
-                                    </div>
+                                    <small className='text-black-50'>Log in to your online banking to link your account instantly.</small>
 
-                                    <button type='button' className=' contract-red-btn rounded-pill' onClick={handleCloseNewCan}>
-                                        Add
+
+                                    <button type='button' className=' mt-4 mb-4 contract-red-btn rounded-pill' onClick={handleShow}>
+                                    Agree and Link
                                     </button>
+
+                                    <span className='d-block position-relative'>
+                                      <span className='linePassText'>Or</span>
+                                      <hr></hr>
+                                    </span>
+                                    <div className='row'>
+                                        <div className='col-12 text-center'>
+                                          <p className='redClr mb-0'>Link your bank another way</p>
+                                          <p>(Take 2-3 business days.)</p>
+                                        </div>
+                                    </div>
+          </div>
+          }
+
+{
+            showStep2  &&
+          <div>
+          <div className='row mb-4'>
+                                        <div className='col-12 text-center'>
+                                            <Image src={addbank2} alt='bank' className='img-fluid w-50' />
+                                        </div>
+                                    </div>
+                                    <p><strong>Link A Card</strong></p>
+                                    <small>We accept debit cards with the visa or Mastercard logo, as well as all major credits cards.</small>
+                                    
+                                    <div className='row mt-4 mb-3'>
+                                      <div className='col-12 mb-3'>
+                                      <FloatingLabel controlId="floatingPassword" label="Card Number">
+                                        <Form.Control type="text"  />
+                                      </FloatingLabel>
+                                      </div>
+
+                                      <div className='col-12'>
+                                      <FloatingLabel controlId="floatingPassword" label="Expiration date">
+                                        <Form.Control type="text" />
+                                      </FloatingLabel>
+                                      </div>
+
+                                    </div>
+                                    <div className='row mb-4'>
+                                      <div className='col-10 mb-3'>
+                                      <FloatingLabel controlId="floatingPassword" label="Security code">
+                                        <Form.Control type="text"  />
+                                      </FloatingLabel>
+                                      </div>
+                                      <div className='col-2'>
+                                      <Image src={cvv} alt='cvv' />
+                                      </div>
+
+                                      
+                                      
+                                    </div>
+                                   
+                                    <button type='button' className=' mb-4 contract-red-btn rounded-pill' onClick={handleShow} >
+                                    Link Card
+                                    </button>
+
+                                   
+          </div>
+          }
+          
+                                   
                   
                   
                  
