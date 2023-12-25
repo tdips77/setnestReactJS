@@ -133,14 +133,14 @@ const handleShowUti = () => setShowUti(true);
         
       <div className='row btm-row'>
         
-        <div className='col-3'>
+        <div className='col-6 col-md-3'>
         
             <button type="button" className='skip-btn' onClick={(e) => setshowOTP(true)} >Save & Exit</button>
             
             </div>
         
         
-        <div className='col-3'>
+        <div className='col-6 col-md-3'>
         <Link href="/propertyDetails">
             <button type="button" className='addreSIgn signup-btn' >Next</button>
             </Link>

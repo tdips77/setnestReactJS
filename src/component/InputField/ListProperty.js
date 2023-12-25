@@ -362,7 +362,7 @@ const ListProperty = () => {
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-3'>
                     <h5 className='mb-4'>List Your Property</h5>
                     <div className='row justify-content-center position-relative'>
-                        <div className='col-12' >
+                        <div className='col-12 customStepper' >
                         {/* <ProgressBar now={progress} />
                         <div className='firstDiv'>
                             <span></span>

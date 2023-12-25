@@ -103,12 +103,12 @@ const handleShowUti = () => setShowUti(true);
             </div>
         </div>
         <div className='row'>
-        <div className='col-7'>
+        <div className='col-12 col-md-7'>
         
         <Image src={build} alt='washdish' className='img-fluid pre-main' />
 
          </div>
-         <div className='col-5 preview-side'>
+         <div className='col-12 col-md-5 preview-side'>
                 <span>
                 <Image src={side1} alt='washdish' className='img-fluid' />
                 </span>
@@ -122,7 +122,7 @@ const handleShowUti = () => setShowUti(true);
         </div>
         </div>
         <div className='row mt-4'>
-        <div className='col-7'>
+        <div className='col-12 col-md-7'>
         <div className='col-12 prop-avail-date'>
           
             <span>Property available date</span>
@@ -133,7 +133,7 @@ const handleShowUti = () => setShowUti(true);
         <Image src={propMap} alt='washdish' className='img-fluid' />
 
          </div>
-         <div className='col-5 '>
+         <div className='col-12 col-md-5 '>
          <div className='hosted'>
          <div className='row'>
                     <div className='col-12'>
@@ -158,7 +158,7 @@ const handleShowUti = () => setShowUti(true);
                 
         </div>
         </div>
-         <div className='col-7 prop-detail1'>
+         <div className='col-12 col-md-7 prop-detail1'>
         <p ><small><strong>Utility</strong></small></p>
         <ul className='img-grid-prop1'>
           <li>
@@ -179,12 +179,12 @@ const handleShowUti = () => setShowUti(true);
         </span>
 
          </div>
-         <div className='col-7 prop-detail1'>
+         <div className='col-12 col-md-7 prop-detail1'>
         <p ><small><strong>Description</strong></small></p>
         <p className='txt-clr-grey'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desk</p>
          </div>
          
-        <div className='col-7 mt-3 prop-detail'>
+        <div className='col-12 col-md-7  mt-3 prop-detail'>
             <small><strong>Term of the Places</strong></small>
             <ul className='p-0 mt-3'>
               <li className='tnc-list'>

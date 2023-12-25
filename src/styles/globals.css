@@ -133,7 +133,7 @@ a {
   padding: 2px !important;
   border-radius: 50% !important;
 }
-.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed path{
+.customStepper .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed path{
   stroke: #F9415A !important;
     stroke-width: 10px !important;
 }
@@ -146,7 +146,7 @@ a {
 .Mui-completed .css-z7uhs0-MuiStepConnector-line {
   border-color: #F9415A !important;
 }
-.css-117w1su-MuiStepIcon-text {
+ .css-117w1su-MuiStepIcon-text {
   display: none !important;
 }
 .css-1hv8oq8-MuiStepLabel-label.Mui-active {
@@ -1315,6 +1315,169 @@ padding: 10px 10px 3px;
   width: 8px;
 }
 
+.boxDiv{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 19px 63px #0000001C;
+    border-radius: 20px;
+    padding: 6px;
+    cursor: pointer;
+}
+.scrollDiv{
+  height: 300px;
+  overflow: auto;
+  padding: 0 20px;
+}
+.scrollDiv::-webkit-scrollbar{
+  display: none !important;
+}
+
+.smallList{
+  display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    list-style: none;
+}
+.smallListStep{
+  display: flex;
+    gap: 5px;
+    padding: 10px 0;
+    list-style: none;
+}
+.smallListStep img{
+  height: 50px;
+  width: 50px;
+}
+.stepBtn{
+  border: 1px solid #F9415A !important;
+    border-radius: 16px !important;
+    color: red !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 3px 14px !important;
+    text-transform: capitalize !important;
+}
+.stepBtnNew{
+  color: #FFFFFF !important;
+    background: #F9415A !important;
+    border-radius: 16px !important;
+    box-shadow: none !important;
+    padding: 0px 14px !important;
+    text-transform: capitalize !important;
+}
+.stepAckno{
+  border: 1px solid #5FA5F4;
+border-radius: 16px;
+background-color: transparent;
+color: #5FA5F4;
+width: 123px;
+    height: 29px;
+    text-align: center;
+    position: absolute;
+    right: 5px;
+}
+
+.rentedBoxDiv{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+border: 1px solid #ABABAB;
+border-radius: 15px;
+}
+
+.height-49px{
+  height: 49px;
+}
+.blue-clr{
+  color: #00A8FF;
+}
+
+.rentPropImg{
+  width: 88px;
+  height: 107px;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+.height-518px{
+  height: 518px !important;
+}
+.height-500px{
+  height: 419px !important;
+}
+.top-minus{
+  top: 52px;
+}
+.rentHist button{
+  background: transparent;
+    border: none;
+}
+.rentHist button:hover{
+  background-color: transparent;
+  border: none;
+}
+.rentHist .btn.show, .btn:first-child:active{
+  background-color: transparent !important;
+  border: none;
+}
+.rentHist .btn:first-child:active:focus-visible{
+  box-shadow: none;
+}
+.rentHist .dropdown-toggle::after {
+  display: none;
+}
+.w-53{
+  width: 53%;
+}
+.inspectionImg{
+  width:45px;
+  height: 45px;
+}
+
+.add-issue-Image{
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.add-issue-Image li{
+  background: #FFF 0% 0% no-repeat padding-box;
+border-radius: 15px;
+width: 100px;
+height: 100px;
+display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.add-issue-Image li:first-child{
+  border: 2.5px dashed #b0a9a9;
+  background: #F5F5F5 0% 0% no-repeat padding-box;
+}
+.accordion-button {
+  background: #FFFFFF 0% 0% no-repeat padding-box !important;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 13px !important;
+}
+.accordion-button:focus {
+  border-color: transparent !important;
+  box-shadow: 0px 3px 6px #00000029 !important;
+}
+.accordion-body{
+  background: #F6F6F6 0% 0% no-repeat padding-box;
+    border-radius: 13px;
+}
+.helpSearch{
+  position: relative;
+}
+.helpSearch input{
+  
+  box-shadow: 0px 23px 59px #A5A5A529;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    width: 100%;
+    padding: 13px 18px;
+}
+.helpSearch input:focus-visible {
+  outline: none !important;
+}
 /* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey; 
@@ -1459,6 +1622,12 @@ border-radius: 20px;
   }
   .addpropDiv .signup-btn{
     position:  relative !important;
+  }
+  .btm-row {
+    width: 100%;
+  }
+  .btn-width{
+    width: 100%;
   }
 }
 /* 

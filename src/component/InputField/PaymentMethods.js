@@ -168,7 +168,7 @@ const [otp, setOtp] = useState('');
       const onRouteChange = async (data) => {
         // Your registration logic
         // Redirect user after successful registration
-        router.push('/contractPayment');
+        router.push('/tenantReportIssue');
       };
       const moveFinance = async (data) => {
         // Your registration logic
@@ -251,6 +251,7 @@ const [otp, setOtp] = useState('');
                                             Linked Cards
                                             </button>
                                         </div>
+                                        
                                     </div>
 
                                     
