@@ -49,7 +49,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import Modal from 'react-bootstrap/Modal';
 import Dropdown from 'react-bootstrap/Dropdown';
 import ReactStars from 'react-stars';
-import { render } from 'react-dom'
+// import { render } from 'react-dom'
 
 const schema = yup.object().shape({
   email: yup.string().required().email(),
@@ -1420,7 +1420,7 @@ const [activeButton, setActiveButton] = useState('button1');
                                 <small>
                                   Lorem Ipsum is simply dummy text of the
                                   printing and typesetting industry. Lorem Ipsum
-                                  has been the industry's standard dummy text
+                                  has been the industry standard dummy text
                                   ever since the 1500s, when an unknown printer
                                   took a galley of type and scrambled it to make
                                   a type specimen book. It has survived not only
@@ -2043,7 +2043,7 @@ const [activeButton, setActiveButton] = useState('button1');
                             When you are renting a property and you decide to move out, it is important to give The lister or your landlord or property manager sufficient notice so that they can find a new tenant to take over your lease. The notice period required can vary depending on your rental agreement and local rental laws. 
                             </p>
                             <p className="fnt-13 text-black-50">
-                            One important thing to keep in mind is that when you give notice, the current active month is not typically considered as the notice period. Instead, the next rest month is usually considered the notice month. For example, let's say you decide to move out of your rented apartment on April 15th, and your rental agreement requires you to give one month's notice. In this scenario, the notice period would start on May 1st, and your last day in the apartment would be May 31st. This is because the notice period typically starts on the first day of the next rental period, which is the rent month following the current active month. Giving notice in this way ensures that you give your landlord or property manager sufficient time to find a new tenant.
+                            One important thing to keep in mind is that when you give notice, the current active month is not typically considered as the notice period. Instead, the next rest month is usually considered the notice month. For example, let say you decide to move out of your rented apartment on April 15th, and your rental agreement requires you to give one month notice. In this scenario, the notice period would start on May 1st, and your last day in the apartment would be May 31st. This is because the notice period typically starts on the first day of the next rental period, which is the rent month following the current active month. Giving notice in this way ensures that you give your landlord or property manager sufficient time to find a new tenant.
                             </p>
                             <p className="fnt-13 text-black-50">
                             It also helps to ensure a smooth transition for both you and the new tenant. It is important to check your rental agreement and local rental laws to determine the required notice period and when the notice period should start. By doing so, you can avoid any confusion or misunderstandings with your landlord or property manager and ensure that you leave the property on good terms.

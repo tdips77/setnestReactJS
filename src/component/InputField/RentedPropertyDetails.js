@@ -49,7 +49,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import Modal from 'react-bootstrap/Modal';
 import Dropdown from 'react-bootstrap/Dropdown';
 import ReactStars from 'react-stars';
-import { render } from 'react-dom'
+// import { render } from 'react-dom'
 
 const schema = yup.object().shape({
   email: yup.string().required().email(),
@@ -481,7 +481,7 @@ const handleShowInspection = () => setShowInspection(true);
                                 <small>
                                   Lorem Ipsum is simply dummy text of the
                                   printing and typesetting industry. Lorem Ipsum
-                                  has been the industry's standard dummy text
+                                  has been the industry standard dummy text
                                   ever since the 1500s, when an unknown printer
                                   took a galley of type and scrambled it to make
                                   a type specimen book. It has survived not only

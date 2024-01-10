@@ -233,7 +233,7 @@ const [valueT, onChangeT] = useState('10:00');
                                   
                                       <div>
                                       <p className='mb-0'><strong>Property 1</strong></p>
-                                      <p className='mb-0 fnt-13'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desk</p>
+                                      <p className='mb-0 fnt-13'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desk</p>
                                     
                                       </div>
                                       
@@ -249,7 +249,7 @@ const [valueT, onChangeT] = useState('10:00');
                                   
                                       <div>
                                       <p className='mb-0'><strong>Property 2</strong></p>
-                                      <p className='mb-0 fnt-13'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desk</p>
+                                      <p className='mb-0 fnt-13'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desk</p>
                                     
                                       </div>
                                       
@@ -268,7 +268,7 @@ const [valueT, onChangeT] = useState('10:00');
                                   
                                       <div>
                                       <p className='mb-0'><strong>Property 1</strong></p>
-                                      <p className='mb-0 fnt-13'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desk</p>
+                                      <p className='mb-0 fnt-13'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desk</p>
                                     
                                       </div>
                                       
@@ -282,7 +282,7 @@ const [valueT, onChangeT] = useState('10:00');
                                   
                                       <div>
                                       <p className='mb-0'><strong>Property 2</strong></p>
-                                      <p className='mb-0 fnt-13'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desk</p>
+                                      <p className='mb-0 fnt-13'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desk</p>
                                       
                                       </div>
                                       
@@ -350,7 +350,7 @@ const [valueT, onChangeT] = useState('10:00');
         </Modal.Header>
         <Modal.Body className='text-center pt-0'>
           <h5>Rental Request Accepted</h5>
-          <p className='fnt-13'>You have accepted the Booking for Property 1 for user " Sumit" .You cant accept any other booking for this property unless this booking is rejected. Please process to the contract module for completing the Contract Processes. The Prospective Tennant " Sunny will be informed that the booking is accepted</p>
+          <p className='fnt-13'>You have accepted the Booking for Property 1 for user Sumit .You cant accept any other booking for this property unless this booking is rejected. Please process to the contract module for completing the Contract Processes. The Prospective Tennant Sunny will be informed that the booking is accepted</p>
           <div className='d-flex gap-3 mb-3 justify-content-around'>
           <button type="button" className='reject-btn rounded-pill' onClick={handleCloseNew}>
                                       Yes
