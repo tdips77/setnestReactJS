@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -92,6 +92,8 @@ const [showEdit, setShowEdit] = useState(false);
 const handleShowEdit = () => setShowEdit(true);
 const [valueT, onChangeT] = useState('10:00');
 const [selected, setSelected] = useState([]);
+const [showCard, setShowCard] = useState();
+
     // const handleChange = (otp) => {
     //   setOTP(otp);
     // };
@@ -230,7 +232,13 @@ const [selected, setSelected] = useState([]);
         }
       };
 
-     
+      useEffect(() => {
+      const tenant = localStorage.getItem('tenant');
+      if(tenant == 'true'){
+        setShowCard(false)
+      }
+      },[])   
+      
 
   return (
     <div className='container-fluid p-0 mrgTop-8'>
@@ -254,32 +262,40 @@ const [selected, setSelected] = useState([]);
                     <Card.Body>
                     <form  className='mb-3'>
                        
-                    <div className='row accFinac'>
-                                    <div className='col p-4 position-relative' onClick={moveTnc}>
-                                        <Image src={card} alt='card' className='img-fluid mb-3 imgWidth' />
-                                        <p><strong>Payment Methods</strong></p>
-                                        <p className='mb-0'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
-                                        <span className='propRight-icon'>
-                                                    <Image src={rightIcon} alt='washdish' className='img-fluid' />
-                                        </span>
-                                    </div>
-                                    <div className='col p-4 position-relative'onClick={moveFinance}>
-                                        <Image src={accFin1} alt='card' className='img-fluid mb-1 imgWidth' />
-                                        <p><strong>Rent Transaction History</strong></p>
-                                        <p className='mb-0'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
-                                        <span className='propRight-icon'>
-                                                    <Image src={rightIcon} alt='washdish' className='img-fluid' />
-                                        </span>
-                                    </div>
-                                    <div className='col p-4 position-relative' onClick={moveUtility}>
-                                        <Image src={accFin2} alt='card' className='img-fluid mb-1 imgWidth' />
-                                        <p><strong>Subscription History</strong></p>
-                                        <p className='mb-0'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
-                                        <span className='propRight-icon'>
-                                                    <Image src={rightIcon} alt='washdish' className='img-fluid' />
-                                        </span>
-                                    </div>
-                                </div>
+                      <div className='row accFinac'>
+                        <div className='col-lg-4 col-md-4 col-12 position-relative' >
+                            <div className='accCardBox' onClick={moveTnc}>
+                            <Image src={card} alt='card' className='img-fluid mb-3 imgStyle' />
+                            <p><strong>Payment Methods</strong></p>
+                            <p className='mb-0 txt'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
+                            <span className='propRight-icon'>
+                                <Image src={rightIcon} alt='washdish' className='img-fluid' />
+                            </span>
+                            </div>
+                        </div>
+                        <div className='col-lg-4 col-md-4 col-12 position-relative'>
+                          <div className='accCardBox' onClick={moveFinance}>
+                            <Image src={accFin1} alt='card' className='img-fluid mb-3 imgStyle' />
+                            <p><strong>Rent Transaction History</strong></p>
+                            <p className='mb-0 txt'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
+                            <span className='propRight-icon'>
+                                <Image src={rightIcon} alt='washdish' className='img-fluid' />
+                            </span>
+                          </div>
+                        </div>
+                        {(showCard == true) &&
+                        <div className='col-lg-4 col-md-4 col-12 position-relative' >
+                          <div className='accCardBox' onClick={moveUtility}>
+                            <Image src={accFin2} alt='card' className='img-fluid mb-3 imgStyle' />
+                            <p><strong>Subscription History</strong></p>
+                            <p className='mb-0 txt'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
+                            <span className='propRight-icon'>
+                                <Image src={rightIcon} alt='washdish' className='img-fluid' />
+                            </span>
+                          </div>
+                        </div>
+                        }
+                      </div>
                     </form>
                     </Card.Body>
                     

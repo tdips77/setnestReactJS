@@ -47,6 +47,8 @@ import  addbank1 from '../../../public/assets/my-property/addbank1.png';
 import  addbank2 from '../../../public/assets/my-property/addbank2.png';
 import  axisbank from '../../../public/assets/my-property/axisbank.png';
 import  cvv from '../../../public/assets/my-property/cvv.png';
+import repeatGrid from "../../../public/assets/my-property/Repeat-Grid.png";
+
 import DatePicker from 'react-date-picker';
 import 'react-date-picker/dist/DatePicker.css';
 import 'react-calendar/dist/Calendar.css';
@@ -301,8 +303,21 @@ const [otp, setOtp] = useState('');
                                       </div>
                                       
                                     </div>
-                                    
+                                    <div className='chooseBanks'>
+                                    <Dropdown className='d-flex'>
+                                        <Dropdown.Toggle  id="dropdown-basic">
+                                        <Image src={repeatGrid} className="img-fluid" alt="dots" />
+                                        </Dropdown.Toggle>
+
+                                        <Dropdown.Menu>
+                                            <Dropdown.Item >Set as default</Dropdown.Item>
+                                            <Dropdown.Item >Remove</Dropdown.Item>
+                                            
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+                                    </div>
                                     </span>
+                                   
                                 </div>
                                 <div className='row pt-0 pb-0 p-3 mb-4' onClick={(event) => { handlePaymentSucc(); event.stopPropagation() }}>
                                   <span className='booking-list'>
@@ -315,7 +330,19 @@ const [otp, setOtp] = useState('');
                                       </div>
                                       
                                     </div>
-                                    
+                                    <div className='chooseBanks'>
+                                    <Dropdown className='d-flex'>
+                                        <Dropdown.Toggle  id="dropdown-basic">
+                                        <Image src={repeatGrid} className="img-fluid" alt="dots" />
+                                        </Dropdown.Toggle>
+
+                                        <Dropdown.Menu>
+                                            <Dropdown.Item >Set as default</Dropdown.Item>
+                                            <Dropdown.Item >Remove</Dropdown.Item>
+                                            
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+                                    </div>
                                     </span>
                                 </div>
                                 <p><strong>Linked Card</strong></p>

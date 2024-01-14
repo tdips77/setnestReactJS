@@ -1019,17 +1019,31 @@ font-weight: 500;
   min-height: 500px;
 }
 .accFinac{
-  gap: 10px;
+  /* gap: 10px; */
   padding: 10px;
 }
-.accFinac .col {
+.accFinac .accCardBox {
   background: #F6F6F6 0% 0% no-repeat padding-box;
-border-radius: 18px;
-display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+  padding: 2em;
+  cursor: pointer;
+}
+.accFinac .accCardBox p{
+  margin-bottom: 0.4em;
+}
+.accFinac .accCardBox .imgStyle{
+  width: 77px;
+  height: 77px;
+  object-fit: contain;
+}
+.accFinac .accCardBox .txt{
+  color: #2D2D2D;
+  opacity: 0.5;
 }
 .imgWidth{
   width: 65px;
@@ -1110,7 +1124,20 @@ border-radius: 19px !important;
   background: #F6F6F6 0% 0% no-repeat padding-box;
 border-radius: 19px;
 display: flex;
+align-items: center;
 padding: 10px;
+justify-content: space-between;
+}
+.booking-list .chooseBanks button{
+  padding: 0 0.2em;
+  background: transparent;
+  border: none;
+}
+.booking-list .chooseBanks .dropdown-item.active, .booking-list .chooseBanks .dropdown-item:active{
+background: transparent
+}
+.booking-list .chooseBanks .dropdown-toggle::after{
+  display: none;
 }
 .greenClr{
   color: #23B713;
