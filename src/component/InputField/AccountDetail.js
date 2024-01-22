@@ -361,8 +361,8 @@ const handleShowNew = () => setShowNew(true);
       }, [])
 
   return (
-    <div className='container-fluid p-0 mrgTop-8'>
-     
+    <div className='container-fluid p-0 grayBg'>
+     <div className='accSection'>
      <div className='topsectionProp'>
         <button type='button' className={"addProp " + styles.iconBtn} onClick={goBack}>
         {/* <FontAwesomeIcon icon="fa-solid fa-arrow-left" /> */}
@@ -371,10 +371,11 @@ const handleShowNew = () => setShowNew(true);
        
         </div>
         <div className='container'>
+          <div className='accountDetails'>
             <div className='row '>
                 <div className='col-12 col-md-12 listPropdPadd left-padding'>
                 <Card className='wd-100 mb-5 accCard'>
-                <Card.Header as="h5" className='p-4'>Account Detail</Card.Header>
+                <Card.Header as="h1" className='p-4'>Account Detail</Card.Header>
                     
                     <Card.Body>
                     <form onSubmit={handleSubmit(onSubmit)} className='mb-3'>
@@ -393,12 +394,12 @@ const handleShowNew = () => setShowNew(true);
                             <Tab eventKey="home" title="Profile Information">
                                 <div className='row p-4'>
                                   <div className='col-4'>
-                                    <div className='position-relative d-block text-center'>
+                                    <div className='position-relative d-block text-center userDetail'>
                                       <Image src={profilePic} alt='profile' className='img-fluid' />
                                       <span className='profilePicEdit'>
                                       <Image src={redpen} alt='profile' className='img-fluid' />
                                       </span>
-                                      <p className='mt-4 mb-1'><strong>Sumit Gupta</strong></p>
+                                      <h4>Sumit Gupta</h4>
                                       <p>+91 888 666 5656</p>
                                     </div>
                                   </div>
@@ -457,8 +458,20 @@ const handleShowNew = () => setShowNew(true);
                                     </div>
                                     
                                   </div>
+                                  <div className='accDetailFoot'>
+                                    <Link href={'/bookingRequest'}>
+                                      <button type='button' className=' signup-btn' >
+                                    Update
+                                    </button>
+                                    </Link>
+                                    <button type="button" className='skip-btn' >
+                                      Cancel
+                                    </button>
+                                  </div>
+
                                   </div>
                                 </div>
+                                
                             </Tab>
                             <Tab eventKey="profile" title="address">
                             <div className='row'>
@@ -570,11 +583,46 @@ const handleShowNew = () => setShowNew(true);
                 </div>
               </div>
           </div>
+          <div className='row mt-4'>
+            <div className='col-6'>
+              <div className='accDetailFoot'>
+                <Link href={'/bookingRequest'}>
+                  <button type='button' className=' signup-btn' >
+                Update
+                </button>
+                </Link>
+                <button type="button" className='skip-btn' >
+                  Cancel
+                </button>
+              </div>
+            </div>
+            <div className='col-6'>
+
+            </div>
+          </div>
+          
                             </Tab>
                             {
                               !showTenant && 
                             <Tab eventKey="contact" title="Documents" >
                                 Tab content for Contact
+                                <div className='row mt-4'>
+                                  <div className='col-6'>
+                                    <div className='accDetailFoot'>
+                                      <Link href={'/bookingRequest'}>
+                                        <button type='button' className=' signup-btn' >
+                                      Update
+                                      </button>
+                                      </Link>
+                                      <button type="button" className='skip-btn' >
+                                        Cancel
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <div className='col-6'>
+
+                                  </div>
+                                </div>
                             </Tab>
                             }
                             
@@ -654,7 +702,23 @@ const handleShowNew = () => setShowNew(true);
                               </div>
                               
                               }
-                                
+                                <div className='row mt-4'>
+                                  <div className='col-6'>
+                                    <div className='accDetailFoot'>
+                                      <Link href={'/bookingRequest'}>
+                                        <button type='button' className=' signup-btn' >
+                                      Update
+                                      </button>
+                                      </Link>
+                                      <button type="button" className='skip-btn' >
+                                        Cancel
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <div className='col-6'>
+
+                                  </div>
+                                </div>
                             </Tab>
                             {
                               !showTenant && 
@@ -727,6 +791,23 @@ const handleShowNew = () => setShowNew(true);
                                 </Card.Body>
                                 
                                 </Card>
+                                <div className='row mt-4'>
+                                  <div className='col-6'>
+                                    <div className='accDetailFoot'>
+                                      <Link href={'/bookingRequest'}>
+                                        <button type='button' className=' signup-btn' >
+                                      Update
+                                      </button>
+                                      </Link>
+                                      <button type="button" className='skip-btn' >
+                                        Cancel
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <div className='col-6'>
+
+                                  </div>
+                                </div>
                             </Tab>
                             }
                             </Tabs>
@@ -740,24 +821,22 @@ const handleShowNew = () => setShowNew(true);
                         </div>
                     </form>
                     </Card.Body>
-                    <Card.Footer className="text-muted">
-                    <div className='addpropDiv'>
-                <div className='col-5 accDetailFoot'>
-                <Link href={'/bookingRequest'}>
-                    <button type='button' className=' signup-btn' >
-                Update
-                </button>
-                </Link>
-              <button type="button" className='skip-btn' >
-                Cancel
-              </button>
-              
-                </div>
-                <div className='col-7'>
-              
-              </div>
-            </div>
-                    </Card.Footer>
+                    {/* <Card.Footer className="text-muted">
+                      <div className='addpropDiv'>
+                        <div className='col-5 accDetailFoot'>
+                          <Link href={'/bookingRequest'}>
+                            <button type='button' className=' signup-btn' >
+                          Update
+                          </button>
+                          </Link>
+                          <button type="button" className='skip-btn' >
+                            Cancel
+                          </button>
+                        </div>
+                        <div className='col-7'>
+                        </div>
+                      </div>
+                    </Card.Footer> */}
                 </Card>
                 
                 </div>
@@ -766,7 +845,7 @@ const handleShowNew = () => setShowNew(true);
                 </div>
 
             </div>
-
+         </div>
         </div>
         <Offcanvas show={show} onHide={handleClose} placement={'end'} backdrop={false}>
         <Offcanvas.Header closeButton className='addPropModal'>
@@ -916,6 +995,7 @@ const handleShowNew = () => setShowNew(true);
         </Offcanvas.Body>
         
       </Offcanvas>
+      </div>
     </div>
   );
 };

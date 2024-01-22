@@ -300,6 +300,13 @@ opacity: 1;
 }
 
 /* Mobile */
+@media (max-width:768px){
+  .topLogo{
+    top: 0;
+    left: 0;
+  }
+}
+
 @media (max-width: 700px) {
   .search{
     width: 91vw;
@@ -320,11 +327,7 @@ opacity: 1;
   .inactiveButton{
     width: 160px;
   }
-  .topLogo{
-    top: 8px;
-    left: 48px;
-    position: relative;
-  }
+ 
   .content {
     padding: 4rem;
   }

@@ -77,7 +77,7 @@ const SignIn = () => {
             <div className='row side-padding'>
                 <div className='col-12 col-md-6 left-padding'>
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-3 wd-100'>
-                    <h5 className='mb-4'>Sign In</h5>
+                  <h1 className='mb-4'>Sign In</h1>
         <div>
 
         <FloatingLabel
