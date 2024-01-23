@@ -24,7 +24,6 @@ import * as yup from 'yup';
 const schema = yup.object().shape({
   email: yup.string().required().email(),
   password: yup.string().required().min(6),
-  confpassword: yup.string().required().min(6),
 });
 
 const SignIn = () => {
@@ -45,7 +44,14 @@ const SignIn = () => {
       const onSubmit = async (data) => {
         // Your registration logic
         // Redirect user after successful registration
-        router.push('/login');
+        console.log(data)
+        if(data.email == 'tenant@tenant.com' && data.password == '123456'){
+          localStorage.setItem('tenant', true);
+          
+        }else{
+          localStorage.setItem('tenant', false)
+        }
+        router.push('/listerDashboard');
       };
 
       const renderButton = () => {
@@ -69,7 +75,7 @@ const SignIn = () => {
       
         <div className='container-fluid hgt-100vh'>
             <div className='row side-padding'>
-                <div className='col-6 left-padding'>
+                <div className='col-12 col-md-6 left-padding'>
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-3 wd-100'>
                     <h5 className='mb-4'>Sign In</h5>
         <div>
@@ -86,20 +92,21 @@ const SignIn = () => {
         <Form.Control type="password" placeholder="Password" {...register('password')}/>
       </FloatingLabel>
       <p>{errors.password?.message}</p>
-      
+      <Link href="/forgetpassword">
         <p className='mb-0 clr-pink text-end'>Forgot Password?</p>
+        </Link>
       </div>
         
         
-          {/* <Link href="/createprofile"> */}
-        <button type="button" className='signup-btn mt-4' >Sign In</button>
+          {/* <Link href="/listerDashboard"> */}
+        <button type="submit" className='signup-btn mt-4' >Sign In</button>
           {/* </Link> */}
 
         
         
       </form>
                 </div>
-                <div className='col-6 right-padding'>
+                <div className='col-6 right-padding mob-hide test'>
                 <Carousel>
       <Carousel.Item>
         <Image src={crslimg} alt='logo' className='img-fluid' text="First slide" width="100%" height="100%"/>
