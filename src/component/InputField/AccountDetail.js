@@ -361,7 +361,7 @@ const handleShowNew = () => setShowNew(true);
       }, [])
 
   return (
-    <div className='container-fluid p-0 grayBg'>
+    <div className='container-fluid p-0 '>
      <div className='accSection'>
      <div className='topsectionProp'>
         <button type='button' className={"addProp " + styles.iconBtn} onClick={goBack}>
@@ -458,16 +458,7 @@ const handleShowNew = () => setShowNew(true);
                                     </div>
                                     
                                   </div>
-                                  <div className='accDetailFoot'>
-                                    <Link href={'/bookingRequest'}>
-                                      <button type='button' className=' signup-btn' >
-                                    Update
-                                    </button>
-                                    </Link>
-                                    <button type="button" className='skip-btn' >
-                                      Cancel
-                                    </button>
-                                  </div>
+                                 
 
                                   </div>
                                 </div>
@@ -583,46 +574,13 @@ const handleShowNew = () => setShowNew(true);
                 </div>
               </div>
           </div>
-          <div className='row mt-4'>
-            <div className='col-6'>
-              <div className='accDetailFoot'>
-                <Link href={'/bookingRequest'}>
-                  <button type='button' className=' signup-btn' >
-                Update
-                </button>
-                </Link>
-                <button type="button" className='skip-btn' >
-                  Cancel
-                </button>
-              </div>
-            </div>
-            <div className='col-6'>
-
-            </div>
-          </div>
+        
           
                             </Tab>
                             {
                               !showTenant && 
                             <Tab eventKey="contact" title="Documents" >
                                 Tab content for Contact
-                                <div className='row mt-4'>
-                                  <div className='col-6'>
-                                    <div className='accDetailFoot'>
-                                      <Link href={'/bookingRequest'}>
-                                        <button type='button' className=' signup-btn' >
-                                      Update
-                                      </button>
-                                      </Link>
-                                      <button type="button" className='skip-btn' >
-                                        Cancel
-                                      </button>
-                                    </div>
-                                  </div>
-                                  <div className='col-6'>
-
-                                  </div>
-                                </div>
                             </Tab>
                             }
                             
@@ -702,23 +660,7 @@ const handleShowNew = () => setShowNew(true);
                               </div>
                               
                               }
-                                <div className='row mt-4'>
-                                  <div className='col-6'>
-                                    <div className='accDetailFoot'>
-                                      <Link href={'/bookingRequest'}>
-                                        <button type='button' className=' signup-btn' >
-                                      Update
-                                      </button>
-                                      </Link>
-                                      <button type="button" className='skip-btn' >
-                                        Cancel
-                                      </button>
-                                    </div>
-                                  </div>
-                                  <div className='col-6'>
-
-                                  </div>
-                                </div>
+                              
                             </Tab>
                             {
                               !showTenant && 
@@ -791,23 +733,7 @@ const handleShowNew = () => setShowNew(true);
                                 </Card.Body>
                                 
                                 </Card>
-                                <div className='row mt-4'>
-                                  <div className='col-6'>
-                                    <div className='accDetailFoot'>
-                                      <Link href={'/bookingRequest'}>
-                                        <button type='button' className=' signup-btn' >
-                                      Update
-                                      </button>
-                                      </Link>
-                                      <button type="button" className='skip-btn' >
-                                        Cancel
-                                      </button>
-                                    </div>
-                                  </div>
-                                  <div className='col-6'>
-
-                                  </div>
-                                </div>
+                              
                             </Tab>
                             }
                             </Tabs>
@@ -821,7 +747,7 @@ const handleShowNew = () => setShowNew(true);
                         </div>
                     </form>
                     </Card.Body>
-                    {/* <Card.Footer className="text-muted">
+                    <Card.Footer className="text-muted">
                       <div className='addpropDiv'>
                         <div className='col-5 accDetailFoot'>
                           <Link href={'/bookingRequest'}>
@@ -836,7 +762,7 @@ const handleShowNew = () => setShowNew(true);
                         <div className='col-7'>
                         </div>
                       </div>
-                    </Card.Footer> */}
+                    </Card.Footer>
                 </Card>
                 
                 </div>
