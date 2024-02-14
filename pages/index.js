@@ -11,7 +11,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-bootstrap/Modal';
 import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
-import ReactSlider from 'react-slider'
+// import ReactSlider from 'react-slider'
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 
@@ -86,7 +86,7 @@ const handleChange = (event) => {
                 <div className='row'>
                   <div className='col-12'>
                   <label className='mb-3'>Price Range</label>
-                  <ReactSlider
+                  {/* <ReactSlider
                     className="horizontal-slider"
                     thumbClassName="example-thumb"
                     trackClassName="example-track"
@@ -100,7 +100,7 @@ const handleChange = (event) => {
                       </div>}
                     pearling
                     minDistance={10}
-                  />
+                  /> */}
                   </div>
                 
                 </div>
@@ -154,7 +154,7 @@ const handleChange = (event) => {
               <div className='row'>
                   <div className='col-12'>
                     <label className='mb-3'>Property Area</label>
-                  <ReactSlider
+                  {/* <ReactSlider
                     className="horizontal-slider"
                     thumbClassName="example-thumb"
                     trackClassName="example-track"
@@ -168,7 +168,7 @@ const handleChange = (event) => {
                       </div>}
                     pearling
                     minDistance={10}
-                  />
+                  /> */}
                   </div>
                 
                 </div>
