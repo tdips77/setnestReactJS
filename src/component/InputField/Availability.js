@@ -243,12 +243,12 @@ const [selected, setSelected] = useState([]);
         </button>
        
         </div>
-        <div className='container'>
+        <div className='container availSection'>
             <div className='row '>
                 <div className='col-12 col-md-12 listPropdPadd left-padding'>
                 <Card className='wd-100 mb-5 accCard'>
                 <Card.Header className='p-4 bg-white'>
-                    <div className='row'>
+                    <div className='row align-items-center'>
                         <div className='col-10'>
                         <h5>Availabilty</h5> 
                         </div>
@@ -263,13 +263,13 @@ const [selected, setSelected] = useState([]);
                     <form  className='mb-3'>
                        
                         <div className='row justify-content-center position-relative'>
-                            <div className='col-7' >
+                            <div className='col-lg-6 col-md-6 col-12' >
                                 <h6>Time Slot Added</h6>
-                                <div className='borderTime p-3 bg-light'>
+                                <div className='slotBox px-3 py-3 bg-gray'>
                                 <div className='row'>
                                     <div className='col-9'>
                                         <p className='mb-0'><strong>10:00 am - 12:00 pm</strong></p>
-                                        <small className='text-black-50'>Mon, Wed, Fri</small>
+                                        <small>Mon, Wed, Fri</small>
                                     </div>
                                     <div className='col-3 d-flex gap-3 justify-content-end'>
                                         <Image src={deleteIcon} className='img-fluid' alt='delte' />
@@ -280,7 +280,7 @@ const [selected, setSelected] = useState([]);
                                 <div className='row'>
                                     <div className='col-9'>
                                         <p className='mb-0'><strong>10:00 am - 12:00 pm</strong></p>
-                                        <small className='text-black-50'>Mon, Wed, Fri</small>
+                                        <small>Mon, Wed, Fri</small>
                                     </div>
                                     <div className='col-3 d-flex gap-3 justify-content-end'>
                                         <Image src={deleteIcon} className='img-fluid' alt='delte' />
@@ -291,7 +291,7 @@ const [selected, setSelected] = useState([]);
                                 <div className='row'>
                                     <div className='col-9'>
                                         <p className='mb-0'><strong>10:00 am - 12:00 pm</strong></p>
-                                        <small className='text-black-50'>Mon, Wed, Fri</small>
+                                        <small>Mon, Wed, Fri</small>
                                     </div>
                                     <div className='col-3 d-flex gap-3 justify-content-end'>
                                         <Image src={deleteIcon} className='img-fluid' alt='delte' />
@@ -304,7 +304,7 @@ const [selected, setSelected] = useState([]);
                                 </div>
                             </div>
                            
-                            <div className='col-5'>
+                            <div className='col-lg-6 col-md-6 col-12'>
 
                             </div>
                             

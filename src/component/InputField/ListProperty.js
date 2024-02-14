@@ -252,7 +252,7 @@ const ListProperty = () => {
                 
                 <Form.Control as="textarea" aria-label="With textarea" placeholder='Add Description' value={text} maxLength={100} onChange={handleTextChange} />
                 
-                <div className='text-end'>
+                <div className='text-end limit'>
                 {text.trim() === '' ? 0 : text.length}
                 {maxWords > 0 && ` / ${maxWords}`}
                 </div>
@@ -347,7 +347,7 @@ const ListProperty = () => {
       };
 
   return (
-    <div className='container-fluid p-0 mrgTop-8'>
+    <div className='container-fluid p-0 mrgTop-8 listPropSection'>
      
      <div className='topsectionProp'>
         <button type='button' className={"addProp " + styles.iconBtn} onClick={goBack}>
@@ -358,74 +358,77 @@ const ListProperty = () => {
         </div>
         <div className='container-fluid'>
             <div className='row '>
-                <div className='col-12 col-md-6 listPropdPadd left-padding'>
-                <form onSubmit={handleSubmit(onSubmit)} className='mb-3'>
-                    <h5 className='mb-4'>List Your Property</h5>
-                    <div className='row justify-content-center position-relative'>
-                        <div className='col-12 customStepper' >
-                        {/* <ProgressBar now={progress} />
-                        <div className='firstDiv'>
-                            <span></span>
-                        </div>
-                        <div className='secondDiv'>
-                            <span></span>
-                        </div>
-                        <div className='thirdDiv'>
-                            <span></span>
-                        </div> */}
-                        
-                        <Box sx={{ width: '100%' }}>
-                           
-      <Stepper alternativeLabel activeStep={activeStep}>
+                <div className='col-lg-6 col-md-6 col-12 listPropdPadd'>
+                  <div className='contents'>
+                  <form onSubmit={handleSubmit(onSubmit)} className='mb-3'>
+                      <h5 className='mb-4'>List Your Property</h5>
+                      <div className='row justify-content-center position-relative'>
+                          <div className='col-12 customStepper' >
+                          {/* <ProgressBar now={progress} />
+                          <div className='firstDiv'>
+                              <span></span>
+                          </div>
+                          <div className='secondDiv'>
+                              <span></span>
+                          </div>
+                          <div className='thirdDiv'>
+                              <span></span>
+                          </div> */}
+                          
+                          <Box sx={{ width: '100%' }}>
+                            
+        <Stepper alternativeLabel activeStep={activeStep}>
 
-      {steps.map((label, index) => (
-          <Step key={label} completed={completed[index]}>
-            <StepButton onClick={handleStep(index)}>
-              {label}
-            </StepButton>
-          </Step>
-        ))}
+        {steps.map((label, index) => (
+            <Step key={label} completed={completed[index]}>
+              <StepButton onClick={handleStep(index)}>
+                {label}
+              </StepButton>
+            </Step>
+          ))}
 
-      </Stepper>
-      <div>
-      {activeStep === steps.length ? (
-          <div>
-            <Typography variant="h4">All steps completed</Typography>
-            {/* Render a summary or confirmation message here */}
-          </div>
-        ) : (
-          <div>
-            {stepContent(activeStep)}
-            <div className='addpropDiv'>
-                {activeStep > 0 &&
-                    <button type='button' className='skip-btn' disabled={activeStep === 0} onClick={goBack}>
-                Save & Exit
-                </button>
-                }
-              
-              <button type="button" className='signup-btn' onClick={handleNext}>
-                {activeStep === steps.length ? 'Next' : 'Next'}
-              </button>
+        </Stepper>
+        <div>
+        {activeStep === steps.length ? (
+            <div>
+              <Typography variant="h4">All steps completed</Typography>
+              {/* Render a summary or confirmation message here */}
             </div>
-          </div>
-        )}
-      </div>
-     
-    </Box>
-                 </div>
-                    </div>
+          ) : (
+            <div>
+              {stepContent(activeStep)}
+              <div className='addpropDiv'>
+                  {activeStep > 0 &&
+                      <button type='button' className='skip-btn' disabled={activeStep === 0} onClick={goBack}>
+                  Save & Exit
+                  </button>
+                  }
+                
+                <button type="button" className='signup-btn' onClick={handleNext}>
+                  {activeStep === steps.length ? 'Next' : 'Next'}
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
       
-     
-       
+      </Box>
+                  </div>
+                      </div>
+        
       
         
+        
+          
 
-        
-        
-        
-      </form>
+          
+          
+          
+                  </form>
+                  </div>
                 </div>
-                <div className='col-6 right-padding mob-hide'>
+                <div className='col-lg-6 col-md-6 col-12 right-padding mob-hide'>
+                  <div className='imgStyle'>
                   {
                     activeStep == 0 && 
                     <Image src={laptopList} alt='detail' className='img-fluid' />
@@ -433,14 +436,14 @@ const ListProperty = () => {
 
                   {
                      activeStep == 1 &&
-               <Image src={mapList} alt='detail' className='img-fluid' />
+                    <Image src={mapList} alt='detail' className='img-fluid' />
+                  }
+                  {
+                    activeStep == 2 &&
+                    <Image src={homeList} alt='detail' className='img-fluid' />
 
                   }
-               {
-                 activeStep == 2 &&
-                 <Image src={homeList} alt='detail' className='img-fluid' />
-
-               }
+                  </div>
                 </div>
 
             </div>

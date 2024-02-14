@@ -60,13 +60,20 @@ const AddAddress = () => {
 
   return (
     <div className='container-fluid main-set '>
-     
+      <div className='topsection'>
+        <button type='button' className={`${styles.iconBtn}`} onClick={goBack}>
+        {/* <FontAwesomeIcon icon="fa-solid fa-arrow-left" /> */}
+        <FontAwesomeIcon icon={faArrowLeft} className={`${styles.iconleftBtn}`}/>
+        </button>
         <Image src={setnestlogo} alt='logo' className={'img-fluid ' + styles.topLogo}/>
+      </div>
+
+
         <div className='container-fluid hgt-100vh'>
             <div className='row side-padding mob-side'>
                 <div className='col-12 col-md-6 left-padding'>
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-3'>
-                    <h5 className='mb-4'>Add Address</h5>
+                    <h5 className={'mb-4 ' + `${styles.heading}`}>Add Address</h5>
         <div className='row'>
             <div className='mb-3 col-12'>
                 <p className={styles.addresp}>

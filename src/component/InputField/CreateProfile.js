@@ -61,14 +61,14 @@ const CreateProfile = () => {
   return (
     <div className='container-fluid main-set '>
      
-     <div className='topsection'>
+     <div className='topsection '>
         <button type='button' className={`${styles.iconBtn}`} onClick={goBack}>
         {/* <FontAwesomeIcon icon="fa-solid fa-arrow-left" /> */}
         <FontAwesomeIcon icon={faArrowLeft} className={`${styles.iconleftBtn}`}/>
         </button>
         <Image src={setnestlogo} alt='logo' className={'img-fluid ' + styles.topLogo}/>
         </div>
-        <div className='container-fluid hgt-100vh'>
+        <div className='container-fluid hgt-100vh createProfileSec'>
             <div className='row side-padding'>
                 <div className='col-12 col-md-6 left-padding'>
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-3'>
@@ -105,8 +105,8 @@ const CreateProfile = () => {
       </div>
       <div className='col-12'>
       <InputGroup className="mb-0">
-        <InputGroup.Text className='brd-inptx' id="basic-addon1">+91</InputGroup.Text>
-        <FloatingLabel controlId="floatingPassword" label="Mobile Number">
+        <InputGroup.Text className='brd-inptx' id="basic-addon1">+91 <span className='inputBorder'></span></InputGroup.Text>
+        <FloatingLabel className='fMob' controlId="floatingPassword" label="Mobile Number">
         <Form.Control
         className='brd-left'
         placeholder="Username"

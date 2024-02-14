@@ -71,15 +71,18 @@ const ForgetPassword = () => {
         <div className='container-fluid hgt-100vh'>
             <div className='row side-padding'>
                 <div className='col-12 col-md-6 left-padding-new'>
-                <form onSubmit={handleSubmit(onSubmit)} className='mb-3 wd-100'>
+                <form onSubmit={handleSubmit(onSubmit)} className='mb-3 wd-100 forgotPwdSec'>
                     <h5 className='mb-4'>Forgot Password</h5>
         <div>
 
-        <FloatingLabel
+        {/* <FloatingLabel
         controlId="floatingInput"
         label="Enter Email ID/Mobile no."
         
       >
+        <Form.Control type="email" placeholder="Enter Email ID/Mobile no." {...register('email')}/>
+      </FloatingLabel> */}
+      <FloatingLabel controlId="floatingInput" className='forgetFloatingLabel'>
         <Form.Control type="email" placeholder="Enter Email ID/Mobile no." {...register('email')}/>
       </FloatingLabel>
       <p>{errors.email?.message}</p>
@@ -107,7 +110,7 @@ const ForgetPassword = () => {
                     </div>
 
                     <div className='d-flex justify-content-center resendDiv mt-2'>
-                    Didn&apos;t get it? <span className='resendBtn'> Resend the code</span>
+                    Didn&apos;t get it? &nbsp; <span className='resendBtn'> Resend the code</span>
                     </div>
                     
                     

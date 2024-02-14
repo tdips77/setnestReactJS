@@ -68,8 +68,8 @@ const SignUp = () => {
         </div>
         <div className='container-fluid hgt-100vh'>
             <div className='row side-padding'>
-                <div className='col-12 col-md-6 left-padding'>
-                <form onSubmit={handleSubmit(onSubmit)} className='mb-3'>
+                <div className='col-lg-6 col-md-6 col-12 left-padding'>
+                <form onSubmit={handleSubmit(onSubmit)} className='mb-3 signUpForm'>
                     <h5 className='mb-4'>Sign up</h5>
         <div>
 
@@ -139,7 +139,7 @@ const SignUp = () => {
         
       </form>
                 </div>
-                <div className='col-6 right-padding mob-hide test'>
+                <div className='col-lg-6 col-md-6 col-12 right-padding mob-hide test'>
                 <Carousel>
       <Carousel.Item>
         <Image src={crslimg} alt='logo' className='img-fluid' text="First slide" width="100%" height="100%"/>

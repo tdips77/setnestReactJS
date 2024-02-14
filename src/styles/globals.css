@@ -92,7 +92,9 @@ a {
 }
 .topsection{
   position: absolute;
-    top: 10px;
+  top: 10px;
+  z-index: 2;
+  background: #fff;
 }
 .navbar-expand {
   background-color: #fff;
@@ -156,6 +158,11 @@ a {
 }
 .css-1hv8oq8-MuiStepLabel-label.Mui-active {
   color: #F9415A !important;
+  font-weight: 500;
+}
+.css-1hv8oq8-MuiStepLabel-label.MuiStepLabel-alternativeLabel {
+  font-weight: 500;
+  color: #a7a7a7;
 }
 .css-zpcwqm-MuiStepConnector-root {
   left: calc(-50% + 14px) !important;
@@ -323,7 +330,7 @@ color: #FFFFFF;
 
 .signup-btn{
   width: 100%;
-height: 73px;
+height: 67px;
 background: #F9415A 0% 0% no-repeat padding-box;
 border-radius: 35px;
 color: #FFFFFF;
@@ -333,13 +340,14 @@ margin-top: 1em;
 }
 .skip-btn{
   width: 100%;
-height: 73px;
+height: 67px;
 border: 2px solid #F9415A;
 background: #FFFFFF 0% 0% no-repeat padding-box;
 border-radius: 35px;
 color: #F9415A;
 cursor: pointer;
 margin-top: 1em;
+font-weight: 600;
 }
 .accept-btn{
   width: 100%;
@@ -349,7 +357,7 @@ border-radius: 11px;
 color: #FFFFFF;
 border: none;
 cursor: pointer;
-height: 31px;
+height: 40px;
 }
 .reject-btn{
   width: 100%;
@@ -1878,9 +1886,153 @@ input:-webkit-autofill{
   font-size: 12px;
   font-weight: 600;
 }
-
-
-
+.signUpForm{
+  width: 100%;
+}
+.createProfileSec select{
+  border: 1px solid #4E4C4C;
+}
+.createProfileSec .brd-inptx{
+  border: 1px solid #4E4C4C;
+}
+.createProfileSec form .fMob input{
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-left: none;
+}
+.inputBorder{
+  background: #707070;
+  width: 2px;
+  height: 35px;
+  margin-left: 12px;
+}
+.forgotPwdSec{
+  padding-top: 6em;
+}
+.forgotPwdSec h5{
+  font-weight: 600;
+}
+.forgetFloatingLabel input{
+  padding: 1em !important;
+}
+.availSection h5{
+  font-weight: 700;
+  margin: 0;
+}
+.availSection h6{
+  font-weight: 700;
+  margin-bottom: 0.6em;
+}
+.availSection .bg-gray{
+  background: #F6F6F6;
+}
+.availSection small{
+  font-weight: 700;
+  color: #060606;
+  opacity: 50%;
+}
+.availSection .slotBox{
+  border-radius: 19px;
+}
+.availSection .card{
+  border-radius: 25px;
+}
+.availSection .card-header{
+  border-top-left-radius: 25px !important;
+  border-top-right-radius: 25px !important;
+}
+.availSection .card-header:first-child{
+  border-radius: unset;
+}
+.availSection .card-body{
+  padding: 1em 2em;
+}
+.paymentDetailSec .card{
+  border-radius: 25px;
+}
+.paymentDetailSec .card-header{
+  border-top-left-radius: 25px !important;
+  border-top-right-radius: 25px !important;
+}
+.paymentDetailSec .card-header:first-child{
+  border-radius: unset;
+}
+.paymentDetailSec .card-body{
+  padding: 1em 2em;
+}
+.listPropertyInputGrp2 .listPropertyInput{
+  font-weight: 600;
+  font-size: 16px;
+  color: #000;
+}
+.f600{
+  font-weight: 600;
+}
+.accDeatilsModal .txt{
+  font-weight: 500;
+  font-size: 14px;
+}
+.listPropSection h5{
+  font-weight: 600;    
+  font-size: 22px;
+  color: #000;
+}
+.listPropSection .imgStyle img{
+  width: 90%;
+}
+.listPropSection .imgStyle{
+ text-align: center;
+}
+.listPropSection .contents{
+  padding: 0 5em;
+}
+.listPropSection form input{
+  background: #FFFFFF;
+  box-shadow: 0px 23px 59px #A5A5A529 !important;
+  border: 1px solid #b2b2b2;
+  border-radius: 16px !important;
+  font-weight: 600;
+}
+.listPropSection form textarea{
+  background: #FFFFFF;
+  box-shadow: 0px 23px 59px #A5A5A529 !important;
+  border: 1px solid #b2b2b2;
+  border-radius: 16px !important;
+  font-weight: 600;
+}
+.listPropSection form select{
+  background: #FFFFFF;
+  box-shadow: 0px 23px 59px #A5A5A529 !important;
+  border: 1px solid #b2b2b2;
+  border-radius: 16px !important;
+  font-weight: 600;
+}
+.listPropSection form .listPropertyInputGrp {
+  background: #FFFFFF;
+  box-shadow: 0px 23px 59px #A5A5A529 !important;
+  border: 1px solid #b2b2b2  !important;
+  border-radius: 16px !important;
+  font-weight: 600;
+}
+.listPropSection form .listPropertyInputGrp input{
+  background: transparent !important;
+  box-shadow: unset !important;
+  
+}
+.listPropSection form .listPropertyInputGrp input::placeholder{
+  color: #060606;
+  opacity: 0.91;
+  font-weight: 500 !important;
+}
+.listPropSection form .listPropertyInputGrp textarea::placeholder{
+  color: #060606;
+  opacity: 0.91;
+  font-weight: 500 !important;
+}
+.listPropSection form .limit{
+  color: #000000;
+  opacity: 50%;
+}
 
 @media(max-width:1600px){
   

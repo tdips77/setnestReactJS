@@ -1,3 +1,6 @@
+.heading{
+  padding-top: 2em;
+}
 .main {
     display: flex;
     justify-content: center;
@@ -29,9 +32,9 @@ display: flex;
   }
   
   .iconBtn{
-    left: 46px;
-    position: absolute;
-    top: 39px;
+    position: relative;
+    /* left: 46px;
+    top: 39px; */
     background: #FFFFFF 0% 0% no-repeat padding-box;
   border: 5px solid #000000;
   border-radius: 18px;
@@ -131,7 +134,7 @@ display: flex;
       cursor: pointer;
   }
   
-  .topLogo{
+  /* .topLogo{
     width: 171px;
     height: 55px;
     position: absolute;
@@ -145,6 +148,10 @@ display: flex;
     position: absolute;
       top: 39px;
       left: 40px;
+  } */
+  .topLogo{
+    width: 100px;
+    height: 30px;
   }
   
   @media(max-width: 1600px){

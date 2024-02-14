@@ -231,7 +231,7 @@ const [selected, setSelected] = useState([]);
      
 
   return (
-    <div className='container-fluid p-0 mrgTop-8'>
+    <div className='container-fluid p-0 mrgTop-8 paymentDetailSec'>
      
      <div className='topsectionProp'>
         <button type='button' className={"addProp " + styles.iconBtn} onClick={goBack}>

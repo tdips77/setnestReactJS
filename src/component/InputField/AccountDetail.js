@@ -778,11 +778,11 @@ const handleShowNew = () => setShowNew(true);
           <Offcanvas.Title >
           {
               !showNew &&  
-           <p>Customize Plan</p> 
+           <p className='f600'>Customize Plan</p> 
           }
           {
               showNew &&  
-           <p>Payment Summary</p> 
+           <p className='f600'>Payment Summary</p> 
           }
           </Offcanvas.Title>
           
@@ -829,7 +829,7 @@ const handleShowNew = () => setShowNew(true);
 
           {
             showNew && 
-            <div>
+            <div className='accDeatilsModal'>
               <div className='row paySumm mb-4'>
                 <div className='col-8'>
                   <p className='mb-0'><strong>Basic Plan</strong></p>
@@ -839,14 +839,14 @@ const handleShowNew = () => setShowNew(true);
               </div>
               <div className='row mb-4'>
                 <div className='col-8'>
-                  <p className='mb-0'>Tax (GST 18%)</p>
+                  <p className='mb-0 txt'>Tax (GST 18%)</p>
                   
                 </div>
                 <div className='col-4 d-flex align-items-end justify-content-end'> <strong>₹ 18</strong> </div>
               </div>
               <div className='row mb-4'>
                 <div className='col-8'>
-                  <p className='mb-0'>Enter Promo code</p>
+                  <p className='mb-0 txt'>Enter Promo code</p>
                   
                 </div>
                 <div className='col-4'> 
@@ -858,7 +858,7 @@ const handleShowNew = () => setShowNew(true);
               <hr></hr>
               <div className='row mb-4'>
                 <div className='col-8'>
-                  <p className='mb-0'>Total Paid</p>
+                  <p className='mb-0 txt'>Total Paid</p>
                   
                 </div>
                 <div className='col-4 d-flex align-items-end justify-content-end'> 
