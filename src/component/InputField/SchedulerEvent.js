@@ -252,12 +252,13 @@ const [valueT, onChangeT] = useState('10:00');
                                         
                                       </div>
                                       <div className='col-2 d-flex flex-column gap-2 justify-content-center p-2'>
-                                      <button type="button" className='reject-btn' onClick={(event) => { handleShowNewCan(); event.stopPropagation() }}>
-                                        Reject
-                                      </button>
+                                     
                                       <button type='button' className=' accept-btn' >
                                           Accept
-                                        </button>
+                                      </button>
+                                      <button type="button" className='reject-btn' onClick={(event) => { handleShowNewCan(); event.stopPropagation() }}>
+                                      Reject
+                                      </button>
                                       </div>
                                       </span>
                                   </div>
@@ -273,12 +274,13 @@ const [valueT, onChangeT] = useState('10:00');
                                         
                                       </div>
                                       <div className='col-2 d-flex flex-column gap-2 justify-content-center p-2'>
-                                      <button type="button" className='reject-btn'  onClick={(event) => { handleShowNewCan(); event.stopPropagation() }}>
-                                        Reject
-                                      </button>
+                                      
                                       <button type='button' className=' accept-btn' >
                                           Accept
                                         </button>
+                                        <button type="button" className='reject-btn'  onClick={(event) => { handleShowNewCan(); event.stopPropagation() }}>
+                                        Reject
+                                      </button>
                                       </div>
                                       </span>
                                   </div>

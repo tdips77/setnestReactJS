@@ -208,7 +208,7 @@ const [valueT, onChangeT] = useState('10:00');
             <div className='row '>
                 <div className='col-12 col-md-12 listPropdPadd left-padding'>
                 <Card className='wd-100 mb-5 accCard '>
-                <Card.Header as="h5" className='p-4 bg-white'>Contracts</Card.Header>
+                <Card.Header as="h5" className='p-4 bg-white f600'>Contracts</Card.Header>
                     
                     <Card.Body>
                     <form onSubmit={handleSubmit(onSubmit)} className='mb-3'>

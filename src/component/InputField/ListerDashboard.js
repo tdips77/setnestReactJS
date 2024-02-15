@@ -9,19 +9,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import styles from '@/styles/Home.module.css';
 import  setnestlogo from '../../../public/assets/Setnest-copy.png';
-import editIcon from '../../../public/assets/editIcon.png'
-import one from '../../../public/assets/dashboard-icon/1.svg'
-import two from '../../../public/assets/dashboard-icon/2.svg'
-import three from '../../../public/assets/dashboard-icon/3.svg'
-import four from '../../../public/assets/dashboard-icon/4.svg'
-import fivesix from '../../../public/assets/dashboard-icon/5-6.svg'
-import seven from '../../../public/assets/dashboard-icon/7.svg'
-import eight from '../../../public/assets/dashboard-icon/8.svg'
-import nine from '../../../public/assets/dashboard-icon/9.svg'
-import ten from '../../../public/assets/dashboard-icon/10.svg'
-import reuest from '../../../public/assets/dashboard-icon/request.svg'
-import reports from '../../../public/assets/dashboard-icon/bad-feedback.svg'
-import rent from '../../../public/assets/dashboard-icon/rent.svg'
+import editIcon from '../../../public/assets/editIcon.png';
+import one from '../../../public/assets/dashboard-icon/1.svg';
+import two from '../../../public/assets/dashboard-icon/2.svg';
+import three from '../../../public/assets/dashboard-icon/3.svg';
+import four from '../../../public/assets/dashboard-icon/4.svg';
+import fivesix from '../../../public/assets/dashboard-icon/5-6.svg';
+import booking from '../../../public/assets/dashboard-icon/booking.svg';
+import seven from '../../../public/assets/dashboard-icon/7.svg';
+import eight from '../../../public/assets/dashboard-icon/8.svg';
+import nine from '../../../public/assets/dashboard-icon/9.svg';
+import ten from '../../../public/assets/dashboard-icon/10.svg';
+import reuest from '../../../public/assets/dashboard-icon/request.svg';
+import reports from '../../../public/assets/dashboard-icon/bad-feedback.svg';
+import rent from '../../../public/assets/dashboard-icon/rent.svg';
 import Image from 'next/image'
 import Carousel from 'react-bootstrap/Carousel';
 import crslimg from '../../../public/assets/crslImg.png';
@@ -120,8 +121,8 @@ const ListerDashboard = () => {
                           <h6 >Scheduler and <br></br> Events</h6></li>
                           </Link>
                           <Link href={"/bookingRequest"}>
-                          <li> <Image src={fivesix} className='img-fluid' alt='one' /> 
-                          <h6 >Rental <br></br> Request</h6></li>
+                          <li> <Image src={booking} className='img-fluid' alt='one' /> 
+                          <h6 >Booking <br></br> Request</h6></li>
                           </Link>
                           <Link href={"/contract"}>
                           <li> <Image src={fivesix} className='img-fluid' alt='one' />

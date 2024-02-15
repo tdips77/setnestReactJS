@@ -65,7 +65,7 @@ const handleShow = () => setShow(true);
         </button>
        
         </div>
-        <div className='container'>
+        <div className='container addProperty'>
             <div className='row '>
                 <div className='col-12 col-md-8'>
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-3 wd-100'>

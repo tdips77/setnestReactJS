@@ -242,7 +242,7 @@ const [selected, setSelected] = useState([]);
         </button>
        
         </div>
-        <div className='container'>
+        <div className='container rentHistorySection'>
             <div className='row '>
                 <div className='col-12 col-md-12 listPropdPadd left-padding'>
                 <Card className='wd-100 mb-5 accCard'>
@@ -254,8 +254,9 @@ const [selected, setSelected] = useState([]);
                     <Card.Body>
                     <form  className='mb-3'>
                     <div className='row'>
-                        <div className='col-6'>
-                        <div className='row mb-4'>
+                        <div className='col-lg-6 col-md-6 col-12'>
+                          <div className='historyBox'>
+                          <div className='row mb-4'>
                                   <div className='col-12'>
                                   <Form.Select aria-label="Floating label select example" className='filterImg'>
                                     <option>Property 1</option>
@@ -265,66 +266,68 @@ const [selected, setSelected] = useState([]);
                                     <option value="4">Property 5</option>
                                   </Form.Select>
                                   </div>
-                                </div>
-                                <div className='row pt-0 pb-0 p-3 mb-4 bg-light rounded'>
-                                  <span className='booking-list'>
-                                  <div className='col-8 d-flex gap-3'>
-                                  <Image src={profilePic} alt='profile' className='img-fluid' />
-                                      <div>
-                                      <p className='mb-0'><strong>HDFC Bank</strong></p>
-                                      <p className='mb-0'>xxxx-xxxx-xxxx-5689</p>
-                                      </div>
-                                      
-                                    </div>
-                                    <div className='col-4 text-end'>
-                                    <small className='mb-0'><strong>04 Oct 2021</strong></small>
-                                      <p className='mb-0'><strong>$ 399</strong></p>
-                                    </div>
-                                    
-                                    </span>
-                                    <div className='col-12 '>
-                                    <small className='mb-0'><strong>Next billing date : 04 Nov 2021</strong></small>
-                                    </div>
+                          </div>
+                          <div className='row pt-0 pb-0 p-3 mb-4 bg-gray rounded'>
+                            <span className='booking-list'>
+                            <div className='col-8 d-flex gap-3'>
+                            <Image src={profilePic} alt='profile' className='img-fluid' />
+                                <div>
+                                <p className='mb-0'><strong>HDFC Bank</strong></p>
+                                <p className='mb-0'>xxxx-xxxx-xxxx-5689</p>
                                 </div>
                                 
-                                <h6>Previous Transactions</h6>
-                                <div className='row pt-0 pb-0 p-3 mb-4'>
-                                  <span className='booking-list'>
-                                  <div className='col-8 d-flex gap-3'>
-                                  <Image src={profilePic} alt='profile' className='img-fluid ' />
-                                      <div>
-                                      <p className='mb-0'><strong>HDFC Bank</strong></p>
-                                      <p className='mb-0'>xxxx-xxxx-xxxx-5689</p>
-                                      </div>
-                                      
-                                    </div>
-                                    <div className='col-4 text-end'>
-                                    
-                                      <p ><strong>$ 399</strong></p>
-                                      <small className='mb-0 redClr'><strong>Download Invoice</strong></small>
-                                    </div>
-                                    </span>
+                              </div>
+                              <div className='col-4 text-end'>
+                              <small className='mb-0'><strong>04 Oct 2021</strong></small>
+                                <p className='mb-0'><strong>$ 399</strong></p>
+                              </div>
+                              
+                              </span>
+                              <div className='col-12 '>
+                              <small className='mb-0'><strong>Next billing date : 04 Nov 2021</strong></small>
+                              </div>
+                          </div>
+                          
+                          <h6 className='f600'>Previous Transactions</h6>
+                          <div className='row pt-0 pb-0 p-3 mb-4'>
+                            <span className='booking-list'>
+                            <div className='col-8 d-flex gap-3'>
+                            <Image src={profilePic} alt='profile' className='img-fluid ' />
+                                <div>
+                                <p className='mb-0'><strong>HDFC Bank</strong></p>
+                                <p className='mb-0'>xxxx-xxxx-xxxx-5689</p>
                                 </div>
-                                <div className='row pt-0 pb-0 p-3 mb-4'>
-                                  <span className='booking-list'>
-                                  <div className='col-8 d-flex gap-3'>
-                                  <Image src={profilePic} alt='profile' className='img-fluid bookProfil' />
-                                      <div>
-                                      <p className='mb-0'><strong>HDFC Bank</strong></p>
-                                      <p className='mb-0'>xxxx-xxxx-xxxx-5689</p>
-                                      </div>
-                                      
-                                    </div>
-                                    <div className='col-4 text-end'>
-                                    
-                                      <p ><strong>$ 399</strong></p>
-                                      <small className='mb-0 redClr'><strong>Download Invoice</strong></small>
-                                    </div>
-                                    </span>
+                                
+                              </div>
+                              <div className='col-4 text-end'>
+                              
+                                <p ><strong>$ 399</strong></p>
+                                <small className='mb-0 redClr'><strong>Download Invoice</strong></small>
+                              </div>
+                              </span>
+                          </div>
+                          <div className='row pt-0 pb-0 p-3 mb-4'>
+                            <span className='booking-list'>
+                            <div className='col-8 d-flex gap-3'>
+                            <Image src={profilePic} alt='profile' className='img-fluid bookProfil' />
+                                <div>
+                                <p className='mb-0'><strong>HDFC Bank</strong></p>
+                                <p className='mb-0'>xxxx-xxxx-xxxx-5689</p>
                                 </div>
+                                
+                              </div>
+                              <div className='col-4 text-end'>
+                              
+                                <p ><strong>$ 399</strong></p>
+                                <small className='mb-0 redClr'><strong>Download Invoice</strong></small>
+                              </div>
+                              </span>
+                          </div>
+                          </div>
                         </div>
-                        <div className='col-6'>
-                        <div className='row pt-0 pb-0 p-3 mb-4 bg-light rounded'>
+                        <div className='col-lg-6 col-md-6 col-12'>
+                          <div className='historyBox'>
+                          <div className='row mb-4 bg-contract rounded'>
                                   
                                   <div className='col-8 d-flex gap-3 mt-2 mb-2'>
                                   
@@ -381,7 +384,8 @@ const [selected, setSelected] = useState([]);
                                       
                                     </div>
                                     
-                                </div>
+                          </div>
+                          </div>
                         </div>
                     </div>
                     </form>

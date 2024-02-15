@@ -357,7 +357,7 @@ border-radius: 11px;
 color: #FFFFFF;
 border: none;
 cursor: pointer;
-height: 40px;
+height: 38px;
 }
 .reject-btn{
   width: 100%;
@@ -366,7 +366,7 @@ background: #FFFFFF 0% 0% no-repeat padding-box;
 border-radius: 11px;
 color: #F9415A;
 cursor: pointer;
-height: 31px;
+height: 38px;
 }
 .contract-btn{
   width: 100%;
@@ -2032,6 +2032,31 @@ input:-webkit-autofill{
 .listPropSection form .limit{
   color: #000000;
   opacity: 50%;
+}
+.addProperty h5{
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.modalHead{
+  font-weight: 600;
+}
+.card-header h5{
+  font-weight: 600;
+}
+.historyBox{
+  padding: 0 2em;
+}
+.rentHistorySection .card-header h5{
+  padding-left: 1em;
+}
+.rentHistorySection .bg-contract{
+  background: #F6F6F6;
+  border-radius: 19px !important;
+  padding: 0.6em 1em;
+}
+.rentHistorySection .bg-gray{
+  background: #F6F6F6;
+  border-radius: 19px !important;
 }
 
 @media(max-width:1600px){

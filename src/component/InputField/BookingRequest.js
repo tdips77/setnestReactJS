@@ -216,7 +216,7 @@ const handleShowNew = () => setShowNew(true);
                 <Card className='wd-100 mb-5 accCard '>
                 {
                   !showTenant &&
-                  <Card.Header as="h5" className='p-4 bg-white'>Booking Request</Card.Header>
+                  <Card.Header as="h5" className='p-4 bg-white f600'>Booking Request</Card.Header>
 
                 }
                 {

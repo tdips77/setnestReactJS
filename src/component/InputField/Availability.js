@@ -369,7 +369,7 @@ const [selected, setSelected] = useState([]);
           <Offcanvas.Title >
            
            
-            <h5>Upload Contract</h5>
+            <h5 className='modalHead'>Upload Contract</h5>
            
             
           </Offcanvas.Title>
