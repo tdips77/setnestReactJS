@@ -561,8 +561,8 @@ const TenantReportIssue = () => {
                               <p className="mb-0 fnt-13">
                                 <strong>Title</strong>
                               </p>
-                              <p>
-                                <small>Microbe Wave Broken</small>
+                              <p >
+                                <small className="f600">Microbe Wave Broken</small>
                               </p>
                               <p className="mb-0 fnt-13">
                                 <strong>Message</strong>
@@ -603,7 +603,7 @@ const TenantReportIssue = () => {
                       )}
                     </div>
                     <div className="col-6 p-0">
-                      <Card className="h-100 border-end-0 border-bottom-0 rounded-0">
+                      <Card className="h-100 border-end-0 border-bottom-0 rounded-0 innerCardBody">
                         <Card.Header className="bg-white height-49px align-items-center d-flex">
                           {showReject && (
                             <p className="mb-0">

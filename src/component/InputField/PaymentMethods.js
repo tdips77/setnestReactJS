@@ -206,7 +206,8 @@ const [otp, setOtp] = useState('');
      
 
   return (
-    <div className='container-fluid p-0 mrgTop-8'>
+    <div className={'yellowBg padding8 mainDiv ' + `${(!paymentSucces ? 'nocolor' : '')}` }>
+    <div className='container-fluid '>
      
      <div className='topsectionProp'>
         {
@@ -226,8 +227,8 @@ const [otp, setOtp] = useState('');
         
        
         </div>
-        <div className='container'>
-            <div className='row '>
+        <div className='container paymentMethodSec '>
+            <div className='row'>
             {
                     !paymentSucces &&
                 <div className='col-12 col-md-12 listPropdPadd left-padding'>
@@ -269,7 +270,7 @@ const [otp, setOtp] = useState('');
                     paymentSucces &&
                     <div className='col-12 col-md-12 listPropdPadd left-padding'>
                 <Card className='wd-100 mb-5 accCard'>
-                <Card.Header as="h5" className='p-4 bg-white'>Payment Method</Card.Header>
+                <Card.Header as="h5" className='p-4 bg-white f600'>Payment Method</Card.Header>
                     
                     <Card.Body>
                     <form className='mb-3'>
@@ -283,7 +284,7 @@ const [otp, setOtp] = useState('');
                                   <Image src={axisbank} alt='profile' />
                                       <div>
                                       <p className='mb-0'><strong>Axis bank</strong></p>
-                                      <p className='mb-0 fnt-13'>Keep your card info secure when shopping</p>
+                                      <p className='mb-0 fnt-13 txt'>Keep your card info secure when shopping</p>
                                      
                                       </div>
                                       
@@ -291,14 +292,14 @@ const [otp, setOtp] = useState('');
                                     
                                     </span>
                                 </div>
-                                <p className=' fnt-13'>This is your default bank account</p>
+                                <p className='fnt-13 txt'>This is your default bank account</p>
                                 <div className='row pt-0 pb-0 p-3 mb-4' onClick={(event) => { handlePaymentSucc(); event.stopPropagation() }}>
                                   <span className='booking-list'>
                                   <div className='col-10 d-flex align-items-center gap-2'>
                                   <Image src={axisbank} alt='profile' />
                                       <div>
                                       <p className='mb-0'><strong>Axis bank</strong></p>
-                                      <p className='mb-0 fnt-13'>Keep your card info secure when shopping</p>
+                                      <p className='mb-0 fnt-13 txt'>Keep your card info secure when shopping</p>
                                      
                                       </div>
                                       
@@ -325,7 +326,7 @@ const [otp, setOtp] = useState('');
                                   <Image src={axisbank} alt='profile' />
                                       <div>
                                       <p className='mb-0'><strong>Axis bank</strong></p>
-                                      <p className='mb-0 fnt-13'>Keep your card info secure when shopping</p>
+                                      <p className='mb-0 fnt-13 txt'>Keep your card info secure when shopping</p>
                                      
                                       </div>
                                       
@@ -490,7 +491,7 @@ const [otp, setOtp] = useState('');
           <Offcanvas.Title >
            
            
-            <h5>Add Payment Method</h5>
+            <h5 className='modalHead'>Add Payment Method</h5>
            
             
           </Offcanvas.Title>
@@ -503,61 +504,61 @@ const [otp, setOtp] = useState('');
           have chosen. Like, text, images, lists, etc. */}
           {
             !showStep2  &&
-          <div>
+          <div className='payModal'>
           <div className='row mb-4'>
-                                        <div className='col-12 text-center'>
-                                            <Image src={addbank1} alt='bank' className='img-fluid w-50' onClick={handleShowStep}/>
-                                        </div>
-                                    </div>
-                                    <p><strong>Add Bank</strong></p>
-                                    <div className='row mb-4'>
-                                        <div className='col-12 position-relative'>
-                                          <label className='drpdLabel'>Choose Your Bank</label>
-                                          <Dropdown className='bankDrp'>
-                                          <Dropdown.Toggle variant="transparent" id="dropdown-autoclose-true" autoClose={true}>
-                                           {selectedtext}
-                                          </Dropdown.Toggle>
+              <div className='col-12 text-center'>
+                  <Image src={addbank1} alt='bank' className='img-fluid w-50' onClick={handleShowStep}/>
+              </div>
+          </div>
+          <p><strong>Add Bank</strong></p>
+          <div className='row mb-4'>
+              <div className='col-12 position-relative'>
+                <label className='drpdLabel'>Choose Your Bank</label>
+                <Dropdown className='bankDrp'>
+                <Dropdown.Toggle variant="transparent" id="dropdown-autoclose-true" autoClose={true}>
+                  {selectedtext}
+                </Dropdown.Toggle>
 
-                                          <Dropdown.Menu  >
-                                            <Dropdown.Item eventKey="1" onClick={(event) => { selectItemClick('Axis Bank'); event.stopPropagation() }}> <Image src= {axisbank} alt='axis'  width="20" height="15" /> Axis Bank</Dropdown.Item>
-                                           
-                                            
-                                          </Dropdown.Menu>
-                                        </Dropdown>
-        
-                                        </div>
-                                    </div>
-                                    <small className='text-black-50'>Log in to your online banking to link your account instantly.</small>
-                                    <div className='row mt-4 mb-4'>
-                                      <div className='col-12 mb-3'>
-                                      <FloatingLabel controlId="floatingPassword" label="Enter Card Number(16 digit) - Axis">
-                                        <Form.Control type="text" value={'1010 1012 2310 2013'} />
-                                      </FloatingLabel>
-                                      </div>
+                <Dropdown.Menu  >
+                  <Dropdown.Item eventKey="1" onClick={(event) => { selectItemClick('Axis Bank'); event.stopPropagation() }}> <Image src= {axisbank} alt='axis'  width="20" height="15" /> Axis Bank</Dropdown.Item>
+                  
+                  
+                </Dropdown.Menu>
+              </Dropdown>
 
-                                      <div className='col-12'>
-                                      <FloatingLabel controlId="floatingPassword" label="Enter Password">
-                                        <Form.Control type="password" />
-                                      </FloatingLabel>
-                                      </div>
-                                    </div>
-                                    <small className='text-black-50'>Log in to your online banking to link your account instantly.</small>
+              </div>
+          </div>
+          <small className='text-black-50'>Log in to your online banking to link your account instantly.</small>
+          <div className='row mt-4 mb-4'>
+            <div className='col-12 mb-3'>
+            <FloatingLabel controlId="floatingPassword" label="Enter Card Number(16 digit) - Axis">
+              <Form.Control type="text" value={'1010 1012 2310 2013'} />
+            </FloatingLabel>
+            </div>
+
+            <div className='col-12'>
+            <FloatingLabel controlId="floatingPassword" label="Enter Password">
+              <Form.Control type="password" />
+            </FloatingLabel>
+            </div>
+          </div>
+          <small className='text-black-50'>Log in to your online banking to link your account instantly.</small>
 
 
-                                    <button type='button' className=' mt-4 mb-4 contract-red-btn rounded-pill' onClick={handleShow}>
-                                    Agree and Link
-                                    </button>
+          <button type='button' className=' mt-4 mb-4 contract-red-btn rounded-pill' onClick={handleShow}>
+          Agree and Link
+          </button>
 
-                                    <span className='d-block position-relative'>
-                                      <span className='linePassText'>Or</span>
-                                      <hr></hr>
-                                    </span>
-                                    <div className='row'>
-                                        <div className='col-12 text-center'>
-                                          <p className='redClr mb-0'>Link your bank another way</p>
-                                          <p>(Take 2-3 business days.)</p>
-                                        </div>
-                                    </div>
+          <span className='d-block position-relative'>
+            <span className='linePassText'>Or</span>
+            <hr></hr>
+          </span>
+          <div className='row'>
+              <div className='col-12 text-center'>
+                <p className='redClr mb-0'>Link your bank another way</p>
+                <p className='f500'>(Take 2-3 business days.)</p>
+              </div>
+          </div>
           </div>
           }
 
@@ -616,6 +617,7 @@ const [otp, setOtp] = useState('');
         </Offcanvas.Body>
         
       </Offcanvas>
+    </div>
     </div>
   );
 };

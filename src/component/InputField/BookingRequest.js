@@ -201,7 +201,8 @@ const handleShowNew = () => setShowNew(true);
      
 
   return (
-    <div className='container-fluid p-0 mrgTop-8'>
+    <div className='padding8 mainDiv grayBg'>
+    <div className='container-fluid p-0 '>
      
      <div className='topsectionProp'>
         <button type='button' className={"addProp " + styles.iconBtn} onClick={goBack}>
@@ -221,7 +222,7 @@ const handleShowNew = () => setShowNew(true);
                 }
                 {
                   showTenant &&
-                  <Card.Header as="h5" className='p-4 bg-white'>All Request</Card.Header>
+                  <Card.Header as="h5" className='p-4 bg-white f600'>All Request</Card.Header>
 
                 }
                     
@@ -544,6 +545,7 @@ const handleShowNew = () => setShowNew(true);
         
 
       </Modal>
+    </div>
     </div>
   );
 };
