@@ -216,12 +216,12 @@ const ListerDashboard = () => {
             Search
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className='searchModal'>
           <div className='row'>
               <div className='col-12 col-md-6'>
                 <div className='row'>
                   <div className='col-12'>
-                  <label className='mb-3'>Price Range</label>
+                  <label className='mb-3 label'>Price Range</label>
                   <ReactSlider
                     className="horizontal-slider"
                     thumbClassName="example-thumb"
@@ -289,7 +289,7 @@ const ListerDashboard = () => {
               <div className='col-12 col-md-6'>
               <div className='row'>
                   <div className='col-12'>
-                    <label className='mb-3'>Property Area</label>
+                    <label className='mb-3 label'>Property Area</label>
                   <ReactSlider
                     className="horizontal-slider"
                     thumbClassName="example-thumb"

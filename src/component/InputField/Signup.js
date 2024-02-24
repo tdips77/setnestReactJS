@@ -70,12 +70,12 @@ const SignUp = () => {
             <div className='row side-padding'>
                 <div className='col-lg-6 col-md-6 col-12 left-padding'>
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-3 signUpForm'>
-                    <h5 className='mb-4'>Sign up</h5>
+                    <h5 className='mb-4 f600'>Sign up</h5>
         <div>
 
         <FloatingLabel
         controlId="floatingInput"
-        label="Email address"
+        label="Email ID"
         
       >
         <Form.Control type="email" placeholder="name@example.com" {...register('email')}/>
@@ -105,7 +105,7 @@ const SignUp = () => {
         
             <div className='mt-4 text-center otpInput'>
               <p>We have sent the verification OTP to your email address.</p>
-              <p>@emailid <Image src={editIcon} className='img-fluid editIcon' alt='logo' /> </p>
+              <p>@emailid <Image src={editIcon} className='img-fluid editIcon' alt='logo' /> <span className='edittxt'>Edit</span></p>
             {/* <OTPInput className='otpInput' value={OTP} onChange={handleChange} autoFocus OTPLength={6} otpType="number" disabled={false}  /> */}
           <div className={'otpDiv'}>
           <OtpInput

@@ -96,7 +96,7 @@ const ForgetPassword = () => {
         
                     <div className='mt-4 text-center otpInput'>
                     <p>We have sent the verification OTP to your mobile no.</p>
-              <     p className='mobile'> +91 987654321 <Image src={editIcon} className='img-fluid editIcon' alt='logo' /> <span>Edit</span>  </p>
+              <p className='mobile'> +91 987654321 <Image src={editIcon} className='ms-2 img-fluid editIcon' alt='logo' /> <span>Edit</span></p>
                     {/* <OTPInput className='otpInput' value={OTP} onChange={handleChange} autoFocus OTPLength={6} otpType="number" disabled={false}  /> */}
                     <div className={'otpDiv'}>
                     <OtpInput

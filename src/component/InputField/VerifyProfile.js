@@ -59,7 +59,7 @@ const VerifyProfile = () => {
   
 
   return (
-    <div className='container-fluid main-set '>
+    <div className='container-fluid main-set verifyPage'>
        <div className='topsection'>
         <button type='button' className={`${styles.iconBtn}`} onClick={goBack}>
         {/* <FontAwesomeIcon icon="fa-solid fa-arrow-left" /> */}

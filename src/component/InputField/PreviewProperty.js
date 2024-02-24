@@ -7,6 +7,9 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faShare } from '@fortawesome/free-solid-svg-icons';
+
 import styles from '@/styles/Home.module.css';
 
 import Image from 'next/image'
@@ -27,7 +30,6 @@ import WasherWashingMachine from '../../../public/assets/my-property/WasherWashi
 import DishWasher from '../../../public/assets/my-property/Dish_Washer.svg';
 import pdf from '../../../public/assets/my-property/pdf.svg';
 import download from '../../../public/assets/my-property/download.svg';
-
 
 
 import Offcanvas from 'react-bootstrap/Offcanvas';
@@ -162,7 +164,7 @@ const [showMod, setShowMod] = useState(false);
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-3 wd-100'>
         <div className='row'>
             <div className='col-6'>
-            <h5 className='mb-0'>4 BHK Independent House</h5>
+            <h5 className='mb-0'>4 BHK Independent House  <FontAwesomeIcon icon={faHeart} className='ms-3' /> <FontAwesomeIcon icon={faShare} className='ms-2'/></h5>
         <p className='mb-4 branding'>2 bedroom . 1 bathroom . 900 Sq ft</p>
             </div>
             <div className='col-6 text-right'>

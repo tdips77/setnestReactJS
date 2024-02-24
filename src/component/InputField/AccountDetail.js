@@ -375,7 +375,7 @@ const handleShowNew = () => setShowNew(true);
             <div className='row '>
                 <div className='col-12 col-md-12 listPropdPadd left-padding'>
                 <Card className='wd-100 mb-5 accCard'>
-                <Card.Header as="h1" className='p-4'>Account Detail</Card.Header>
+                <Card.Header as="h1" className='p-4'>Account Details</Card.Header>
                     
                     <Card.Body>
                     <form onSubmit={handleSubmit(onSubmit)} className='mb-3'>
@@ -474,7 +474,7 @@ const handleShowNew = () => setShowNew(true);
                 </p>
             </div>
             </div>
-                <div className='row mt-5'>
+                <div className='row'>
                   <div className='col-12'>
                   <FloatingLabel controlId="floatingPassword" label="Pincode">
                     <Form.Control type="text" placeholder="Pincode"/>
@@ -584,7 +584,7 @@ const handleShowNew = () => setShowNew(true);
                             </Tab>
                             }
                             
-                            <Tab eventKey="financial" title="Financial Details" >
+                            <Tab eventKey="financial" title="Payment Method" >
                               {!showTenant &&
                               <div className='row accFinac'>
                               <div className='col p-4 position-relative'>
