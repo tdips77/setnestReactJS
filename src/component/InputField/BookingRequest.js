@@ -211,7 +211,7 @@ const handleShowNew = () => setShowNew(true);
         </button>
        
         </div>
-        <div className='container'>
+        <div className='container bookingReqPage'>
             <div className='row '>
                 <div className='col-12 col-md-12 listPropdPadd left-padding'>
                 <Card className='wd-100 mb-5 accCard '>
@@ -237,10 +237,8 @@ const handleShowNew = () => setShowNew(true);
                             id="controlled-tab-example"
                             activeKey={key}
                             onSelect={(k) => setKey(k)}
-                            className="mb-3"
-                            
                             >
-                            <Tab eventKey="home" title="All">
+                            <Tab eventKey="home" className='contents'>
                                 <div className='row mb-4'>
                                   <div className='col-4'>
                                   <Form.Select aria-label="Floating label select example" className='filterImg'>

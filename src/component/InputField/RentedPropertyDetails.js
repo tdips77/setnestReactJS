@@ -193,7 +193,7 @@ const handleShowInspection = () => setShowInspection(true);
         "Inspection",
     },
     {
-      label: "Key Received",
+      label: "Key Handover",
       button: `Confirm`,
      
     },
@@ -222,7 +222,7 @@ const handleShowInspection = () => setShowInspection(true);
         price: '$ 449'
     },
     {
-      label: "Key Received",
+      label: "Key Handover",
       caption: `Completed on 29 Feb 2023`,
      
     },
@@ -523,7 +523,7 @@ const handleShowInspection = () => setShowInspection(true);
                           )}
                           {(showReject && !showDetails) && (
                             <p className="mb-0">
-                            <strong>Status:</strong>{" "}
+                            <strong>Notice Status:</strong>{" "}
                             <span className="blue-clr">Acknowledged</span>
                           </p>
                           )}
@@ -1475,7 +1475,7 @@ const handleShowInspection = () => setShowInspection(true);
           
         </Modal.Header>
         <Modal.Body className='p-4 pt-0 pb-2'>
-          <h5 className="text-center">Add Notice</h5>
+          <h5 className="text-center">Send Notice</h5>
          <small > <strong>Notice Start Date</strong> </small> 
           <p className="mb-0"> <strong>22 Jan 2023</strong> </p>
           <p className="fnt-13 text-black-50">Notice period counted as 1st February to 29th February</p>

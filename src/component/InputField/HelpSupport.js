@@ -284,7 +284,7 @@ const HelpSupport = () => {
                       </div>
 
 
-                      <h6>FAQ</h6>
+                      <h6 className='f600'>FAQ</h6>
                       <Accordion defaultActiveKey="0" className='border-0'>
                         <Accordion.Item eventKey="0" className='border-0 mb-3'>
                           <Accordion.Header className='bg-white faqHead'>Manage my account</Accordion.Header>

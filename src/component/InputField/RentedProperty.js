@@ -223,7 +223,7 @@ const [activeButton, setActiveButton] = useState('button1');
         button2: "Negotiate"
     },
     {
-      label: "Key Received",
+      label: "Key Handover",
       button: `Confirm`,
      
     },
@@ -252,7 +252,7 @@ const [activeButton, setActiveButton] = useState('button1');
         price: '$ 449'
     },
     {
-      label: "Key Received",
+      label: "Key Handover",
       caption: `Completed on 29 Feb 2023`,
      
     },
@@ -334,7 +334,7 @@ const [activeButton, setActiveButton] = useState('button1');
                                   </div>
 
                                   <div className="col-9 pt-1 pb-1">
-                                    <p className="mb-0 fnt-13">
+                                    <p className="mb-0 fnt-14">
                                       <strong>Naraina Industrial Estate</strong>
                                     </p>
                                     <div className="row"> 
@@ -382,7 +382,7 @@ const [activeButton, setActiveButton] = useState('button1');
                                   </div>
 
                                   <div className="col-9 pt-1 pb-1">
-                                    <p className="mb-0 fnt-13">
+                                    <p className="mb-0 fnt-14">
                                       <strong>Naraina Industrial Estate</strong>
                                     </p>
                                     <div className="row"> 
@@ -430,7 +430,7 @@ const [activeButton, setActiveButton] = useState('button1');
                                   </div>
 
                                   <div className="col-9 pt-1 pb-1">
-                                    <p className="mb-0 fnt-13">
+                                    <p className="mb-0 fnt-14">
                                       <strong>Naraina Industrial Estate</strong>
                                     </p>
                                     <div className="row"> 
@@ -478,7 +478,7 @@ const [activeButton, setActiveButton] = useState('button1');
                                   </div>
 
                                   <div className="col-9 pt-1 pb-1">
-                                    <p className="mb-0 fnt-13">
+                                    <p className="mb-0 fnt-14">
                                       <strong>Naraina Industrial Estate</strong>
                                     </p>
                                     <div className="row"> 
@@ -526,7 +526,7 @@ const [activeButton, setActiveButton] = useState('button1');
                                   </div>
 
                                   <div className="col-9 pt-1 pb-1">
-                                    <p className="mb-0 fnt-13">
+                                    <p className="mb-0 fnt-14">
                                       <strong>Naraina Industrial Estate</strong>
                                     </p>
                                     <div className="row"> 
@@ -574,7 +574,7 @@ const [activeButton, setActiveButton] = useState('button1');
                                   </div>
 
                                   <div className="col-9 pt-1 pb-1">
-                                    <p className="mb-0 fnt-13">
+                                    <p className="mb-0 fnt-14">
                                       <strong>Naraina Industrial Estate</strong>
                                     </p>
                                     <div className="row"> 
@@ -622,7 +622,7 @@ const [activeButton, setActiveButton] = useState('button1');
                                   </div>
 
                                   <div className="col-9 pt-1 pb-1">
-                                    <p className="mb-0 fnt-13">
+                                    <p className="mb-0 fnt-14">
                                       <strong>Naraina Industrial Estate</strong>
                                     </p>
                                     <div className="row"> 
@@ -670,7 +670,7 @@ const [activeButton, setActiveButton] = useState('button1');
                                   </div>
 
                                   <div className="col-9 pt-1 pb-1">
-                                    <p className="mb-0 fnt-13">
+                                    <p className="mb-0 fnt-14">
                                       <strong>Naraina Industrial Estate</strong>
                                     </p>
                                     <div className="row"> 
@@ -718,7 +718,7 @@ const [activeButton, setActiveButton] = useState('button1');
                                   </div>
 
                                   <div className="col-9 pt-1 pb-1">
-                                    <p className="mb-0 fnt-13">
+                                    <p className="mb-0 fnt-14">
                                       <strong>Naraina Industrial Estate</strong>
                                     </p>
                                     <div className="row"> 
@@ -772,7 +772,7 @@ const [activeButton, setActiveButton] = useState('button1');
                                   </div>
 
                                   <div className="col-9 pt-1 pb-1">
-                                    <p className="mb-0 fnt-13">
+                                    <p className="mb-0 fnt-14">
                                       <strong>Naraina Industrial Estate</strong>
                                     </p>
                                     <div className="row"> 
@@ -820,7 +820,7 @@ const [activeButton, setActiveButton] = useState('button1');
                                   </div>
 
                                   <div className="col-9 pt-1 pb-1">
-                                    <p className="mb-0 fnt-13">
+                                    <p className="mb-0 fnt-14">
                                       <strong>Naraina Industrial Estate</strong>
                                     </p>
                                     <div className="row"> 
@@ -868,7 +868,7 @@ const [activeButton, setActiveButton] = useState('button1');
                                   </div>
 
                                   <div className="col-9 pt-1 pb-1">
-                                    <p className="mb-0 fnt-13">
+                                    <p className="mb-0 fnt-14">
                                       <strong>Naraina Industrial Estate</strong>
                                     </p>
                                     <div className="row"> 
@@ -916,7 +916,7 @@ const [activeButton, setActiveButton] = useState('button1');
                                   </div>
 
                                   <div className="col-9 pt-1 pb-1">
-                                    <p className="mb-0 fnt-13">
+                                    <p className="mb-0 fnt-14">
                                       <strong>Naraina Industrial Estate</strong>
                                     </p>
                                     <div className="row"> 
@@ -964,7 +964,7 @@ const [activeButton, setActiveButton] = useState('button1');
                                   </div>
 
                                   <div className="col-9 pt-1 pb-1">
-                                    <p className="mb-0 fnt-13">
+                                    <p className="mb-0 fnt-14">
                                       <strong>Naraina Industrial Estate</strong>
                                     </p>
                                     <div className="row"> 
@@ -1012,7 +1012,7 @@ const [activeButton, setActiveButton] = useState('button1');
                                   </div>
 
                                   <div className="col-9 pt-1 pb-1">
-                                    <p className="mb-0 fnt-13">
+                                    <p className="mb-0 fnt-14">
                                       <strong>Naraina Industrial Estate</strong>
                                     </p>
                                     <div className="row"> 
@@ -1060,7 +1060,7 @@ const [activeButton, setActiveButton] = useState('button1');
                                   </div>
 
                                   <div className="col-9 pt-1 pb-1">
-                                    <p className="mb-0 fnt-13">
+                                    <p className="mb-0 fnt-14">
                                       <strong>Naraina Industrial Estate</strong>
                                     </p>
                                     <div className="row"> 
@@ -1108,7 +1108,7 @@ const [activeButton, setActiveButton] = useState('button1');
                                   </div>
 
                                   <div className="col-9 pt-1 pb-1">
-                                    <p className="mb-0 fnt-13">
+                                    <p className="mb-0 fnt-14">
                                       <strong>Naraina Industrial Estate</strong>
                                     </p>
                                     <div className="row"> 
@@ -1156,7 +1156,7 @@ const [activeButton, setActiveButton] = useState('button1');
                                   </div>
 
                                   <div className="col-9 pt-1 pb-1">
-                                    <p className="mb-0 fnt-13">
+                                    <p className="mb-0 fnt-14">
                                       <strong>Naraina Industrial Estate</strong>
                                     </p>
                                     <div className="row"> 
@@ -1228,7 +1228,7 @@ const [activeButton, setActiveButton] = useState('button1');
                                   </div>
 
                                   <div className="col-9 pt-3 pb-3">
-                                    <p className="mb-0 fnt-13">
+                                    <p className="mb-0 fnt-14">
                                       <strong>Naraina Industrial Estate</strong>
                                     </p>
                                     <div className="row"> 
@@ -1459,7 +1459,7 @@ const [activeButton, setActiveButton] = useState('button1');
                           
                           
                             <p className="mb-0">
-                            <strong>Status:</strong>{" "}
+                            <strong>Notice Status:</strong>{" "}
                             <span className="blue-clr">Acknowledged</span>
                           </p>
                           
@@ -2035,17 +2035,17 @@ const [activeButton, setActiveButton] = useState('button1');
         <Offcanvas.Body>
         
                     <div className="row">
-                        <div className="col-12">
-                            <p className="fnt-13 text-black-50">
+                        <div className="col-12 disclaimer">
+                            <p className="fnt-13">
                             Dear Tenant,
                             </p>
-                            <p className="fnt-13 text-black-50">
+                            <p className="fnt-13">
                             When you are renting a property and you decide to move out, it is important to give The lister or your landlord or property manager sufficient notice so that they can find a new tenant to take over your lease. The notice period required can vary depending on your rental agreement and local rental laws. 
                             </p>
-                            <p className="fnt-13 text-black-50">
+                            <p className="fnt-13">
                             One important thing to keep in mind is that when you give notice, the current active month is not typically considered as the notice period. Instead, the next rest month is usually considered the notice month. For example, let say you decide to move out of your rented apartment on April 15th, and your rental agreement requires you to give one month notice. In this scenario, the notice period would start on May 1st, and your last day in the apartment would be May 31st. This is because the notice period typically starts on the first day of the next rental period, which is the rent month following the current active month. Giving notice in this way ensures that you give your landlord or property manager sufficient time to find a new tenant.
                             </p>
-                            <p className="fnt-13 text-black-50">
+                            <p className="fnt-13">
                             It also helps to ensure a smooth transition for both you and the new tenant. It is important to check your rental agreement and local rental laws to determine the required notice period and when the notice period should start. By doing so, you can avoid any confusion or misunderstandings with your landlord or property manager and ensure that you leave the property on good terms.
                             </p>
                         </div>
@@ -2074,7 +2074,7 @@ const [activeButton, setActiveButton] = useState('button1');
           
         </Modal.Header>
         <Modal.Body className='p-4 pt-0 pb-2'>
-          <h5 className="text-center">Add Notice</h5>
+          <h5 className="text-center">Send Notice</h5>
          <small > <strong>Notice Start Date</strong> </small> 
           <p className="mb-0"> <strong>22 Jan 2023</strong> </p>
           <p className="fnt-13 text-black-50">Notice period counted as 1st February to 29th February</p>

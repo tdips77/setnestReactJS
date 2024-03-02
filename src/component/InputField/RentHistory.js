@@ -258,7 +258,7 @@ const RentHistory = () => {
                       <div className='historyBox'>
                         <div className='row mb-4'>
                           <div className='col-12'>
-                            <Form.Select aria-label="Floating label select example" className='filterImg'>
+                            <Form.Select aria-label="Floating label select example" className='dropdownImg'>
                               <option>Property 1</option>
                               <option value="1">Property 2</option>
                               <option value="2">Property 3</option>

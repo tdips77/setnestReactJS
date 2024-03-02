@@ -93,10 +93,10 @@ const SearchProperty = () => {
             <div className='row'>
                 <div className='col-12  myPropHead' fixed="top">
                     <div className='container'>
-                    <h4>Search Property</h4>
+                    <h4 className='f600 mb-2'>Search Property</h4>
                     <div className='row justify-content-between'>
                     <div className='col-6 col-md-3 position-relative'>
-                    <FontAwesomeIcon icon={faArrowLeft} className='srchLeft'/>
+                    {/* <FontAwesomeIcon icon={faArrowLeft} className='srchLeft'/> */}
                     <Form.Control type="text" placeholder="Search" className='srchInpt' />
                     <Image src={search} alt='srch' className='position-absolute srchIcon'/>
                     </div>

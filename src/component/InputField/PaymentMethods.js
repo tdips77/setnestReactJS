@@ -207,7 +207,7 @@ const [otp, setOtp] = useState('');
 
   return (
     <div className={'yellowBg padding8 mainDiv ' + `${(!paymentSucces ? 'nocolor' : '')}` }>
-    <div className='container-fluid '>
+    <div className='container-fluid payMethodPage'>
      
      <div className='topsectionProp'>
         {
@@ -276,7 +276,7 @@ const [otp, setOtp] = useState('');
                     <form className='mb-3'>
                        
                         <div className='row justify-content-center position-relative'>
-                            <div className='col-5' >
+                            <div className='col-lg-6 col-md-6 col-12' >
                                 <p><strong>Linked Bank Account</strong></p>
                             <div className='row pt-0 pb-0 p-3' onClick={(event) => { handlePaymentSucc(); event.stopPropagation() }}>
                                   <span className='booking-list'>
@@ -346,21 +346,7 @@ const [otp, setOtp] = useState('');
                                     </div>
                                     </span>
                                 </div>
-                                <p><strong>Linked Card</strong></p>
-                                <div className='row pt-0 pb-0 p-3 mb-4' onClick={(event) => { handlePaymentSucc(); event.stopPropagation() }}>
-                                  <span className='booking-list'>
-                                  <div className='col-10 d-flex align-items-center gap-2'>
-                                  <Image src={icici} alt='profile' />
-                                      <div>
-                                      <p className='mb-0'><strong>ICICI debit card</strong></p>
-                                      <p className='mb-0 fnt-13'>Keep your card info secure when shopping</p>
-                                     
-                                      </div>
-                                      
-                                    </div>
-                                    
-                                    </span>
-                                </div>
+                                
                                 <p><strong>Add New Payment Method</strong></p>
                                 <div className='row pt-0 pb-0 p-3 mb-4' onClick={(event) => { handlePaymentSucc(); event.stopPropagation() }}>
                                   <span className='booking-list'>
@@ -412,7 +398,25 @@ const [otp, setOtp] = useState('');
                                     </span>
                                 </div>
                             </div>
-                            <div className='col-7'></div>
+                            <div className='col-lg-6 col-md-6 col-12'>
+                              <div>
+                                <p><strong>Linked Card</strong></p>
+                                <div className='row pt-0 pb-0 p-3 mb-4' onClick={(event) => { handlePaymentSucc(); event.stopPropagation() }}>
+                                  <span className='booking-list'>
+                                  <div className='col-10 d-flex align-items-center gap-2'>
+                                  <Image src={icici} alt='profile' />
+                                      <div>
+                                      <p className='mb-0'><strong>ICICI debit card</strong></p>
+                                      <p className='mb-0 fnt-13'>Keep your card info secure when shopping</p>
+                                     
+                                      </div>
+                                      
+                                    </div>
+                                    
+                                    </span>
+                                </div>
+                              </div>
+                            </div>
                            
                             
                             

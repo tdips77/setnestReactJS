@@ -654,6 +654,10 @@ align-items: center;
 .filterImg{
   background-image: url('../../public/assets/filter-icon.svg') !important;
 }
+.dropdownImg {
+  background-image: url('../../public/assets/dashboard-icon/arrowdown.png') !important;
+  background-size: 15px 15px !important;
+}
 .addPropBtn{
   background: #FFFFFF 0% 0% no-repeat padding-box;
 border: 1px solid #F9415A;
@@ -1416,9 +1420,8 @@ padding: 10px 10px 3px;
     cursor: pointer;
 }
 .scrollDiv{
-  height: 300px;
+  height: 322px;
   overflow: auto;
-  padding: 0 20px;
 }
 .scrollDiv::-webkit-scrollbar{
   display: none !important;
@@ -2171,7 +2174,60 @@ input:-webkit-autofill{
 .searchModal .label{
   font-weight: 600;
 }
-
+.filterImg.form-select{
+  border: 1px solid #666666;
+  border-radius: 16px !important;
+  font-size: 14px;
+  font-weight: 600;
+  color: #060606;
+opacity: 0.91;
+}
+.bookingReqPage .nav-tabs, .reportIssue .nav-tabs{
+border: none;
+}
+.reportIssue .contents{
+  padding-top: 1.3em;
+}
+.reportIssue .boxBody{
+  border: 2px solid #C8C8C8;
+  border-radius: 18px;
+  margin-bottom: 0.5em;
+}
+.reportIssue .card-body{
+  padding-left: 2em;
+}
+.reportIssue .resolvetxt{
+  color: #249B0D;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.reportIssue .processtxt{
+  color: #D57D0A;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.reportIssue .ackTxt{
+  color: #415AF9;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.addPropModal p{
+  font-weight: 700;
+  font-size: 20px;
+  margin: 0;
+}
+.disclaimer{
+  padding-bottom: 5em;
+}
+.disclaimer p{
+  color: #383838;
+}
+.payMethodPage .card-body{
+  padding: 1em 2em;
+}
+.srchInpt.form-control {
+  padding: 0.4em 0.4em 0.4em 0.7em !important;
+}
 
 
 

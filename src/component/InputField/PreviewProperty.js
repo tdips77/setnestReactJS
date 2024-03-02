@@ -392,6 +392,11 @@ const [showMod, setShowMod] = useState(false);
         onHide={handleCloseMod}     
         keyboard={false} centered 
         className={'bg-dark '}>
+          <div className='topsectionProp'>
+            <button type='button' className={"addProp " + styles.iconBtn} onClick={goBack}>
+            <FontAwesomeIcon icon={faArrowLeft} className={`${styles.iconleftBtn}`}/>
+            </button>
+          </div>
           <Modal.Header  className='bg-dark border-0'>
           <ul className='prvwUl'>
             <li className={`cursor-pointer ${activeButton === 'button1' ? 'activeList' : ''}`} onClick={() => handleButtonClick('button1')}>
@@ -435,7 +440,7 @@ const [showMod, setShowMod] = useState(false);
 
       <Offcanvas show={showBooking} onHide={handleCloseBooking} placement={'end'} backdrop={false}>
         <Offcanvas.Header closeButton className='addPropModal pt-4 pb-3'>
-          <Offcanvas.Title >
+          <Offcanvas.Title className='propertyHead'>
             {
               showVisit && !showBookCont && !showContract &&
               <p>Available slots</p>
@@ -466,17 +471,17 @@ const [showMod, setShowMod] = useState(false);
          {
           !showVisit && !showBookCont && !showContract &&
           <div className="row">
-                        <div className="col-12">
-                            <p className="fnt-13 text-black-50">
+                        <div className="col-12 disclaimer">
+                            <p className="fnt-13">
                             Dear Tenant,
                             </p>
-                            <p className="fnt-13 text-black-50">
+                            <p className="fnt-13">
                             When you are renting a property and you decide to move out, it is important to give The lister or your landlord or property manager sufficient notice so that they can find a new tenant to take over your lease. The notice period required can vary depending on your rental agreement and local rental laws. 
                             </p>
-                            <p className="fnt-13 text-black-50">
+                            <p className="fnt-13">
                             One important thing to keep in mind is that when you give notice, the current active month is not typically considered as the notice period. Instead, the next rest month is usually considered the notice month. For example, let say you decide to move out of your rented apartment on April 15th, and your rental agreement requires you to give one month notice. In this scenario, the notice period would start on May 1st, and your last day in the apartment would be May 31st. This is because the notice period typically starts on the first day of the next rental period, which is the rent month following the current active month. Giving notice in this way ensures that you give your landlord or property manager sufficient time to find a new tenant.
                             </p>
-                            <p className="fnt-13 text-black-50">
+                            <p className="fnt-13">
                             It also helps to ensure a smooth transition for both you and the new tenant. It is important to check your rental agreement and local rental laws to determine the required notice period and when the notice period should start. By doing so, you can avoid any confusion or misunderstandings with your landlord or property manager and ensure that you leave the property on good terms.
                             </p>
                         </div>

@@ -182,432 +182,424 @@ const TenantReportIssue = () => {
     <div className="container-fluid p-0 mrgTop-8">
       <div className="topsectionProp">
         {
-         !showIssue &&  
-         <button
-          type="button"
-          className={"addProp " + styles.iconBtn}
-          onClick={goBack}
-        >
-          {/* <FontAwesomeIcon icon="fa-solid fa-arrow-left" /> */}
-          <FontAwesomeIcon
-            icon={faArrowLeft}
-            className={`${styles.iconleftBtn}`}
-          />
-        </button>
+          !showIssue &&
+          <button
+            type="button"
+            className={"addProp " + styles.iconBtn}
+            onClick={goBack}
+          >
+            {/* <FontAwesomeIcon icon="fa-solid fa-arrow-left" /> */}
+            <FontAwesomeIcon
+              icon={faArrowLeft}
+              className={`${styles.iconleftBtn}`}
+            />
+          </button>
         }
         {
           showIssue &&
           <button
-          type="button"
-          className={"addProp " + styles.iconBtn}
-          onClick={handleCloseReject}
-        >
-          {/* <FontAwesomeIcon icon="fa-solid fa-arrow-left" /> */}
-          <FontAwesomeIcon
-            icon={faArrowLeft}
-            className={`${styles.iconleftBtn}`}
-          />
-        </button>
+            type="button"
+            className={"addProp " + styles.iconBtn}
+            onClick={handleCloseReject}
+          >
+            {/* <FontAwesomeIcon icon="fa-solid fa-arrow-left" /> */}
+            <FontAwesomeIcon
+              icon={faArrowLeft}
+              className={`${styles.iconleftBtn}`}
+            />
+          </button>
         }
-        
+
       </div>
-      <div className="container">
+      <div className="container reportIssue">
         <div className="row ">
           <div className="col-12 col-md-12 listPropdPadd left-padding">
             <Card className="wd-100 mb-5 accCard">
               <Card.Header className="p-4 bg-white">
-                {!showIssue && <h5>All Request</h5>}
+                {!showIssue && <h5>All Utility Issues</h5>}
                 {showIssue && <h5>Report Issue Details</h5>}
               </Card.Header>
 
               <Card.Body className="pt-0 pe-3 pb-0">
                 <form onSubmit={handleSubmit(onSubmit)} className="mb-0">
                   <div className="row justify-content-center position-relative">
-                    <div className="col-6 pt-2 accDetail">
-                      {!showIssue && (
-                        <Tabs
-                          transition={false}
-                          id="controlled-tab-example"
-                          activeKey={key}
-                          onSelect={(k) => setKey(k)}
-                          className="mb-3"
-                        >
-                          <Tab eventKey="home" title="Active">
-                            <div className="row mb-4">
-                              <div className="col-8">
-                                <Form.Select
-                                  aria-label="Floating label select example"
-                                  className="filterImg"
-                                >
-                                  <option>Property 1</option>
-                                  <option value="1">Property 2</option>
-                                  <option value="2">Property 3</option>
-                                  <option value="3">Property 4</option>
-                                  <option value="4">Property 5</option>
-                                </Form.Select>
-                              </div>
-                            </div>
-                            <div className="row p-4">
-                              <div className="col-12 scrollDiv">
-                                <small>
-                                  <strong>New Request</strong>
-                                </small>
-                                <div
-                                  className="row align-items-center boxDiv m-2"
-                                  onClick={handleShowIssue}
-                                >
-                                  <div className="col-2">
-                                    <Image
-                                      src={rqstImg}
-                                      alt="rest"
-                                      className="img-fluid"
-                                    />
-                                  </div>
-
-                                  <div className="col-10">
-                                    <p className="mb-0 fnt-13">
-                                      <strong>Fridge broken</strong>
-                                    </p>
-                                    <p className="mb-0 text-black-50">
-                                      <small>22 Feb 2023</small>
-                                    </p>
-                                    <p className="mb-0 fnt-13">
-                                      Lorem ipsum dolor sit amet, consetetur
-                                      sadipscing elitr, sed diam nonumy eirmod
-                                      tempor
-                                    </p>
-                                  </div>
-                                </div>
-                                <div className="row align-items-center boxDiv m-2">
-                                  <div className="col-2">
-                                    <Image
-                                      src={rqstImg}
-                                      alt="rest"
-                                      className="img-fluid"
-                                    />
-                                  </div>
-
-                                  <div className="col-10">
-                                    <p className="mb-0 fnt-13">
-                                      <strong>Fridge broken</strong>
-                                    </p>
-                                    <p className="mb-0 text-black-50">
-                                      <small>22 Feb 2023</small>
-                                    </p>
-                                    <p className="mb-0 fnt-13">
-                                      Lorem ipsum dolor sit amet, consetetur
-                                      sadipscing elitr, sed diam nonumy eirmod
-                                      tempor
-                                    </p>
-                                  </div>
-                                </div>
-                                <div
-                                  className="row align-items-center boxDiv m-2"
-                                  onClick={handleShowIssue}
-                                >
-                                  <div className="col-2">
-                                    <Image
-                                      src={rqstImg}
-                                      alt="rest"
-                                      className="img-fluid"
-                                    />
-                                  </div>
-
-                                  <div className="col-10">
-                                    <p className="mb-0 fnt-13">
-                                      <strong>Fridge broken</strong>
-                                    </p>
-                                    <p className="mb-0 text-black-50">
-                                      <small>22 Feb 2023</small>
-                                    </p>
-                                    <p className="mb-0 fnt-13">
-                                      Lorem ipsum dolor sit amet, consetetur
-                                      sadipscing elitr, sed diam nonumy eirmod
-                                      tempor
-                                    </p>
-                                  </div>
-                                </div>
-                                <small className="mt-3 mb-3">
-                                  <strong>Active Request</strong>
-                                </small>
-                                <div
-                                  className="row align-items-center boxDiv m-2"
-                                  onClick={handleShowIssue}
-                                >
-                                  <div className="col-2">
-                                    <Image
-                                      src={rqstImg}
-                                      alt="rest"
-                                      className="img-fluid"
-                                    />
-                                  </div>
-
-                                  <div className="col-10">
-                                    <p className="mb-0 fnt-13">
-                                      <strong>Fridge broken</strong>
-                                    </p>
-                                    <p className="mb-0 text-black-50">
-                                      <small>22 Feb 2023</small>
-                                    </p>
-                                    <p className="mb-0 fnt-13">
-                                      Lorem ipsum dolor sit amet, consetetur
-                                      sadipscing elitr, sed diam nonumy eirmod
-                                      tempor
-                                    </p>
-                                  </div>
-                                </div>
-                                <div className="row align-items-center boxDiv m-2">
-                                  <div className="col-2">
-                                    <Image
-                                      src={rqstImg}
-                                      alt="rest"
-                                      className="img-fluid"
-                                    />
-                                  </div>
-
-                                  <div className="col-10">
-                                    <p className="mb-0 fnt-13">
-                                      <strong>Fridge broken</strong>
-                                    </p>
-                                    <p className="mb-0 text-black-50">
-                                      <small>22 Feb 2023</small>
-                                    </p>
-                                    <p className="mb-0 fnt-13">
-                                      Lorem ipsum dolor sit amet, consetetur
-                                      sadipscing elitr, sed diam nonumy eirmod
-                                      tempor
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </Tab>
-                          <Tab eventKey="profile" title="Inactive">
-                            <div className="row mb-4">
-                              <div className="col-8">
-                                <Form.Select
-                                  aria-label="Floating label select example"
-                                  className="filterImg"
-                                >
-                                  <option>Property 1</option>
-                                  <option value="1">Property 2</option>
-                                  <option value="2">Property 3</option>
-                                  <option value="3">Property 4</option>
-                                  <option value="4">Property 5</option>
-                                </Form.Select>
-                              </div>
-                            </div>
-                            <div className="row p-4">
-                              <div className="col-12 scrollDiv">
-                                <small>
-                                  <strong>New Request</strong>
-                                </small>
-                                <div className="row align-items-center boxDiv m-2">
-                                  <div className="col-2">
-                                    <Image
-                                      src={rqstImg}
-                                      alt="rest"
-                                      className="img-fluid"
-                                    />
-                                  </div>
-
-                                  <div className="col-10">
-                                    <p className="mb-0 fnt-13">
-                                      <strong>Fridge broken</strong>
-                                    </p>
-                                    <p className="mb-0 text-black-50">
-                                      <small>22 Feb 2023</small>
-                                    </p>
-                                    <p className="mb-0 fnt-13">
-                                      Lorem ipsum dolor sit amet, consetetur
-                                      sadipscing elitr, sed diam nonumy eirmod
-                                      tempor
-                                    </p>
-                                  </div>
-                                </div>
-                                <div className="row align-items-center boxDiv m-2">
-                                  <div className="col-2">
-                                    <Image
-                                      src={rqstImg}
-                                      alt="rest"
-                                      className="img-fluid"
-                                    />
-                                  </div>
-
-                                  <div className="col-10">
-                                    <p className="mb-0 fnt-13">
-                                      <strong>Fridge broken</strong>
-                                    </p>
-                                    <p className="mb-0 text-black-50">
-                                      <small>22 Feb 2023</small>
-                                    </p>
-                                    <p className="mb-0 fnt-13">
-                                      Lorem ipsum dolor sit amet, consetetur
-                                      sadipscing elitr, sed diam nonumy eirmod
-                                      tempor
-                                    </p>
-                                  </div>
-                                </div>
-                                <div className="row align-items-center boxDiv m-2">
-                                  <div className="col-2">
-                                    <Image
-                                      src={rqstImg}
-                                      alt="rest"
-                                      className="img-fluid"
-                                    />
-                                  </div>
-
-                                  <div className="col-10">
-                                    <p className="mb-0 fnt-13">
-                                      <strong>Fridge broken</strong>
-                                    </p>
-                                    <p className="mb-0 text-black-50">
-                                      <small>22 Feb 2023</small>
-                                    </p>
-                                    <p className="mb-0 fnt-13">
-                                      Lorem ipsum dolor sit amet, consetetur
-                                      sadipscing elitr, sed diam nonumy eirmod
-                                      tempor
-                                    </p>
-                                  </div>
-                                </div>
-                                <small className="mt-3 mb-3">
-                                  <strong>Active Request</strong>
-                                </small>
-                                <div className="row align-items-center boxDiv m-2">
-                                  <div className="col-2">
-                                    <Image
-                                      src={rqstImg}
-                                      alt="rest"
-                                      className="img-fluid"
-                                    />
-                                  </div>
-
-                                  <div className="col-10">
-                                    <p className="mb-0 fnt-13">
-                                      <strong>Fridge broken</strong>
-                                    </p>
-                                    <p className="mb-0 text-black-50">
-                                      <small>22 Feb 2023</small>
-                                    </p>
-                                    <p className="mb-0 fnt-13">
-                                      Lorem ipsum dolor sit amet, consetetur
-                                      sadipscing elitr, sed diam nonumy eirmod
-                                      tempor
-                                    </p>
-                                  </div>
-                                </div>
-                                <div className="row align-items-center boxDiv m-2">
-                                  <div className="col-2">
-                                    <Image
-                                      src={rqstImg}
-                                      alt="rest"
-                                      className="img-fluid"
-                                    />
-                                  </div>
-
-                                  <div className="col-10">
-                                    <p className="mb-0 fnt-13">
-                                      <strong>Fridge broken</strong>
-                                    </p>
-                                    <p className="mb-0 text-black-50">
-                                      <small>22 Feb 2023</small>
-                                    </p>
-                                    <p className="mb-0 fnt-13">
-                                      Lorem ipsum dolor sit amet, consetetur
-                                      sadipscing elitr, sed diam nonumy eirmod
-                                      tempor
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </Tab>
-                        </Tabs>
-                      )}
-
-                      {showIssue && (
-                        <div>
-                          <div className="row">
-                            <div className="col-12">
-                              <Image
-                                src={issueBg}
-                                alt="bg"
-                                className="img-fluid"
-                              />
-                              <ul className="smallList">
-                                <li>
-                                  <Image
-                                    src={issueSmall}
-                                    className="img-fluid"
-                                    alt="small"
-                                  />{" "}
-                                </li>
-                                <li>
-                                  <Image
-                                    src={issueSmall}
-                                    className="img-fluid"
-                                    alt="small"
-                                  />{" "}
-                                </li>
-                                <li>
-                                  <Image
-                                    src={issueSmall}
-                                    className="img-fluid"
-                                    alt="small"
-                                  />{" "}
-                                </li>
-                              </ul>
-                              <p className="mb-0 fnt-13">
-                                <strong>Title</strong>
-                              </p>
-                              <p >
-                                <small className="f600">Microbe Wave Broken</small>
-                              </p>
-                              <p className="mb-0 fnt-13">
-                                <strong>Message</strong>
-                              </p>
-                              <p>
-                                <small>
-                                  Lorem Ipsum is simply dummy text of the
-                                  printing and typesetting industry. Lorem Ipsum
-                                  has been the industry standard dummy text
-                                  ever since the 1500s, when an unknown printer
-                                  took a galley of type and scrambled it to make
-                                  a type specimen book. It has survived not only
-                                  five centuries, but also the leap into
-                                  electronic typesetting, remaining essentially
-                                  unchanged. It was popularised in the 1960s
-                                  with the release of Letraset sheets containing
-                                  Lorem Ipsum passages, and more recently with
-                                  desk
-                                </small>
-                              </p>
-                              {!showReject && (
-                                <div className="d-flex gap-3 mb-2">
-                                  <button
-                                    type="button"
-                                    className="skip-btn"
-                                    onClick={handleShowReject}
+                    <div className="col-6 accDetail">
+                      <div className="contents">
+                        {!showIssue && (
+                          <Tabs
+                            transition={false}
+                            id="controlled-tab-example"
+                            activeKey={key}
+                            onSelect={(k) => setKey(k)}
+                          >
+                            <Tab eventKey="home">
+                              <div className="row mb-4">
+                                <div className="col-8">
+                                  <Form.Select
+                                    aria-label="Floating label select example"
+                                    className="filterImg"
                                   >
-                                    Reject
-                                  </button>
-                                  <button type="button" className=" signup-btn">
-                                    Acknowledge
-                                  </button>
+                                    <option>Property 1</option>
+                                    <option value="1">Property 2</option>
+                                    <option value="2">Property 3</option>
+                                    <option value="3">Property 4</option>
+                                    <option value="4">Property 5</option>
+                                  </Form.Select>
                                 </div>
-                              )}
+                              </div>
+                              <div className="boxes">
+                                <div className="scrollDiv">
+                                  <div className="boxBody">
+                                    <div className="row align-items-center m-2" onClick={handleShowIssue}>
+                                      <div className="col-2">
+                                        <Image
+                                          src={rqstImg}
+                                          alt="rest"
+                                          className="img-fluid"
+                                        />
+                                      </div>
+
+                                      <div className="col-10">
+                                        <p className="mb-0 fnt-13">
+                                          <strong>Fridge broken</strong>
+                                        </p>
+                                        <p className="mb-0 text-black-50">
+                                          <small>22 Feb 2023</small>
+                                        </p>
+                                        <p className="mb-0 fnt-13 resolvetxt">
+                                        Issue Resolved
+                                        </p>
+                                        
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="boxBody">
+                                    <div className="row align-items-center m-2">
+                                      <div className="col-2">
+                                        <Image
+                                          src={rqstImg}
+                                          alt="rest"
+                                          className="img-fluid"
+                                        />
+                                      </div>
+
+                                      <div className="col-10">
+                                        <p className="mb-0 fnt-13">
+                                          <strong>Fridge broken</strong>
+                                        </p>
+                                        <p className="mb-0 text-black-50">
+                                          <small>22 Feb 2023</small>
+                                        </p>
+                                        <p className="mb-0 fnt-13 processtxt">Under Maintenance</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="boxBody">
+                                    <div
+                                      className="row align-items-center m-2"
+                                      onClick={handleShowIssue}
+                                    >
+                                      <div className="col-2">
+                                        <Image
+                                          src={rqstImg}
+                                          alt="rest"
+                                          className="img-fluid"
+                                        />
+                                      </div>
+
+                                      <div className="col-10">
+                                        <p className="mb-0 fnt-13">
+                                          <strong>Fridge broken</strong>
+                                        </p>
+                                        <p className="mb-0 text-black-50">
+                                          <small>22 Feb 2023</small>
+                                        </p>
+                                        <p className="mb-0 fnt-13 ackTxt">
+                                        Acknowledge
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  {/* <small className="mt-3 mb-3">
+                                    <strong>Active Request</strong>
+                                  </small> */}
+                                  <div className="boxBody">
+                                    <div
+                                      className="row align-items-center m-2"
+                                      onClick={handleShowIssue}
+                                    >
+                                      <div className="col-2">
+                                        <Image
+                                          src={rqstImg}
+                                          alt="rest"
+                                          className="img-fluid"
+                                        />
+                                      </div>
+
+                                      <div className="col-10">
+                                        <p className="mb-0 fnt-13">
+                                          <strong>Fridge broken</strong>
+                                        </p>
+                                        <p className="mb-0 text-black-50">
+                                          <small>22 Feb 2023</small>
+                                        </p>
+                                        <p className="mb-0 fnt-13 resolvetxt">
+                                        Issue Resolved
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="boxBody">
+                                    <div className="row align-items-center m-2">
+                                      <div className="col-2">
+                                        <Image
+                                          src={rqstImg}
+                                          alt="rest"
+                                          className="img-fluid"
+                                        />
+                                      </div>
+
+                                      <div className="col-10">
+                                        <p className="mb-0 fnt-13">
+                                          <strong>Fridge broken</strong>
+                                        </p>
+                                        <p className="mb-0 text-black-50">
+                                          <small>22 Feb 2023</small>
+                                        </p>
+                                        <p className="mb-0 fnt-13 processtxt">Under Maintenance</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </Tab>
+                            <Tab eventKey="profile">
+                              <div className="row mb-4">
+                                <div className="col-8">
+                                  <Form.Select
+                                    aria-label="Floating label select example"
+                                    className="filterImg"
+                                  >
+                                    <option>Property 1</option>
+                                    <option value="1">Property 2</option>
+                                    <option value="2">Property 3</option>
+                                    <option value="3">Property 4</option>
+                                    <option value="4">Property 5</option>
+                                  </Form.Select>
+                                </div>
+                              </div>
+                              <div className="boxes">
+                                <div className=" scrollDiv">
+                                  <small>
+                                    <strong>New Request</strong>
+                                  </small>
+                                  <div className="row align-items-center boxDiv m-2">
+                                    <div className="col-2">
+                                      <Image
+                                        src={rqstImg}
+                                        alt="rest"
+                                        className="img-fluid"
+                                      />
+                                    </div>
+
+                                    <div className="col-10">
+                                      <p className="mb-0 fnt-13">
+                                        <strong>Fridge broken</strong>
+                                      </p>
+                                      <p className="mb-0 text-black-50">
+                                        <small>22 Feb 2023</small>
+                                      </p>
+                                      <p className="mb-0 fnt-13">
+                                        Lorem ipsum dolor sit amet, consetetur
+                                        sadipscing elitr, sed diam nonumy eirmod
+                                        tempor
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div className="row align-items-center boxDiv m-2">
+                                    <div className="col-2">
+                                      <Image
+                                        src={rqstImg}
+                                        alt="rest"
+                                        className="img-fluid"
+                                      />
+                                    </div>
+
+                                    <div className="col-10">
+                                      <p className="mb-0 fnt-13">
+                                        <strong>Fridge broken</strong>
+                                      </p>
+                                      <p className="mb-0 text-black-50">
+                                        <small>22 Feb 2023</small>
+                                      </p>
+                                      <p className="mb-0 fnt-13">
+                                        Lorem ipsum dolor sit amet, consetetur
+                                        sadipscing elitr, sed diam nonumy eirmod
+                                        tempor
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div className="row align-items-center boxDiv m-2">
+                                    <div className="col-2">
+                                      <Image
+                                        src={rqstImg}
+                                        alt="rest"
+                                        className="img-fluid"
+                                      />
+                                    </div>
+
+                                    <div className="col-10">
+                                      <p className="mb-0 fnt-13">
+                                        <strong>Fridge broken</strong>
+                                      </p>
+                                      <p className="mb-0 text-black-50">
+                                        <small>22 Feb 2023</small>
+                                      </p>
+                                      <p className="mb-0 fnt-13">
+                                        Lorem ipsum dolor sit amet, consetetur
+                                        sadipscing elitr, sed diam nonumy eirmod
+                                        tempor
+                                      </p>
+                                    </div>
+                                  </div>
+                                  {/* <small className="mt-3 mb-3">
+                                    <strong>Active Request</strong>
+                                  </small> */}
+                                  <div className="row align-items-center boxDiv m-2">
+                                    <div className="col-2">
+                                      <Image
+                                        src={rqstImg}
+                                        alt="rest"
+                                        className="img-fluid"
+                                      />
+                                    </div>
+
+                                    <div className="col-10">
+                                      <p className="mb-0 fnt-13">
+                                        <strong>Fridge broken</strong>
+                                      </p>
+                                      <p className="mb-0 text-black-50">
+                                        <small>22 Feb 2023</small>
+                                      </p>
+                                      <p className="mb-0 fnt-13">
+                                        Lorem ipsum dolor sit amet, consetetur
+                                        sadipscing elitr, sed diam nonumy eirmod
+                                        tempor
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div className="row align-items-center boxDiv m-2">
+                                    <div className="col-2">
+                                      <Image
+                                        src={rqstImg}
+                                        alt="rest"
+                                        className="img-fluid"
+                                      />
+                                    </div>
+
+                                    <div className="col-10">
+                                      <p className="mb-0 fnt-13">
+                                        <strong>Fridge broken</strong>
+                                      </p>
+                                      <p className="mb-0 text-black-50">
+                                        <small>22 Feb 2023</small>
+                                      </p>
+                                      <p className="mb-0 fnt-13">
+                                        Lorem ipsum dolor sit amet, consetetur
+                                        sadipscing elitr, sed diam nonumy eirmod
+                                        tempor
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </Tab>
+                          </Tabs>
+                        )}
+
+                        {showIssue && (
+                          <div>
+                            <div className="row">
+                              <div className="col-12">
+                                <Image
+                                  src={issueBg}
+                                  alt="bg"
+                                  className="img-fluid"
+                                />
+                                <ul className="smallList">
+                                  <li>
+                                    <Image
+                                      src={issueSmall}
+                                      className="img-fluid"
+                                      alt="small"
+                                    />{" "}
+                                  </li>
+                                  <li>
+                                    <Image
+                                      src={issueSmall}
+                                      className="img-fluid"
+                                      alt="small"
+                                    />{" "}
+                                  </li>
+                                  <li>
+                                    <Image
+                                      src={issueSmall}
+                                      className="img-fluid"
+                                      alt="small"
+                                    />{" "}
+                                  </li>
+                                </ul>
+                                <p className="mb-0 fnt-13">
+                                  <strong>Title</strong>
+                                </p>
+                                <p >
+                                  <small className="f600">Microbe Wave Broken</small>
+                                </p>
+                                <p className="mb-0 fnt-13">
+                                  <strong>Message</strong>
+                                </p>
+                                <p>
+                                  <small>
+                                    Lorem Ipsum is simply dummy text of the
+                                    printing and typesetting industry. Lorem Ipsum
+                                    has been the industry standard dummy text
+                                    ever since the 1500s, when an unknown printer
+                                    took a galley of type and scrambled it to make
+                                    a type specimen book. It has survived not only
+                                    five centuries, but also the leap into
+                                    electronic typesetting, remaining essentially
+                                    unchanged. It was popularised in the 1960s
+                                    with the release of Letraset sheets containing
+                                    Lorem Ipsum passages, and more recently with
+                                    desk
+                                  </small>
+                                </p>
+                                {!showReject && (
+                                  <div className="d-flex gap-3 mb-2">
+                                    <button
+                                      type="button"
+                                      className="skip-btn"
+                                      onClick={handleShowReject}
+                                    >
+                                      Reject
+                                    </button>
+                                    <button type="button" className=" signup-btn">
+                                      Acknowledge
+                                    </button>
+                                  </div>
+                                )}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      )}
+                        )}
+                      </div>
                     </div>
                     <div className="col-6 p-0">
                       <Card className="h-100 border-end-0 border-bottom-0 rounded-0 innerCardBody">
                         <Card.Header className="bg-white height-49px align-items-center d-flex">
                           {showReject && (
                             <p className="mb-0">
-                              <strong>Status:</strong>{" "}
+                              <strong>Notice Status:</strong>{" "}
                               <span className="blue-clr">Pending</span>
                             </p>
                           )}
@@ -621,10 +613,10 @@ const TenantReportIssue = () => {
                                 activeStep={activeStep}
                                 orientation="vertical"
                               >
-                                
+
                                 {steps.map((step, index) => (
                                   <Step key={step.label}>
-                                    
+
                                     <StepLabel
                                       optional={
                                         index <= activeStep ? (
