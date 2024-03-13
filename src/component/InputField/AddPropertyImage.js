@@ -20,6 +20,7 @@ import img1 from '../../../public/assets/property/img1.png';
 import img2 from '../../../public/assets/property/img2.png';
 import img3 from '../../../public/assets/property/img3.png';
 import trash from '../../../public/assets/property/trash.svg';
+import edit from '../../../public/assets/editIcon.png';
 
 import OtpInput from 'react-otp-input';
 
@@ -105,7 +106,9 @@ const AddPropertyImage = ({ name, ...props }) => {
                                 <Image src={image} alt='img' className='img-fluid' />
                               </li>
                             ))}
+                            <li className='editIcon'><Image src={edit} alt='img' className='img-fluid ' /></li>
                           </ul>
+
                         </div>
                         <div className='txt'>
                           <h3>Living Room</h3>
@@ -122,6 +125,7 @@ const AddPropertyImage = ({ name, ...props }) => {
                                 <Image src={image} alt='img' className='img-fluid' />
                               </li>
                             ))}
+                            <li className='editIcon'><Image src={edit} alt='img' className='img-fluid ' /></li>
                           </ul>
                         </div>
                         <div className='txt'>
@@ -139,6 +143,7 @@ const AddPropertyImage = ({ name, ...props }) => {
                                 <Image src={image} alt='img' className='img-fluid' />
                               </li>
                             ))}
+                            <li className='editIcon'><Image src={edit} alt='img' className='img-fluid ' /></li>
                           </ul>
                         </div>
                         <div className='txt'>
