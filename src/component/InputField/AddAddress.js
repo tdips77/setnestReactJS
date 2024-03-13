@@ -53,7 +53,7 @@ const AddAddress = () => {
         return  <button className='resendBtn'> Resend the code</button>;
       };
       const renderTime = (remainingTime) => {
-        return <span>{remainingTime} sec</span>;
+        return <span>{remainingTime} sec</span>; 
       };
 
   
