@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
@@ -25,6 +25,7 @@ import OtpInput from 'react-otp-input';
 
 
 import * as yup from 'yup';
+import axiosInstance from 'pages/api/axios-config';
 
 const schema = yup.object().shape({
   email: yup.string().required().email(),
@@ -33,17 +34,27 @@ const schema = yup.object().shape({
 });
 
 const CreateUtilities = ({ name, ...props }) => {
+  const router = useRouter();
+
     const [show, setShow] = useState(false);
     const [showUti, setShowUti] = useState(false);
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
 const handleShowUti = () => setShowUti(true);
+const [listUtilites, setListUtilites] = useState();
+const [showName, setShowName] = useState(false)
+const [utilitesForm, setUtilitesForm] = useState({
+  brand: "",
+  description: "",
+  image_url: "",
+  location: "",
+  utilityName: "",
+});
    
     const [showOTP, setshowOTP] = useState(false);
     const { register, handleSubmit, setError, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
       });
-      const router = useRouter();
       const goBack = () => {
         router.back();
       };
@@ -60,6 +71,97 @@ const handleShowUti = () => setShowUti(true);
         return <span>{remainingTime} sec</span>;
       };
 
+      useEffect(()=>{
+        if(router.query.id){
+          getUtils()
+        }
+      },[router.query.id])
+
+      const getUtils = async () => {
+        try {
+          const response = await axiosInstance.get(
+            `listings/getCUT?type=utility&listingId=${router.query.id}`
+          );
+          // Handle successful response
+          console.log("utilites", response.data.data);
+          setListUtilites(response.data.data);
+          setShow(true)
+        } catch (error) {
+          // Handle errors
+          console.error("Error:", error);
+          throw error; // Rethrow error or handle it appropriately
+        }
+      }
+
+      const handleDelet = async (id) => {
+        console.log("ID", id);
+        const params = {
+          utilityId: id
+        }
+        try {
+          const response = await axiosInstance.delete(
+            `listings/deleteCUT`, 
+            { data: params }
+          );
+          // Handle successful response
+          console.log("utilites", response);
+          if(response.status === 200){
+            getUtils();
+          }
+        } catch (error) {
+          // Handle errors
+          console.error("Error:", error);
+          throw error; // Rethrow error or handle it appropriately
+        }
+      }
+
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setUtilitesForm({
+          ...utilitesForm,
+          [name]: value
+        });
+        console.log("CHeck", {
+          ...utilitesForm,
+          [name]: value
+        });
+      }
+
+      const handleCreateUtilites = async () => {
+        console.log("Fpr", utilitesForm);
+        try {
+          const response = await axiosInstance.post(
+            `listings/utilities`, {...utilitesForm, listingId: router.query.id}
+          );
+          // Handle successful response
+          console.log("utilites", response);
+          if(response.status === 201){
+            getUtils();
+            setShow(false)
+          }
+        } catch (error) {
+          // Handle errors
+          console.error("Error:", error);
+          throw error; // Rethrow error or handle it appropriately
+        }
+      }
+
+      const handleSelect = (e) => {
+        console.log("Select", e.target.value);
+        if(e.target.value === "Others"){
+          setShowName(true)
+        }
+        else{
+          setShowName(false)
+        }
+      }
+
+      const handleNext = (e) => {
+        router.push({
+          pathname: "/termsCondition",
+          query: { id: router.query.id },
+        })
+      }
   
 
   return (
@@ -88,7 +190,7 @@ const handleShowUti = () => setShowUti(true);
 
          </div>
          {
-          !showUti &&
+          listUtilites?.length < 0 &&
         <div className='col-12 mt-3'>
             <small><strong>Utility List</strong></small>
             <div className='text-center mt-3 mb-3 no-list-uti'>
@@ -98,36 +200,28 @@ const handleShowUti = () => setShowUti(true);
         </div>
          }
          {
-          showUti &&
+          listUtilites?.length > 0 &&
         <div className='col-12 mt-3'>
             <small><strong>Utility List</strong></small>
             <ul className='p-0 mt-3'>
-              <li className='util-list'>
-              <span className='img-holdUti'>
-                    <Image src={washDish} alt='washdish' className='img-fluid' />
-                </span>
-                <span>
-                  <p className='mb-0'><small><strong>Dish Washer</strong></small></p>
-                
-                <span className='branding'>Brand: Prestige</span>
-                <p className='mb-0 para'>Lorem ipsum dolor sit amet, consetetur sadi pscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
-                
-                </span>
-                <span><Image src={deleteIcon} alt='deleteIcon' className='img-fluid' /></span>
-              </li>
-              <li className='util-list'>
-              <span className='img-holdUti'>
-                    <Image src={ac} alt='washdish' className='img-fluid' />
-                </span>
-                <span>
-                  <p className='mb-0'><small><strong>Air Conditioner</strong></small></p>
-                
-                <span className='branding'>Brand: Prestige</span>
-                <p className='mb-0 para'>Lorem ipsum dolor sit amet, consetetur sadi pscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
-                
-                </span>
-                <span><Image src={deleteIcon} alt='deleteIcon' className='img-fluid' /></span>
-              </li>
+              {listUtilites.map((item, index)=>{
+                return(
+                  <li className='util-list'>
+                  <span className='img-holdUti'>
+                        <Image src={item.image_url} alt='washdish' className='img-fluid'width={54} height={54} />
+                    </span>
+                    <span>
+                      <p className='mb-0'><small><strong>{item.utility_name}</strong></small></p>
+                    
+                    <span className='branding'>Brand: {item.brand}</span>
+                    <p className='mb-0 para'>{item.description}</p>
+                    
+                    </span>
+                    <span><Image src={deleteIcon} alt='deleteIcon' className='img-fluid' onClick={()=>{handleDelet(item.id)}}/></span>
+                  </li>
+                )
+              })}
+              
             </ul>
         </div>
          }
@@ -145,14 +239,14 @@ const handleShowUti = () => setShowUti(true);
         
         <div className='col-6 col-md-3'>
         {
-          !showUti &&
+          listUtilites?.length < 0 &&
             <button type="button" className='addreSIgn signup-btn' onClick={handleShowUti} >Next</button>
         }
          {
-          showUti &&
-          <Link href="/termsCondition">
-            <button type="button" className='addreSIgn signup-btn'  >Next</button>
-            </Link>
+          listUtilites?.length > 0 &&
+          // <Link href="/termsCondition">
+            <button type="button" className='addreSIgn signup-btn' onClick={handleNext}>Next</button>
+            // </Link>
         }
             </div>
         
@@ -189,16 +283,28 @@ const handleShowUti = () => setShowUti(true);
                 </div>
                 <div className='col-9'>
                 <FloatingLabel controlId="floatingSelect" label="Select Category" >
-                    <Form.Select aria-label="Select Category">
-                      <option >Living Room</option>
-                      <option value="1">Kitchen</option>
-                      <option value="2">Terrace</option>
-                      <option value="3">Other</option>
-                      
+                    <Form.Select aria-label="Select Category" onChange={handleSelect}>
+                      {listUtilites?.map((item, id) => {
+                        return(
+                          <option key={id} value={item.utility_name}>{item.utility_name}</option>
+                        )
+                      })}
                     </Form.Select>
                   </FloatingLabel>
                 </div>
           </div>
+          {showName && 
+          <div className='row mb-3'>
+                <div className='col-12'>
+                <FloatingLabel
+                    controlId="floatingInput"
+                    label="Utilites Name"
+                  >
+                    <Form.Control type="text" name="utilityName" value={utilitesForm.utilityName} onChange={handleChange}/>
+                  </FloatingLabel>
+                </div>
+           </div>
+          }
           
            <div className='row mb-3'>
                 <div className='col-12'>
@@ -207,7 +313,7 @@ const handleShowUti = () => setShowUti(true);
                     label="Location"
                     
                   >
-                    <Form.Control type="text" />
+                    <Form.Control type="text" onChange={handleChange} name="location" value={utilitesForm.location} />
                   </FloatingLabel>
                 </div>
            </div>
@@ -219,13 +325,15 @@ const handleShowUti = () => setShowUti(true);
                     label="Brand"
                     
                   >
-                    <Form.Control type="text" />
+                    <Form.Control type="text" onChange={handleChange} name="brand" value={utilitesForm.brand}/>
                   </FloatingLabel>
                 </div>
            </div>
            <div className='row mb-3'>
                 <div className='col-12'>
-                <Form.Control as="textarea" rows={4} placeholder='Add Descriptions'/>
+                <Form.Control as="textarea" rows={4} placeholder='Add Descriptions'
+                onChange={handleChange} name="description" value={utilitesForm.description}
+                />
                 </div>
            </div>
 
@@ -235,7 +343,7 @@ const handleShowUti = () => setShowUti(true);
                   
                  
           <div className='mod-btm'>
-          <button type="button" className='addreSIgn signup-btn'  >Create</button>
+          <button type="button" className='addreSIgn signup-btn'  onClick={handleCreateUtilites}>Create</button>
           </div>
         </Offcanvas.Body>
         

@@ -1,6 +1,29 @@
-/** @type {import('next').NextConfig} */
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {
+//   reactStrictMode: true,
+// }
+
+// module.exports = nextConfig
+
 const nextConfig = {
-  reactStrictMode: true,
+  async headers() {
+      return [
+          {
+              // matching all API routes
+              source: "/api/:path*",
+              headers: [
+                  { key: "Access-Control-Allow-Credentials", value: "true" },
+                  { key: "Access-Control-Allow-Origin", value: "*" }, // replace this your actual origin
+                  { key: "Access-Control-Allow-Methods", value: "GET,DELETE,PATCH,POST,PUT" },
+                  { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
+              ]
+          }
+      ]
+  },
+  images: {
+    domains: ['setnest-listing-data-ind.s3.ap-south-1.amazonaws.com', 'setnest-user-data-ind.s3.ap-south-1.amazonaws.com'],
+  },
+
 }
 
 module.exports = nextConfig

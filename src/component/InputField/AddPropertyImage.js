@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
@@ -21,11 +21,13 @@ import img2 from '../../../public/assets/property/img2.png';
 import img3 from '../../../public/assets/property/img3.png';
 import trash from '../../../public/assets/property/trash.svg';
 import edit from '../../../public/assets/editIcon.png';
+import axios from 'axios';
 
 import OtpInput from 'react-otp-input';
 
 
 import * as yup from 'yup';
+import axiosInstance from 'pages/api/axios-config';
 
 const schema = yup.object().shape({
   email: yup.string().required().email(),
@@ -36,7 +38,12 @@ const schema = yup.object().shape({
 const AddPropertyImage = ({ name, ...props }) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const handleShow = () => setShow(true);
+  const [categories, setCategories] = useState([]);
+  const [categoryType, setCategoryType] = useState();
+  const [fileBanner, setFileBanner] = useState(null);
+  const [categoryAdd, setCategoryAdd] = useState();
+  const [ imageForAnyUse, setImageForAnyUse] = useState()
 
   const [showOTP, setshowOTP] = useState(false);
   const { register, handleSubmit, setError, formState: { errors } } = useForm({
@@ -59,7 +66,143 @@ const AddPropertyImage = ({ name, ...props }) => {
     return <span>{remainingTime} sec</span>;
   };
 
-  const imgArr = [img1, img2, img3];
+  useEffect(() => {
+    if(router.query.id){
+      getCUTs();
+    }
+  }, [router.query.id]);
+
+  const getCUTs = async () => {
+    try {
+      const response = await axiosInstance.get(
+        `listings/getCUT?type=category&listingId=${router.query.id}`
+      );
+      // Handle successful response
+      setCategories(response.data.data);
+      setShow(true)
+    } catch (error) {
+      // Handle errors
+      console.error("Error:", error);
+      throw error; // Rethrow error or handle it appropriately
+    }
+  }
+
+  const handleShow = async () => {
+    try {
+      const response = await axiosInstance.get(
+        `/misc/getGlobalFields?category=${`categories`}`
+      );
+      // Handle successful response
+      setCategories(response.data.data);
+      setShow(true)
+    } catch (error) {
+      // Handle errors
+      console.error("Error:", error);
+      throw error; // Rethrow error or handle it appropriately
+    }
+  };
+
+  const onHandleChange = (e) => {
+    setCategoryType(e.target.value);
+  }
+
+
+  const handleFileChange = async (e) => {
+    setFileBanner(e.target.files[0]);
+    if (e.target.files[0]) {
+      const payload = {
+        file: e.target.files[0]
+      }
+      const url = "https://mr4rf2cwse.execute-api.ap-south-1.amazonaws.com/uat/uploads/listingData";
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      };
+      // call api here
+      const response = await axios.post(url, payload, config);
+      const result = await response.data.url;
+      console.log("Data", result);
+      setImageForAnyUse(result?.Location)
+      if(e.target.name === "banner"){
+        if (result?.Location) {
+          try {
+            const response = await axiosInstance.patch(
+              "listings/updateProperty",
+              { listingId: router.query.id, image_url: result?.Location }
+            );
+            // Handle successful response
+            if (response) {
+              console.log("Response", response);
+            }
+            return response.data; // Return data if needed
+          } catch (error) {
+            // Handle errors
+            console.error("Error:", error);
+            throw error; // Rethrow error or handle it appropriately
+          }
+        }
+      }
+    }
+    else {
+      alert("Banner Not Uploaded")
+    }
+  };
+
+  const submitHandle = async () => {
+
+    // e.preventDefault();
+    // // const formData = new FormData();
+    // // formData.append('file', fileBanner);
+    // // console.log("data", formData);
+
+    // try {
+    //   console.log("Time.......", fileBanner);
+    //   const res = await axios.post('uploads/listingData', {file : fileBanner});
+    //   console.log('File uploaded:', res.data);
+    // } catch (error) {
+    //   console.error('Error uploading file:', error);
+    // }
+  };
+
+  const handleAddCategory = (e) => {
+    console.log("wew", e.target.value);
+    setCategoryAdd(e.target.value)
+  }
+
+  const handleAddCategoryCall = async (e) => {
+    const params={
+      title: categoryAdd,
+      banner_image: imageForAnyUse,
+      listingId: router.query.id
+    }
+    try {
+      const response = await axiosInstance.post(
+        "listings/categories", params
+      );
+      // Handle successful response
+      if (response) {
+        console.log("Response", response);
+      }
+      return response.data; // Return data if needed
+    } catch (error) {
+      // Handle errors
+      console.error("Error:", error);
+      throw error; // Rethrow error or handle it appropriately
+    }
+  }
+
+  const handleCategoryImages = (e) => {
+    console.log("ee", e);
+  }
+
+  const handleNext = (e) => {
+    router.push({
+      pathname: "/createUtility",
+      query: { id: router.query.id },
+    })
+  }
+
 
   return (
     <div className='container-fluid p-0 mrgTop-8 '>
@@ -73,7 +216,7 @@ const AddPropertyImage = ({ name, ...props }) => {
       <div className='container addProperty'>
         <div className='row '>
           <div className='col-12 col-md-8'>
-            <form onSubmit={handleSubmit(onSubmit)} className='mb-3 wd-100'>
+            <div className='mb-3 wd-100'>
               <h5 className='mb-4'>Add Property <br></br> Images</h5>
               <small><strong>Banner Image</strong></small><br></br>
               <small>This image will be used as the first image on the listing</small>
@@ -81,7 +224,7 @@ const AddPropertyImage = ({ name, ...props }) => {
 
                 <Form.Group controlId="formFile" className="mb-3 addPropImageDiv">
                   <Form.Label className='upload-file-btn' > <Image src={uploadBtnIcon} alt='upload' className='img-fluid' /> Choose file here</Form.Label>
-                  <Form.Control type="file" hidden />
+                  <Form.Control type="file" name="banner" hidden onChange={handleFileChange} />
                   <p className='mb-0'> (Max file size: 2mb)</p>
 
                 </Form.Group>
@@ -169,21 +312,21 @@ const AddPropertyImage = ({ name, ...props }) => {
 
                 <div className='col-4'>
 
-                  <button type="button" className='skip-btn'  >Save & Exit</button>
+                  <button type="button" className='skip-btn' onClick={submitHandle}  >Save & Exit</button>
 
                 </div>
 
 
                 <div className='col-3'>
-                  <Link href="/createUtility">
-                    <button type="button" className='addreSIgn signup-btn' >Next</button>
-                  </Link>
+                  {/* <Link href=""> */}
+                  <button type="button" className='addreSIgn signup-btn' onClick={handleNext}>Next</button>
+                  {/* </Link> */}
                 </div>
 
 
               </div>
 
-            </form>
+            </div>
           </div>
           <div className='col-3 right-padding mob-hide'>
 
@@ -206,12 +349,13 @@ const AddPropertyImage = ({ name, ...props }) => {
           {/* Some text as placeholder. In real life you can have the elements you
           have chosen. Like, text, images, lists, etc. */}
           <FloatingLabel controlId="floatingSelect" label="Select Category" className='mb-3'>
-            <Form.Select aria-label="Select Category">
-              <option >Living Room</option>
-              <option value="1">Kitchen</option>
-              <option value="2">Terrace</option>
-              <option value="3">Other</option>
-
+            <Form.Select aria-label="Select Category" onChange={onHandleChange}>
+              <option>Select</option>
+              {categories && categories.map((item, index) => {
+                return (
+                  <option value={item?.title} key={index}>{item?.title}</option>
+                )
+              })}
             </Form.Select>
           </FloatingLabel>
           <FloatingLabel
@@ -219,7 +363,7 @@ const AddPropertyImage = ({ name, ...props }) => {
             label="Add New Category"
             className='mb-3'
           >
-            <Form.Control type="text" />
+            <Form.Control type="text" value={categoryAdd} onChange={handleAddCategory} />
           </FloatingLabel>
           <small><strong>Bar Images</strong></small>
           <Form.Group controlId="formFile" className="mb-3 upload-fle-div">
@@ -289,7 +433,7 @@ const AddPropertyImage = ({ name, ...props }) => {
             </div>
           </div>
           <div className='mod-btm'>
-            <button type="button" className='addreSIgn signup-btn'  >Add</button>
+            <button type="button" className='addreSIgn signup-btn' onClick={handleAddCategoryCall} >Add</button>
           </div>
         </Offcanvas.Body>
 

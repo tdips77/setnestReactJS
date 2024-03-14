@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
@@ -11,11 +11,13 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-bootstrap/Modal';
 import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
-import ReactSlider from 'react-slider'
+// import ReactSlider from 'react-slider'
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 
 import Button from 'react-bootstrap/Button';
+import { sessionStatus } from '../src/utils/session';
+import { useRouter } from 'next/router';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -32,6 +34,14 @@ const handleChange = (event) => {
   setMinValue(event.target.value.split(',')[0]);
   setMaxValue(event.target.value.split(',')[1]);
 };
+const router = useRouter()
+useEffect(() => {
+  const session = sessionStatus()
+  console.log("sessiondata.........", session);
+  if(session) {
+    router.push("/listerDashboard")
+  }
+}, [])
   return (
     <>
       <div className={`${styles.main}`}>
@@ -86,7 +96,7 @@ const handleChange = (event) => {
                 <div className='row'>
                   <div className='col-12'>
                   <label className='mb-3'>Price Range</label>
-                  <ReactSlider
+                  {/* <ReactSlider
                     className="horizontal-slider"
                     thumbClassName="example-thumb"
                     trackClassName="example-track"
@@ -100,7 +110,7 @@ const handleChange = (event) => {
                       </div>}
                     pearling
                     minDistance={10}
-                  />
+                  /> */}
                   </div>
                 
                 </div>
@@ -154,7 +164,7 @@ const handleChange = (event) => {
               <div className='row'>
                   <div className='col-12'>
                     <label className='mb-3'>Property Area</label>
-                  <ReactSlider
+                  {/* <ReactSlider
                     className="horizontal-slider"
                     thumbClassName="example-thumb"
                     trackClassName="example-track"
@@ -168,7 +178,7 @@ const handleChange = (event) => {
                       </div>}
                     pearling
                     minDistance={10}
-                  />
+                  /> */}
                   </div>
                 
                 </div>

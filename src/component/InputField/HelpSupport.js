@@ -66,7 +66,6 @@ const options = [
   { label: "Friday", value: "Friday" },
   { label: "Saturday", value: "Saturday" },
   { label: "Sunday", value: "Sunday" },
-
 ];
 
 

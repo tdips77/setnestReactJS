@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
@@ -25,6 +25,7 @@ import OtpInput from 'react-otp-input';
 
 
 import * as yup from 'yup';
+import axiosInstance from 'pages/api/axios-config';
 
 const schema = yup.object().shape({
   email: yup.string().required().email(),
@@ -67,6 +68,49 @@ const handleShowUti = () => setShowUti(true);
       const renderTime = (remainingTime) => {
         return <span>{remainingTime} sec</span>;
       };
+
+      useEffect(()=>{
+        if(router.query.id){
+          getTermsConditions()
+        }
+      },[router.query.id])
+
+      const getTermsConditions = async () => {
+        try {
+          const response = await axiosInstance.get(
+            `listings/getCUT?type=term&listingId=${router.query.id}`
+          );
+          // Handle successful response
+          console.log("utilites", response);
+          // setListUtilites(response.data.data);
+          setShow(true)
+        } catch (error) {
+          // Handle errors
+          console.error("Error:", error);
+          throw error; // Rethrow error or handle it appropriately
+        }
+      }
+
+      const handleDelet = async (id) => {
+        console.log("ID", id);
+        const params = {
+          utilityId: id
+        }
+        try {
+          const response = await axiosInstance.delete(
+            `listings/deleteCUT`, params
+          );
+          // Handle successful response
+          console.log("utilites", response.data.data);
+          if(response.data.data){
+            getUtils();
+          }
+        } catch (error) {
+          // Handle errors
+          console.error("Error:", error);
+          throw error; // Rethrow error or handle it appropriately
+        }
+      }
 
   
 

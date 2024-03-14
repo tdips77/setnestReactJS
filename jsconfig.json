@@ -1,7 +1,13 @@
 {
   "compilerOptions": {
+    "target": "esnext",
+    "jsx": "react",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"],
+      "react-slider/*": ["node_modules/react-slider/*"]
     }
-  }
+  },
+  "include": ["src/**/*.js", "src/**/*.jsx", "index.d.ts"],
+  "exclude": ["node_modules"]
 }
