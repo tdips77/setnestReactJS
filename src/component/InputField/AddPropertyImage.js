@@ -65,6 +65,7 @@ const AddPropertyImage = ({ name, ...props }) => {
   const renderTime = (remainingTime) => {
     return <span>{remainingTime} sec</span>;
   };
+  const imgArr = [img1, img2, img3];
 
   useEffect(() => {
     if(router.query.id){
