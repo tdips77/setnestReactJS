@@ -49,7 +49,7 @@ const ListProperty = () => {
   // const handleChange = (otp) => {
   //   setOTP(otp);
   // };
-  const formattedDate = format(value, "dd MMM yyyy");
+  // const formattedDate = format(value, "dd MMM yyyy");
   const steps = ["Property Details", "Address", "Rent & Deposit Details"];
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({

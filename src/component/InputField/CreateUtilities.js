@@ -85,7 +85,6 @@ const [utilitesForm, setUtilitesForm] = useState({
           // Handle successful response
           console.log("utilites", response.data.data);
           setListUtilites(response.data.data);
-          setShow(true)
         } catch (error) {
           // Handle errors
           console.error("Error:", error);

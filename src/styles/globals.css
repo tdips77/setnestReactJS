@@ -2715,8 +2715,22 @@ input:-webkit-autofill {
   padding: 2em 0 0 0;
   margin-left: -1em;
 }
+.categoryImage{
+  width: 180px !important;
+  height: 130px !important;
+  object-fit: cover !important;
+  border-radius: 10px !important;
+}
+.details-category-img img{
+  height: 71px !important;
+  width: 71px !important;
+  object-fit: cover !important;
+  border-radius: 5px;
+}
 
-
+.details-category-img{
+  overflow-x: hidden;
+}
 
 
 @media(max-width:1600px) {

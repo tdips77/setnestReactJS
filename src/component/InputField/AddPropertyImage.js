@@ -43,7 +43,9 @@ const AddPropertyImage = ({ name, ...props }) => {
   const [categoryType, setCategoryType] = useState();
   const [fileBanner, setFileBanner] = useState(null);
   const [categoryAdd, setCategoryAdd] = useState();
-  const [ imageForAnyUse, setImageForAnyUse] = useState()
+  const [ imageForAnyUse, setImageForAnyUse] = useState();
+  const [categoryAddText, setCategoryAddText] = useState();
+  const [newCategory, setNewCategory] = useState(false);
 
   const [showOTP, setshowOTP] = useState(false);
   const { register, handleSubmit, setError, formState: { errors } } = useForm({
@@ -80,7 +82,6 @@ const AddPropertyImage = ({ name, ...props }) => {
       );
       // Handle successful response
       setCategories(response.data.data);
-      setShow(true)
     } catch (error) {
       // Handle errors
       console.error("Error:", error);
@@ -105,6 +106,9 @@ const AddPropertyImage = ({ name, ...props }) => {
 
   const onHandleChange = (e) => {
     setCategoryType(e.target.value);
+    if(e.target.value === "other"){
+      setNewCategory(true)
+    }
   }
 
 
@@ -168,12 +172,16 @@ const AddPropertyImage = ({ name, ...props }) => {
 
   const handleAddCategory = (e) => {
     console.log("wew", e.target.value);
-    setCategoryAdd(e.target.value)
+    setCategoryAddText(e.target.value);
+  }
+  const selectCategory = (e) => {
+    setCategoryAdd(e.target.value);
   }
 
   const handleAddCategoryCall = async (e) => {
+    console.log("check data",  categoryType === "other" ? categoryAdd : categoryType);
     const params={
-      title: categoryAdd,
+      title: categoryType === "other" ? categoryAddText : categoryType,
       banner_image: imageForAnyUse,
       listingId: router.query.id
     }
@@ -183,7 +191,7 @@ const AddPropertyImage = ({ name, ...props }) => {
       );
       // Handle successful response
       if (response) {
-        console.log("Response", response);
+        getCUTs()
       }
       return response.data; // Return data if needed
     } catch (error) {
@@ -202,6 +210,27 @@ const AddPropertyImage = ({ name, ...props }) => {
       pathname: "/createUtility",
       query: { id: router.query.id },
     })
+  }
+
+  const handleUploadCategoryData = async () => {
+    const params={
+      categoryId: categoryType,
+      imageUrlsToAdd: [imageForAnyUse],
+    }
+    try {
+      const response = await axiosInstance.post(
+        "listings/updateCategoryImage", params
+      );
+      // Handle successful response
+      if (response) {
+        getCUTs()
+      }
+      return response.data; // Return data if needed
+    } catch (error) {
+      // Handle errors
+      console.error("Error:", error);
+      throw error; // Rethrow error or handle it appropriately
+    }
   }
 
 
@@ -241,26 +270,41 @@ const AddPropertyImage = ({ name, ...props }) => {
                         </div>
                       </div>
                     </div>
-                    <div className='col-lg-3 col-md-3 col-6'>
-                      <div className='cardBox'>
-                        <div className='imgGrid'>
-                          <ul>
-                            {imgArr.map((image, index) => (
-                              <li key={index}>
-                                <Image src={image} alt='img' className='img-fluid' />
-                              </li>
-                            ))}
-                            <li className='editIcon'><Image src={edit} alt='img' className='img-fluid ' /></li>
-                          </ul>
+                    {categories.map((catItem,index)=>{
+                      return(    
+                          <div className='col-lg-3 col-md-3 col-6'>
+                            <div className='cardBox'>
+                              <div className='imgGrid'>
+                                <ul>
+                                  {catItem?.image_urls ? catItem.image_urls.map((image, index) => (
+                                    <li key={index}>
+                                      <Image src={image} alt='img' className='img-fluid categoryImage' width={180} height={180} />
+                                    </li>
+                                  ))
+                                  :
+                                  <li key={index}>
+                                      <Image src={catItem?.banner_image} alt='img' className='img-fluid' width={180} height={180} />
+                                    </li>
+                                }
+                                  {/* {catItem?.image_urls?.lenght < 0 && <li key={index}>
+                                      <Image src={img1} alt='img' className='img-fluid' />
+                                    </li>} */}
+                                    {/* <li key={index}>
+                                      <Image src={img1} alt='img' className='img-fluid' />
+                                    </li> */}
+                                  <li className='editIcon'><Image src={edit} alt='img' className='img-fluid ' /></li>
+                                </ul>
 
-                        </div>
-                        <div className='txt'>
-                          <h3>Living Room</h3>
-                          <p>06 Aug 2021</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className='col-lg-3 col-md-3 col-6'>
+                              </div>
+                              <div className='txt'>
+                                <h3>{catItem.title}</h3>
+                                <p>{catItem.updated_at}</p>
+                              </div>
+                            </div>
+                          </div>
+                      )
+                    })}
+                    {/* <div className='col-lg-3 col-md-3 col-6'>
                       <div className='cardBox'>
                         <div className='imgGrid'>
                           <ul>
@@ -295,11 +339,11 @@ const AddPropertyImage = ({ name, ...props }) => {
                           <p>06 Aug 2021</p>
                         </div>
                       </div>
+                    </div> */}
+                    {/* <div className='col-lg-3 col-md-3 col-6'>
                     </div>
                     <div className='col-lg-3 col-md-3 col-6'>
-                    </div>
-                    <div className='col-lg-3 col-md-3 col-6'>
-                    </div>
+                    </div> */}
                   </div>
                   {/* <ul className='add-property-Image p-0'>
                     <li onClick={handleShow}> <Image src={plusCatg} alt='add' className='img-fluid' /> <p>Add Category</p> </li>
@@ -350,26 +394,31 @@ const AddPropertyImage = ({ name, ...props }) => {
           {/* Some text as placeholder. In real life you can have the elements you
           have chosen. Like, text, images, lists, etc. */}
           <FloatingLabel controlId="floatingSelect" label="Select Category" className='mb-3'>
-            <Form.Select aria-label="Select Category" onChange={onHandleChange}>
+            <Form.Select aria-label="Select Category" onChange={onHandleChange} value={categoryType}>
               <option>Select</option>
-              {categories && categories.map((item, index) => {
+              {categories && categories.map((item) => {
                 return (
-                  <option value={item?.title} key={index}>{item?.title}</option>
+                  <option value={item?.id} key={item?.id}>{item?.title}</option>
                 )
               })}
+              <option value={"other"}>Others</option>
             </Form.Select>
           </FloatingLabel>
-          <FloatingLabel
+          {newCategory && 
+            <FloatingLabel
             controlId="floatingInput"
             label="Add New Category"
             className='mb-3'
           >
-            <Form.Control type="text" value={categoryAdd} onChange={handleAddCategory} />
+            <Form.Control type="text" value={categoryAddText} onChange={handleAddCategory} />
           </FloatingLabel>
+          }
+          
           <small><strong>Bar Images</strong></small>
           <Form.Group controlId="formFile" className="mb-3 upload-fle-div">
             <p className='mb-0'> <Image src={uploadIcon} alt='upload' className='img-fluid' /> Browse Images</p>
-            <Form.Label className='upload-fle' >Upload</Form.Label>
+            {/* <Form.Label className='upload-fle' >Upload</Form.Label> */}
+            <input type='file' onChange={handleFileChange} />
             <Form.Control type="file" hidden />
           </Form.Group>
           <hr></hr>
@@ -434,7 +483,7 @@ const AddPropertyImage = ({ name, ...props }) => {
             </div>
           </div>
           <div className='mod-btm'>
-            <button type="button" className='addreSIgn signup-btn' onClick={handleAddCategoryCall} >Add</button>
+            <button type="button" className='addreSIgn signup-btn' onClick={categoryType === "other" ? handleAddCategoryCall : handleUploadCategoryData} >Add</button>
           </div>
         </Offcanvas.Body>
 

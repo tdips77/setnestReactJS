@@ -10,17 +10,12 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import styles from "@/styles/Home.module.css";
 import setnestlogo from "../../../public/assets/Setnest-copy.png";
 import editIcon from "../../../public/assets/editIcon.png";
-import one from "../../../public/assets/my-property/3d-electric-car-building.png";
 import two from "../../../public/assets/my-property/3d-electric-car-building-1.png";
-import three from "../../../public/assets/my-property/3d-electric-car-building-2.png";
-import four from "../../../public/assets/my-property/3d-electric-car-building-3.png";
-import five from "../../../public/assets/my-property/3d-electric-car-building-4.png";
-import six from "../../../public/assets/my-property/3d-electric-car-building-5.png";
-import seven from "../../../public/assets/my-property/3d-electric-car-building-6.png";
-import eight from "../../../public/assets/my-property/3d-electric-car-building-7.png";
 import listed from "../../../public/assets/my-property/listed.svg";
 import notice from "../../../public/assets/my-property/notice.svg";
 import rented from "../../../public/assets/my-property/rented.svg";
+import draft from "../../../public/assets/my-property/draft.svg";
+import activited from "../../../public/assets/my-property/activeted.svg";
 
 import Image from "next/image";
 // import OTPInput,  {ResendOTP } from "otp-input-react";
@@ -65,6 +60,19 @@ const MyProperty = () => {
   const handleChangePropertyType = (e) => {
     setPropertyType(e.target.value);
   };
+
+  const onHandleRoute = (e) => {
+    console.log("item", e);
+    if(e.availability === "draft"){
+      router.push({
+        pathname: "/propertyDetails",
+        query:{
+          id: e.id
+        }
+      })
+    }
+
+  }
 
   return (
     <div className="container-fluid  p-0">
@@ -112,10 +120,10 @@ const MyProperty = () => {
               <ul className="property-list p-0">
                 {listProperty && listProperty.map((item, index) =>{
                   return(
-                      <li key={index}>
+                      <li key={index} onClick={() => {onHandleRoute(item)}}>
                         <span>4.5</span>
                         <Image src={item?.image_url ? item?.image_url : two} alt="one" width={251} height={201} />
-                        <Image src={item?.availability === "rented" ? rented : item?.availability === "active" ? listed : notice} className="bgBanner" alt="bg" />
+                        <Image src={item?.availability === "rented" ? rented : item?.availability === "active" ? activited : item?.availability === "draft" ? draft : notice} className="bgBanner" alt="bg" />
                         <div className="row">
                           <div className="col-8">
                             <h6>{item?.name}</h6>

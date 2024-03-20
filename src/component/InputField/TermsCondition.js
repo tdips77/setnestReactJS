@@ -37,6 +37,9 @@ const TermsCondition = ({ name, ...props }) => {
     const [show, setShow] = useState(false);
     const [showUti, setShowUti] = useState(false);
     const [showInp, setShowInp] = useState(false);
+    const [termsName, setTermsName] = useState("");
+    const [description, setDescription] = useState("");
+    const [termsList, setTremsList] = useState([])
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
 const handleShowUti = () => setShowUti(true);
@@ -55,7 +58,6 @@ const handleShowUti = () => setShowUti(true);
         router.push('/login');
       };
       const handleSelect = async (data) =>{
-        
         if(data.target.value == '3'){
           setShowInp(true)
         }else{
@@ -78,12 +80,11 @@ const handleShowUti = () => setShowUti(true);
       const getTermsConditions = async () => {
         try {
           const response = await axiosInstance.get(
-            `listings/getCUT?type=term&listingId=${router.query.id}`
+            `listings/getCUT?type=terms&listingId=${router.query.id}`
           );
           // Handle successful response
           console.log("utilites", response);
-          // setListUtilites(response.data.data);
-          setShow(true)
+          setTremsList(response.data.data);
         } catch (error) {
           // Handle errors
           console.error("Error:", error);
@@ -94,7 +95,7 @@ const handleShowUti = () => setShowUti(true);
       const handleDelet = async (id) => {
         console.log("ID", id);
         const params = {
-          utilityId: id
+          termsId: id
         }
         try {
           const response = await axiosInstance.delete(
@@ -103,7 +104,7 @@ const handleShowUti = () => setShowUti(true);
           // Handle successful response
           console.log("utilites", response.data.data);
           if(response.data.data){
-            getUtils();
+            getTermsConditions();
           }
         } catch (error) {
           // Handle errors
@@ -112,6 +113,37 @@ const handleShowUti = () => setShowUti(true);
         }
       }
 
+      const handleTermsName = (e) => {
+        setTermsName(e.target.value)
+      }
+
+      const handleDescriptions = (e) =>{
+        setDescription(e.target.value)
+      }
+
+      const handleCreateTrems = async () => {
+        const params = {
+          title: termsName,
+          description: description,
+          image_url: "",
+          listingId: router.query.id
+        }
+        try {
+          const response = await axiosInstance.post(
+            `listings/terms`, params
+          );
+          // Handle successful response
+          console.log("utilites", response);
+          if(response.status === 201){
+            getTermsConditions();
+            setShow(false)
+          }
+        } catch (error) {
+          // Handle errors
+          console.error("Error:", error);
+          throw error; // Rethrow error or handle it appropriately
+        }
+      }
   
 
   return (
@@ -143,20 +175,24 @@ const handleShowUti = () => setShowUti(true);
         <div className='col-12 mt-3'>
             <small><strong>Term & Conditions List</strong></small>
             <ul className='p-0 mt-3'>
-              <li className='tnc-list'>
-              <span >
-                    <Image src={washDish} alt='washdish' className='img-fluid' />
-                </span>
-                <span>
-                  <p className='mb-0'><small><strong>No Smoking</strong></small></p>
-                
-                
-                <p className='mb-0 para'>Lorem ipsum dolor sit amet, consetetur sadi pscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
-                
-                </span>
-                <span><Image src={deleteIcon} alt='deleteIcon' className='img-fluid' /></span>
-              </li>
-              <li className='tnc-list'>
+              {termsList.map((item, index) => {
+                return(
+                  <li className='tnc-list' key={index}>
+                  <span >
+                        <Image src={!item.image_url ? washDish : item.image_url} alt='washdish' className='img-fluid' width={35} height={35} />
+                    </span>
+                    <span>
+                      <p className='mb-0'><small><strong>{item.title}</strong></small></p>
+                    
+                    
+                    <p className='mb-0 para'>{item.description}</p>
+                    
+                    </span>
+                    <span><Image src={deleteIcon} alt='deleteIcon' className='img-fluid'  onClick={()=>{handleDelet(item.id)}}/></span>
+                  </li>
+                )
+              })}
+              {/* <li className='tnc-list'>
               <span >
                     <Image src={ac} alt='washdish' className='img-fluid' />
                 </span>
@@ -168,7 +204,7 @@ const handleShowUti = () => setShowUti(true);
                 
                 </span>
                 <span><Image src={deleteIcon} alt='deleteIcon' className='img-fluid' /></span>
-              </li>
+              </li> */}
             </ul>
         </div>
          
@@ -241,7 +277,7 @@ const handleShowUti = () => setShowUti(true);
                     label="Term's Name"
                     
                   >
-                    <Form.Control type="text" />
+                    <Form.Control type="text" onChange={handleTermsName} value={termsName} />
                   </FloatingLabel>
                 </div>
            </div>
@@ -251,7 +287,7 @@ const handleShowUti = () => setShowUti(true);
           
            <div className='row mb-3'>
                 <div className='col-12'>
-                <Form.Control as="textarea" rows={4} placeholder='Add Descriptions'/>
+                <Form.Control as="textarea" rows={4} placeholder='Add Descriptions' value={description} onChange={handleDescriptions}/>
                 </div>
            </div>
 
@@ -261,7 +297,7 @@ const handleShowUti = () => setShowUti(true);
                   
                  
           <div className='mod-btm'>
-          <button type="button" className='addreSIgn signup-btn'  >Create</button>
+          <button type="button" className='addreSIgn signup-btn' onClick={handleCreateTrems}>Create</button>
           </div>
         </Offcanvas.Body>
         

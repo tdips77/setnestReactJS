@@ -50,7 +50,7 @@ const schema = yup.object().shape({
   confpassword: yup.string().required().min(6),
 });
 
-const PreviewProperty = ({ name, ...props }) => {
+const PreviewProperty = ({propertyDetails}) => {
     const [show, setShow] = useState(false);
     const [showUti, setShowUti] = useState(false);
     const [showInp, setShowInp] = useState(false);
@@ -161,30 +161,30 @@ const [showMod, setShowMod] = useState(false);
         <div className='container hght-85'>
             <div className='row '>
                 <div className='col-12 col-md-12 mb-5'>
-                <form onSubmit={handleSubmit(onSubmit)} className='mb-3 wd-100'>
+                <div className='mb-3 wd-100'>
         <div className='row'>
             <div className='col-6'>
-            <h5 className='mb-0'>4 BHK Independent House  <FontAwesomeIcon icon={faHeart} className='ms-3' /> <FontAwesomeIcon icon={faShare} className='ms-2'/></h5>
-        <p className='mb-4 branding'>2 bedroom . 1 bathroom . 900 Sq ft</p>
+            <h5 className='mb-0'>{propertyDetails.bedroom} BHK {propertyDetails.bedroom}  <FontAwesomeIcon icon={faHeart} className='ms-3' /> <FontAwesomeIcon icon={faShare} className='ms-2'/></h5>
+        <p className='mb-4 branding'>{propertyDetails.bedroom} bedroom . {propertyDetails.bathroom} bathroom . {propertyDetails.area} Sq ft</p>
             </div>
             <div className='col-6 text-right'>
-            <p className='mb-0 branding'>Last updated: May 22, 2023</p>
-            <h5 className='mb-0'>₹ 10,000</h5>
+            <p className='mb-0 branding'>Last updated: {propertyDetails.updated_at}</p>
+            <h5 className='mb-0'>₹ {propertyDetails.rent}</h5>
             <p className='mb-4 branding'>per month</p>
             </div>
         </div>
         <div className='row'>
         <div className='col-12 col-md-7'>
         
-        <Image src={build} alt='washdish' className='img-fluid pre-main' />
+        <Image src={propertyDetails.image_url} alt='washdish' className='img-fluid pre-main'  width={746} height={433}  />
 
          </div>
          <div className='col-12 col-md-5 preview-side'>
                 <span>
-                <Image src={side1} alt='washdish' className='img-fluid' />
+                <Image src={propertyDetails?.categories?.length > 0 ? propertyDetails?.categories[0]?.banner_image : side1} alt='washdish' className='img-fluid' width={526} height={241} />
                 </span>
                 <span className='lst-prvw'>
-                <Image src={side1} alt='washdish' className='img-fluid ' />
+                <Image src={propertyDetails?.categories?.length > 0 ? propertyDetails?.categories[0]?.banner_image : side1} alt='washdish' className='img-fluid' width={526} height={241} />
                     <span className='overLay'>
                    
                     </span>
@@ -197,10 +197,12 @@ const [showMod, setShowMod] = useState(false);
         <div className='col-12 prop-avail-date'>
           
             <span>Property available date</span>
-            <span>12 April 2023</span>
+            <span>{propertyDetails.available_by}</span>
         </div>
         <p className='mb-0 branding'>Property Location</p>
-        <h5 className='mb-4'>West Patel Nagar, Delhi</h5>
+        <h5 className='mb-4'>{propertyDetails.unit}, {propertyDetails.street},{" "}
+                      {propertyDetails.landmark}, {propertyDetails.city},{" "}
+                      {propertyDetails.state}, {propertyDetails.postal_code}</h5>
         <Image src={propMap} alt='washdish' className='img-fluid' />
 
          </div>
@@ -232,15 +234,13 @@ const [showMod, setShowMod] = useState(false);
          <div className='col-12 col-md-7 prop-detail1'>
         <p ><small><strong>Utility</strong></small></p>
         <ul className='img-grid-prop1'>
-          <li>
-           <span className='imgbg'><Image src={ac1} alt='washdish' className='img-fluid' /></span> <span className='imgtitle'>AC</span></li>
-          <li><span className='imgbg'><Image src={water} alt='washdish' className='img-fluid' /></span><span className='imgtitle'>Water Supply</span></li>
-          <li><span className='imgbg'><Image src={WasherWashingMachine} alt='washdish' className='img-fluid' /></span><span className='imgtitle'>Washing Machine</span></li>
-          <li><span className='imgbg'><Image src={Refrigerator} alt='washdish' className='img-fluid' /></span><span className='imgtitle'>Fridge</span></li>
-          <li><span className='imgbg'><Image src={DishWasher} alt='washdish' className='img-fluid' /></span><span className='imgtitle'>Dish Washer</span></li>
-          <li><span className='imgbg'><Image src={ac1} alt='washdish' className='img-fluid' /></span><span className='imgtitle'>AC</span></li>
-          <li><span className='imgbg'><Image src={water} alt='washdish' className='img-fluid' /></span><span className='imgtitle'>Water Supply</span></li>
-         
+          {propertyDetails.utilities?.map((item, index)=>{
+            return(
+
+            <li>
+            <span className='imgbg'><Image src={item.image_url} alt='washdish' className='img-fluid' width={30} height={30}/></span> <span className='imgtitle'>{item?.utility_name}</span></li>
+            )
+          })}
 
         </ul>
         
@@ -252,7 +252,7 @@ const [showMod, setShowMod] = useState(false);
          </div>
          <div className='col-12 col-md-7 prop-detail1'>
         <p ><small><strong>Description</strong></small></p>
-        <p className='txt-clr-grey'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desk</p>
+        <p className='txt-clr-grey'>{propertyDetails?.description}</p>
          </div>
          
         <div className='col-12 col-md-7  mt-3 prop-detail'>
@@ -314,7 +314,7 @@ const [showMod, setShowMod] = useState(false);
       
       </div>
         
-      </form>
+      </div>
                 </div>
                 
 
@@ -399,38 +399,28 @@ const [showMod, setShowMod] = useState(false);
           </div>
           <Modal.Header  className='bg-dark border-0'>
           <ul className='prvwUl'>
-            <li className={`cursor-pointer ${activeButton === 'button1' ? 'activeList' : ''}`} onClick={() => handleButtonClick('button1')}>
-              <Image src={bed} alt='bed' className='img-fluid' />
-              <span className='overLaySmall'>
-                   
-                    </span>
-              <span className='count'>3</span>
-              <p className='m-2'>Bedroom</p>
-            </li>
-            <li className={`cursor-pointer ${activeButton === 'button2' ? 'activeList' : ''}`} onClick={() => handleButtonClick('button2')}>
-              <Image src={bed} alt='bed' />
-              <span className='overLaySmall'>
-                   
-                    </span>
-              <span className='count'>3</span>
-              <p className='m-2'>Kitchen</p>
-            </li>
+            {propertyDetails?.categories?.map((item, index)=>{
+              return(
+              <li className={`cursor-pointer ${activeButton === 'button1' ? 'activeList' : ''}`} onClick={() => handleButtonClick(item.id)}>
+                <Image src={bed} alt='bed' className='img-fluid' />
+                <span className='overLaySmall'>
+                    
+                      </span>
+                <span className='count'>{item?.image_urls?.length}</span>
+                <p className='m-2'>{item?.title}</p>
+              </li>
+              )
+            })}
           </ul>
         </Modal.Header>
         <Modal.Body className={'p-4 pb-2 bg-dark ' }>
         <Carousel className={'prevewImg ' + styles.previewImg}>
+          
       <Carousel.Item>
       <Image src={build} alt='washdish' className='img-fluid pre-main' />
         
       </Carousel.Item>
-      <Carousel.Item>
-      <Image src={build} alt='washdish' className='img-fluid pre-main' />
-        
-      </Carousel.Item>
-      <Carousel.Item>
-      <Image src={build} alt='washdish' className='img-fluid pre-main' />
-        
-      </Carousel.Item>
+      
     </Carousel>
           
         </Modal.Body>

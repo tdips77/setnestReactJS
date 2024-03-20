@@ -30,9 +30,9 @@ function findIdTokenKey() {
 var idTokenKey = findIdTokenKey();
 axiosInstance.interceptors.request.use(
   (config) => {
-    const cognitoId = localStorage.getItem('cognitoId'); // Retrieve token from localStorage
-    const id = localStorage.getItem('id');
-    const idToken = localStorage.getItem(idTokenKey)
+    const cognitoId = localStorage?.getItem('cognitoId'); // Retrieve token from localStorage
+    const id = localStorage?.getItem('id');
+    const idToken = localStorage?.getItem(idTokenKey)
     if (cognitoId) {
       config.headers.cognitoId = cognitoId; // Add token to the Authorization header
     }
