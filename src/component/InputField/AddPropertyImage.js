@@ -8,7 +8,7 @@ import Form from 'react-bootstrap/Form';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import styles from '@/styles/Home.module.css';
-   
+     
 import Image from 'next/image'
 import Modal from 'react-bootstrap/Modal';
 import uploadBtnIcon from '../../../public/assets/my-property/upload.svg';
