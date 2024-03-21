@@ -211,8 +211,8 @@ const AddPropertyImage = ({ name, ...props }) => {
               <option value="1">Kitchen</option>
               <option value="2">Terrace</option>
               <option value="3">Other</option>
+  
 
-              
 
             </Form.Select>
           </FloatingLabel>
